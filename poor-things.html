@@ -1,33 +1,113 @@
 <!DOCTYPE html>
-<div style="display: flex; flex-direction: row; align-items: flex-start; width: 100%; box-sizing: border-box;">
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poor Things Introduction | Studying Smart</title>
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f9f9fb;
+      color: #2d2d2d;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      width: 260px;
+      background-color: #ffffff;
+      border-right: 1px solid #ddd;
+      padding: 24px 16px;
+      box-sizing: border-box;
+    }
+
+    .sidebar h3 {
+      margin-top: 0;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding-left: 0;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar ul li a {
+      color: #2d2d2d;
+      text-decoration: none;
+    }
+
+    .sidebar ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main content */
+    .content {
+      flex-grow: 1;
+      padding: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    .content h2 {
+      font-size: 26px;
+      margin-top: 0;
+    }
+
+    .content p {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    em {
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
   <!-- Sticky Sidebar -->
-  <div style="position: sticky; top: 20px; height: fit-content; background: rgb(244, 244, 244); border-right: 1px solid rgb(204, 204, 204); padding: 12px; width: 240px; min-width: 240px; box-sizing: border-box;">
-    <h3 style="margin-top: 0;">Poor Things Guide</h3>
-    <ul style="font-size: 15px; line-height: 1.6; list-style-type: none; padding-left: 0;">
-  <li style="margin-bottom: 12px;"><a href="introduction.html">Introduction</a></li>
-      <li style="margin-bottom: 12px;"><a href="chapters-1-3.html">Chapters 1–3</a></li>
-      <li style="margin-bottom: 12px;"><a href="chapters-4-6.html">Chapters 4–6</a></li>
-      <li style="margin-bottom: 12px;"><a href="chapters-7-10.html">Chapters 7–10</a></li>
-      <li style="margin-bottom: 12px;"><a href="chapters-11-13.html">Chapters 11–13</a></li>
-      <li style="margin-bottom: 12px;"><a href="chapters-14-18.html">Chapters 14–18</a></li>
-      <li style="margin-bottom: 12px;"><a href="chapters-19-21.html">Chapters 19–21</a></li>
-      <li style="margin-bottom: 12px;"><a href="chapters-22-24.html">Chapters 22–24</a></li>
-      <li style="margin-bottom: 12px;"><a href="victoria-letter.html">Victoria’s Letter and Footnote #35</a></li>
-      <li style="margin-bottom: 12px;"><a href="character-analysis.html">Character Analysis</a></li>
-      <li style="margin-bottom: 12px;"><a href="themes.html">Themes</a></li>
-      <li style="margin-bottom: 12px;"><a href="symbols-motifs.html">Symbols & Motifs</a></li>
-      <li style="margin-bottom: 12px;"><a href="quotes.html">Important Quotes</a></li>
+  <div class="sidebar">
+    <h3>Poor Things Guide</h3>
+    <ul>
+      <li><a href="poor-things.html">Introduction</a></li>
+      <li><a href="chapters-1-3.html">Chapters 1–3</a></li>
+      <li><a href="chapters-4-6.html">Chapters 4–6</a></li>
+      <li><a href="chapters-7-10.html">Chapters 7–10</a></li>
+      <li><a href="chapters-11-13.html">Chapters 11–13</a></li>
+      <li><a href="chapters-14-18.html">Chapters 14–18</a></li>
+      <li><a href="chapters-19-21.html">Chapters 19–21</a></li>
+      <li><a href="chapters-22-24.html">Chapters 22–24</a></li>
+      <li><a href="victoria-letter.html">Victoria’s Letter and Footnote #35</a></li>
+      <li><a href="character-analysis.html">Character Analysis</a></li>
+      <li><a href="themes.html">Themes</a></li>
+      <li><a href="symbols-motifs.html">Symbols & Motifs</a></li>
+      <li><a href="quotes.html">Important Quotes</a></li>
     </ul>
   </div>
 
-  <!-- Main Content Area -->
-  <div style="flex-grow: 1; padding: 24px; max-width: 100%; box-sizing: border-box;">
+  <!-- Main Content -->
+  <div class="content">
+    <h2 id="introduction">📘 Introduction Summary — <em>Poor Things</em> by Alasdair Gray</h2>
 
-  <h2 id="introduction" style="margin-top: 0;">📘 Introduction Summary — <em>Poor Things</em> by Alasdair Gray</h2>
-
-
-    <p><em>Poor Things</em> by Alasdair Gray is a novel that immediately defies conventional storytelling. Rather than claiming authorship, Gray adopts the role of editor, curating and presenting a “discovered” manuscript written by a man named Archibald McCandless, a Scottish public health officer. This layered narrative technique—where fiction masquerades as historical record—serves as a gateway to the book’s deeper themes of truth, identity, and societal hypocrisy.</p>
+  <p><em>Poor Things</em> by Alasdair Gray is a novel that immediately defies conventional storytelling. Rather than claiming authorship, Gray adopts the role of editor, curating and presenting a “discovered” manuscript written by a man named Archibald McCandless, a Scottish public health officer. This layered narrative technique—where fiction masquerades as historical record—serves as a gateway to the book’s deeper themes of truth, identity, and societal hypocrisy.</p>
 
     <p>According to Gray’s preface, the manuscript surfaced in the 1970s, found in the possession of one Dr. Victoria McCandless. The package containing the manuscript was addressed to her eldest surviving grandchild and included two critical items: (1) a document titled <em>Episodes from the Early Life of a Scottish Public Health Officer</em>, and (2) a personal letter written by Victoria herself. In the manuscript, Archibald McCandless recounts a shocking event from 1881, in which a brilliant but controversial surgeon allegedly “used human remains to create a twenty-five-year-old woman.” This woman, later revealed to be named Bella Baxter, is at the heart of the story’s mystery and ethical complexity.</p>
 
@@ -41,4 +121,6 @@
 
     <p>This introduction sets the tone for the novel’s central questions: What is real? Who gets to tell the story? And what happens when multiple versions of the past collide?</p>
   </div>
-</div>
+</body>
+</html>
+
