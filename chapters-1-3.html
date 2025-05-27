@@ -12,7 +12,7 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #f9f9fb;
+      background-color: #f5f7fa;
       color: #2d2d2d;
       display: flex;
     }
@@ -23,67 +23,78 @@
       height: 100vh;
       width: 260px;
       background-color: #ffffff;
-      border-right: 1px solid #ddd;
-      padding: 24px 16px;
+      border-right: 1px solid #e0e0e0;
+      padding: 32px 20px;
       box-sizing: border-box;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.03);
     }
 
     .sidebar h3 {
       margin-top: 0;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 700;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
+      color: #1a1a1a;
     }
 
     .sidebar ul {
       list-style-type: none;
       padding-left: 0;
       font-size: 15px;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     .sidebar ul li {
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .sidebar ul li a {
       color: #2d2d2d;
       text-decoration: none;
+      transition: color 0.2s;
     }
 
     .sidebar ul li a:hover {
-      text-decoration: underline;
+      color: #007bff;
     }
 
     .content {
       flex-grow: 1;
-      padding: 40px;
-      max-width: 1000px;
+      padding: 60px 40px;
+      max-width: 800px;
       margin: 0 auto;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.04);
+      border-radius: 12px;
       box-sizing: border-box;
     }
 
     .content h2 {
-      font-size: 26px;
+      font-size: 30px;
       margin-top: 0;
+      font-weight: 700;
+      color: #1a1a1a;
     }
 
     .content h3 {
-      font-size: 20px;
-      margin-top: 30px;
-      margin-bottom: 10px;
+      font-size: 22px;
+      margin-top: 40px;
+      margin-bottom: 16px;
+      color: #1a1a1a;
     }
 
     .content h4 {
-      margin-top: 25px;
-      font-size: 17px;
+      margin-top: 30px;
+      font-size: 18px;
       font-weight: 600;
+      color: #333;
     }
 
     .content p {
-      font-size: 16px;
-      line-height: 1.8;
-      margin-bottom: 20px;
+      font-size: 16.5px;
+      line-height: 1.9;
+      color: #444;
+      margin-bottom: 24px;
     }
 
     em {
@@ -98,7 +109,7 @@
     <h3>Poor Things Guide</h3>
     <ul>
       <li><a href="poor-things.html">Introduction</a></li>
- <li><a href="chapters-1-3.html"><strong>Chapters 1–3</strong></a></li>
+      <li><a href="chapters-1-3.html"><strong>Chapters 1–3</strong></a></li>
       <li><a href="chapters-4-6.html">Chapters 4–6</a></li>
       <li><a href="chapters-7-10.html">Chapters 7–10</a></li>
       <li><a href="chapters-11-13.html">Chapters 11–13</a></li>
@@ -111,9 +122,9 @@
       <li><a href="symbols-motifs.html">Symbols & Motifs</a></li>
       <li><a href="quotes.html">Important Quotes</a></li>
       <li><a href="essays.html">Sample Essays</a></li>
-
     </ul>
   </div>
+
 
   <!-- Main Content -->
   <div class="content">
