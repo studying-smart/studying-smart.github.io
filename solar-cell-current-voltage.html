@@ -3,128 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Current and Voltage in Solar Cells | Studying Smart</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
-
+  <title>Current and Voltage | Studying Smart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #f4f6f9;
-      color: #222;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      background-color: #f9fafb;
+      color: #1f2937;
     }
 
     header {
-      background-color: #4F46E5;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      font-size: 28px;
-      font-weight: 700;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      background-color: #2563eb;
+      padding: 15px 30px;
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
-    nav {
-      background-color: #ffffff;
-      padding: 16px;
-      border-right: 1px solid #ddd;
-      width: 240px;
-      height: 100vh;
-      position: fixed;
-      top: 72px;
-      left: 0;
-      overflow-y: auto;
-    }
-
-    nav h3 {
-      margin-top: 0;
-      font-size: 20px;
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
+    header h1 {
       margin: 0;
-    }
-
-    nav li {
-      margin: 12px 0;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #4F46E5;
-    }
-
-    main {
-      margin-left: 260px;
-      padding: 40px;
-      flex: 1;
-    }
-
-    footer {
-      background-color: #f0f0f0;
-      padding: 16px;
-      text-align: center;
-      font-size: 14px;
-      color: #555;
-      margin-top: auto;
-    }
-
-    .question-box {
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      margin-bottom: 40px;
-    }
-
-    .question-box h2 {
-      color: #4F46E5;
-      margin-bottom: 20px;
       font-size: 24px;
     }
 
-    .question-box p {
-      font-size: 17px;
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #111827;
+    }
+
+    .question {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .answer {
+      font-size: 18px;
       line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #6b7280;
     }
   </style>
 </head>
 
 <body>
 
-  <header>Studying Smart</header>
-
-  <nav>
-    <h3>Navigation</h3>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="blackberry-dye-solar-cell.html">Blackberry Dye Solar Cell</a></li>
-      <li><a href="solar-cell-current-voltage.html">Current and Voltage</a></li>
-    </ul>
-  </nav>
+  <header>
+    <h1>Studying Smart</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="questions.html">All Questions</a>
+    </nav>
+  </header>
 
   <main>
-    <div class="question-box">
-      <h2>Question:</h2>
-      <p>The Current and Voltage (potential) of the dye sensitized solar cell was measured. Why are these parameters useful when assessing a solar cell? Explain.</p>
+    <h2>Current and Voltage</h2>
 
-      <h2>Answer:</h2>
-      <p>
-        Current and voltage are key indicators of how well a solar cell is working. The current tells us how many electrons are flowing through the circuit—basically, how much electric charge is being generated. The voltage shows the electrical "push" or potential energy that moves those electrons. When we measure both, we get a complete picture of the solar cell’s ability to generate power. This helps us understand how efficient the cell is and how it performs under different environmental conditions like light intensity or temperature.
-      </p>
+    <div class="question">Question: The Current and Voltage (potential) of the dye sensitized solar cell was measured. Why are these parameters useful when assessing a solar cell? Explain.</div>
+
+    <div class="answer">
+      Current and voltage are key indicators of how well a solar cell is working. The current tells us how many electrons are flowing through the circuit—basically, how much electric charge is being generated. The voltage shows the electrical "push" or potential energy that moves those electrons. When we measure both, we get a complete picture of the solar cell’s ability to generate power. This helps us understand how efficient the cell is and how it performs under different environmental conditions like light intensity or temperature.
     </div>
   </main>
 
