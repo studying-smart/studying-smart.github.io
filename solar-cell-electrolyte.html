@@ -3,130 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Electrolyte Role in Solar Cell | Studying Smart</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
-
+  <title>Electrolyte Role | Studying Smart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #f4f6f9;
-      color: #222;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      background-color: #f9fafb;
+      color: #1f2937;
     }
 
     header {
-      background-color: #4F46E5;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      font-size: 28px;
-      font-weight: 700;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      background-color: #2563eb;
+      padding: 15px 30px;
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
-    nav {
-      background-color: #ffffff;
-      padding: 16px;
-      border-right: 1px solid #ddd;
-      width: 240px;
-      height: 100vh;
-      position: fixed;
-      top: 72px;
-      left: 0;
-      overflow-y: auto;
-    }
-
-    nav h3 {
-      margin-top: 0;
-      font-size: 20px;
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
+    header h1 {
       margin: 0;
-    }
-
-    nav li {
-      margin: 12px 0;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #4F46E5;
-    }
-
-    main {
-      margin-left: 260px;
-      padding: 40px;
-      flex: 1;
-    }
-
-    footer {
-      background-color: #f0f0f0;
-      padding: 16px;
-      text-align: center;
-      font-size: 14px;
-      color: #555;
-      margin-top: auto;
-    }
-
-    .question-box {
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      margin-bottom: 40px;
-    }
-
-    .question-box h2 {
-      color: #4F46E5;
-      margin-bottom: 20px;
       font-size: 24px;
     }
 
-    .question-box p {
-      font-size: 17px;
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #111827;
+    }
+
+    .question {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .answer {
+      font-size: 18px;
       line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #6b7280;
     }
   </style>
 </head>
 
 <body>
 
-  <header>Studying Smart</header>
-
-  <nav>
-    <h3>Navigation</h3>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="blackberry-dye-solar-cell.html">Blackberry Dye Solar Cell</a></li>
-      <li><a href="solar-cell-current-voltage.html">Current and Voltage</a></li>
-      <li><a href="solar-cell-current-locations.html">Current at Different Locations</a></li>
-      <li><a href="solar-cell-electrolyte.html">Electrolyte Role</a></li>
-    </ul>
-  </nav>
+  <header>
+    <h1>Studying Smart</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="questions.html">All Questions</a>
+    </nav>
+  </header>
 
   <main>
-    <div class="question-box">
-      <h2>Question:</h2>
-      <p>What was the purpose of adding the electrolyte solution to the cell, and what would happen if you did not have enough of the electrolyte? Please explain.</p>
+    <h2>Electrolyte Role</h2>
 
-      <h2>Answer:</h2>
-      <p>
-        The electrolyte plays a crucial role in keeping the solar cell functioning properly. After the dye absorbs sunlight and transfers an electron to the titanium dioxide (TiO₂) layer, the dye becomes positively charged. To keep the process going, the electrolyte provides an electron to the dye, allowing it to return to its original state so it can absorb more sunlight and repeat the cycle. Without enough electrolyte, this regeneration process would slow down or stop completely. As a result, fewer electrons would be transferred, and the current produced by the solar cell would decrease significantly.
-      </p>
+    <div class="question">Question: What was the purpose of adding the electrolyte solution to the cell, and what would happen if you did not have enough of the electrolyte? Please explain.</div>
+
+    <div class="answer">
+      The electrolyte plays a crucial role in keeping the solar cell functioning properly. After the dye absorbs sunlight and transfers an electron to the titanium dioxide (TiO₂) layer, the dye becomes positively charged. To keep the process going, the electrolyte provides an electron to the dye, allowing it to return to its original state so it can absorb more sunlight and repeat the cycle. Without enough electrolyte, this regeneration process would slow down or stop completely. As a result, fewer electrons would be transferred, and the current produced by the solar cell would decrease significantly.
     </div>
   </main>
 
@@ -136,3 +96,4 @@
 
 </body>
 </html>
+
