@@ -1,1 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chapter 1: Exploring Data | The Practice of Statistics</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9fafb;
+      color: #222;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #0077cc;
+      text-align: center;
+    }
+    .exercise-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 15px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    a {
+      display: block;
+      padding: 12px;
+      background-color: #e8f1fa;
+      text-decoration: none;
+      color: #0077cc;
+      border: 1px solid #d0dce7;
+      border-radius: 8px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    a:hover {
+      background-color: #d2e6f7;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chapter 1: Exploring Data</h1>
+  <div class="exercise-list">
+    <a href="chapter-1/exercise-1a.html">Exercise 1a</a>
+    <a href="chapter-1/exercise-1b.html">Exercise 1b</a>
+    <a href="chapter-1/exercise-2a.html">Exercise 2a</a>
+    <a href="chapter-1/exercise-2b.html">Exercise 2b</a>
+    <a href="chapter-1/exercise-2c.html">Exercise 2c</a>
+    <a href="chapter-1/exercise-2d.html">Exercise 2d</a>
+    <a href="chapter-1/exercise-2e.html">Exercise 2e</a>
+    <a href="chapter-1/exercise-2f.html">Exercise 2f</a>
+    <a href="chapter-1/exercise-3.html">Exercise 3</a>
+    <a href="chapter-1/exercise-4.html">Exercise 4</a>
+    <a href="chapter-1/exercise-5a.html">Exercise 5a</a>
+    <a href="chapter-1/exercise-5b.html">Exercise 5b</a>
+    <a href="chapter-1/exercise-6a.html">Exercise 6a</a>
+    <a href="chapter-1/exercise-6b.html">Exercise 6b</a>
+    <a href="chapter-1/exercise-6c.html">Exercise 6c</a>
+    <a href="chapter-1/exercise-7.html">Exercise 7</a>
+    <a href="chapter-1/exercise-8a.html">Exercise 8a</a>
+    <a href="chapter-1/exercise-8b.html">Exercise 8b</a>
+    <a href="chapter-1/exercise-9a.html">Exercise 9a</a>
+    <a href="chapter-1/exercise-9b.html">Exercise 9b</a>
+    <a href="chapter-1/exercise-10.html">Exercise 10</a>
+    <a href="chapter-1/exercise-11a.html">Exercise 11a</a>
+    <a href="chapter-1/exercise-11b.html">Exercise 11b</a>
+    <a href="chapter-1/exercise-11c.html">Exercise 11c</a>
+    <a href="chapter-1/exercise-12a.html">Exercise 12a</a>
+    <a href="chapter-1/exercise-12b.html">Exercise 12b</a>
+    <a href="chapter-1/exercise-12c.html">Exercise 12c</a>
+    <a href="chapter-1/exercise-12d.html">Exercise 12d</a>
+    <a href="chapter-1/exercise-12e.html">Exercise 12e</a>
+    <a href="chapter-1/exercise-13.html">Exercise 13</a>
+    <a href="chapter-1/exercise-14.html">Exercise 14</a>
+    <a href="chapter-1/exercise-15a.html">Exercise 15a</a>
+    <a href="chapter-1/exercise-15b.html">Exercise 15b</a>
+    <a href="chapter-1/exercise-16a.html">Exercise 16a</a>
+    <a href="chapter-1/exercise-16b.html">Exercise 16b</a>
+    <a href="chapter-1/exercise-16c.html">Exercise 16c</a>
+    <a href="chapter-1/exercise-16d.html">Exercise 16d</a>
+    <a href="chapter-1/exercise-17a.html">Exercise 17a</a>
+    <a href="chapter-1/exercise-17b.html">Exercise 17b</a>
+    <a href="chapter-1/exercise-18.html">Exercise 18</a>
+    <a href="chapter-1/exercise-19a.html">Exercise 19a</a>
+    <a href="chapter-1/exercise-19b.html">Exercise 19b</a>
+    <a href="chapter-1/exercise-20a.html">Exercise 20a</a>
+    <a href="chapter-1/exercise-20b.html">Exercise 20b</a>
+    <a href="chapter-1/exercise-20c.html">Exercise 20c</a>
+    <a href="chapter-1/exercise-21a.html">Exercise 21a</a>
+    <a href="chapter-1/exercise-21b.html">Exercise 21b</a>
+    <a href="chapter-1/exercise-22a.html">Exercise 22a</a>
+    <a href="chapter-1/exercise-22b.html">Exercise 22b</a>
+    <a href="chapter-1/exercise-23.html">Exercise 23</a>
+    <a href="chapter-1/exercise-24a.html">Exercise 24a</a>
+    <a href="chapter-1/exercise-24b.html">Exercise 24b</a>
+    <a href="chapter-1/exercise-24c.html">Exercise 24c</a>
+    <a href="chapter-1/exercise-25.html">Exercise 25</a>
+    <a href="chapter-1/exercise-26a.html">Exercise 26a</a>
+    <a href="chapter-1/exercise-26b.html">Exercise 26b</a>
+    <a href="chapter-1/exercise-26c.html">Exercise 26c</a>
+    <a href="chapter-1/exercise-26d.html">Exercise 26d</a>
+    <a href="chapter-1/exercise-27a.html">Exercise 27a</a>
+    <a href="chapter-1/exercise-27b.html">Exercise 27b</a>
+    <a href="chapter-1/exercise-28.html">Exercise 28</a>
+    <a href="chapter-1/exercise-29a.html">Exercise 29a</a>
+    <a href="chapter-1/exercise-29b.html">Exercise 29b</a>
+    <a href="chapter-1/exercise-29c.html">Exercise 29c</a>
+    <a href="chapter-1/exercise-29d.html">Exercise 29d</a>
+<!-- Section: Exercises 30 -->
+<h2>Exercises 30</h2>
+<ul>
+  <li><a href="exercise-30a.html">Exercise 30a</a></li>
+  <li><a href="exercise-30b.html">Exercise 30b</a></li>
+  <li><a href="exercise-30c.html">Exercise 30c</a></li>
+  <li><a href="exercise-30d.html">Exercise 30d</a></li>
+</ul>
+
+<!-- Section: Exercises 31 -->
+<h2>Exercises 31</h2>
+<ul>
+  <li><a href="exercise-31a.html">Exercise 31a</a></li>
+  <li><a href="exercise-31b.html">Exercise 31b</a></li>
+  <li><a href="exercise-31c.html">Exercise 31c</a></li>
+</ul>
+
+<!-- Section: Exercises 32 -->
+<h2>Exercises 32</h2>
+<ul>
+  <li><a href="exercise-32a.html">Exercise 32a</a></li>
+  <li><a href="exercise-32b.html">Exercise 32b</a></li>
+  <li><a href="exercise-32c.html">Exercise 32c</a></li>
+</ul>
+
+<!-- Section: Exercise 33 -->
+<h2>Exercise 33</h2>
+<ul>
+  <li><a href="exercise-33.html">Exercise 33</a></li>
+</ul>
+
+<!-- Section: Exercise 34 -->
+<h2>Exercise 34</h2>
+<ul>
+  <li><a href="exercise-34.html">Exercise 34</a></li>
+</ul>
+
+<!-- Section: Exercise 35 -->
+<h2>Exercise 35</h2>
+<ul>
+  <li><a href="exercise-35.html">Exercise 35</a></li>
+</ul>
+
+<!-- Section: Exercises 36 -->
+<h2>Exercises 36</h2>
+<ul>
+  <li><a href="exercise-36a.html">Exercise 36a</a></li>
+  <li><a href="exercise-36b.html">Exercise 36b</a></li>
+  <li><a href="exercise-36c.html">Exercise 36c</a></li>
+</ul>
+
+<!-- Section: Exercises 37 -->
+<h2>Exercises 37</h2>
+<ul>
+  <li><a href="exercise-37a.html">Exercise 37a</a></li>
+  <li><a href="exercise-37b.html">Exercise 37b</a></li>
+  <li><a href="exercise-37c.html">Exercise 37c</a></li>
+  <li><a href="exercise-37d.html">Exercise 37d</a></li>
+  <li><a href="exercise-37e.html">Exercise 37e</a></li>
+</ul>
+
+<!-- Section: Exercise 38 -->
+<h2>Exercise 38</h2>
+<ul>
+  <li><a href="exercise-38.html">Exercise 38</a></li>
+</ul>
+
+<!-- Section: Exercises 39 -->
+<h2>Exercises 39</h2>
+<ul>
+  <li><a href="exercise-39a.html">Exercise 39a</a></li>
+  <li><a href="exercise-39b.html">Exercise 39b</a></li>
+</ul>
+
+<!-- Section: Exercises 40 -->
+<h2>Exercises 40</h2>
+<ul>
+  <li><a href="exercise-40a.html">Exercise 40a</a></li>
+  <li><a href="exercise-40b.html">Exercise 40b</a></li>
+  <li><a href="exercise-40c.html">Exercise 40c</a></li>
+</ul>
+
+<!-- Section: Exercises 41 -->
+<h2>Exercises 41</h2>
+<ul>
+  <li><a href="exercise-41a.html">Exercise 41a</a></li>
+  <li><a href="exercise-41b.html">Exercise 41b</a></li>
+</ul>
+
+<!-- Section: Exercise 42 -->
+<h2>Exercise 42</h2>
+<ul>
+  <li><a href="exercise-42.html">Exercise 42</a></li>
+</ul>
+
+<!-- Section: Exercises 43 -->
+<h2>Exercises 43</h2>
+<ul>
+  <li><a href="exercise-43a.html">Exercise 43a</a></li>
+  <li><a href="exercise-43b.html">Exercise 43b</a></li>
+  <li><a href="exercise-43c.html">Exercise 43c</a></li>
+</ul>
+
+<!-- Section: Exercises 44 -->
+<h2>Exercises 44</h2>
+<ul>
+  <li><a href="exercise-44a.html">Exercise 44a</a></li>
+  <li><a href="exercise-44b.html">Exercise 44b</a></li>
+  <li><a href="exercise-44c.html">Exercise 44c</a></li>
+</ul>
+
+<!-- Section: Exercises 45 -->
+<h2>Exercises 45</h2>
+<ul>
+  <li><a href="exercise-45a.html">Exercise 45a</a></li>
+  <li><a href="exercise-45b.html">Exercise 45b</a></li>
+  <li><a href="exercise-45c.html">Exercise 45c</a></li>
+</ul>
+
+<!-- Section: Exercise 46 -->
+<h2>Exercise 46</h2>
+<ul>
+  <li><a href="exercise-46.html">Exercise 46</a></li>
+</ul>
+
+<!-- Section: Exercise 47 -->
+<h2>Exercise 47</h2>
+<ul>
+  <li><a href="exercise-47.html">Exercise 47</a></li>
+</ul>
+
+<!-- Section: Exercises 48 -->
+<h2>Exercises 48</h2>
+<ul>
+  <li><a href="exercise-48a.html">Exercise 48a</a></li>
+  <li><a href="exercise-48b.html">Exercise 48b</a></li>
+</ul>
+
+<!-- Section: Exercises 49 -->
+<h2>Exercises 49</h2>
+<ul>
+  <li><a href="exercise-49a.html">Exercise 49a</a></li>
+  <li><a href="exercise-49b.html">Exercise 49b</a></li>
+  <li><a href="exercise-49c.html">Exercise 49c</a></li>
+</ul>
+
+<!-- Section: Exercises 50 -->
+<h2>Exercises 50</h2>
+<ul>
+  <li><a href="exercise-50a.html">Exercise 50a</a></li>
+  <li><a href="exercise-50b.html">Exercise 50b</a></li>
+  <li><a href="exercise-50c.html">Exercise 50c</a></li>
+</ul>
+
+<!-- Section: Exercise 51 -->
+<h2>Exercise 51</h2>
+<ul>
+  <li><a href="exercise-51.html">Exercise 51</a></li>
+</ul>
+
+<!-- Section: Exercise 52 -->
+<h2>Exercise 52</h2>
+<ul>
+  <li><a href="exercise-52.html">Exercise 52</a></li>
+</ul>
+
+<!-- Section: Exercise 53 -->
+<h2>Exercise 53</h2>
+<ul>
+  <li><a href="exercise-53.html">Exercise 53</a></li>
+</ul>
+
+<!-- Section: Exercise 54 -->
+<h2>Exercise 54</h2>
+<ul>
+  <li><a href="exercise-54.html">Exercise 54</a></li>
+</ul>
+
+<!-- Section: Exercises 55 -->
+<h2>Exercises 55</h2>
+<ul>
+  <li><a href="exercise-55a.html">Exercise 55a</a></li>
+  <li><a href="exercise-55b.html">Exercise 55b</a></li>
+  <li><a href="exercise-55c.html">Exercise 55c</a></li>
+</ul>
+
+<!-- Section: Exercise 56 -->
+<h2>Exercise 56</h2>
+<ul>
+  <li><a href="exercise-56.html">Exercise 56</a></li>
+</ul>
+
+<!-- Section: Exercises 57 -->
+<h2>Exercises 57</h2>
+<ul>
+  <li><a href="exercise-57a.html">Exercise 57a</a></li>
+  <li><a href="exercise-57b.html">Exercise 57b</a></li>
+  <li><a href="exercise-57c.html">Exercise 57c</a></li>
+</ul>
+
+<!-- Section: Exercises 58 -->
+<h2>Exercises 58</h2>
+<ul>
+  <li><a href="exercise-58a.html">Exercise 58a</a></li>
+  <li><a href="exercise-58b.html">Exercise 58b</a></li>
+</ul>
+
+<!-- Section: Exercise 59 -->
+<h2>Exercise 59</h2>
+<ul>
+  <li><a href="exercise-59.html">Exercise 59</a></li>
+</ul>
+
+<!-- Section: Exercises 60 -->
+<h2>Exercises 60</h2>
+<ul>
+  <li><a href="exercise-60a.html">Exercise 60a</a></li>
+  <li><a href="exercise-60b.html">Exercise 60b</a></li>
+  <li><a href="exercise-60c.html">Exercise 60c</a></li>
+</ul>
+
+<!-- Section: Exercises 61 -->
+<h2>Exercises 61</h2>
+<ul>
+  <li><a href="exercise-61a.html">Exercise 61a</a></li>
+  <li><a href="exercise-61b.html">Exercise 61b</a></li>
+</ul>
+
+<!-- Section: Exercises 62 -->
+<h2>Exercises 62</h2>
+<ul>
+  <li><a href="exercise-62a.html">Exercise 62a</a></li>
+  <li><a href="exercise-62b.html">Exercise 62b</a></li>
+</ul>
+
+<!-- Section: Exercises 63 -->
+<h2>Exercises 63</h2>
+<ul>
+  <li><a href="exercise-63a.html">Exercise 63a</a></li>
+  <li><a href="exercise-63b.html">Exercise 63b</a></li>
+  <li><a href="exercise-63c.html">Exercise 63c</a></li>
+</ul>
+
+<!-- Section: Exercise 64 -->
+<h2>Exercise 64</h2>
+<ul>
+  <li><a href="exercise-64.html">Exercise 64</a></li>
+</ul>
+
+<!-- Section: Exercises 65 -->
+<h2>Exercises 65</h2>
+<ul>
+  <li><a href="exercise-65a.html">Exercise 65a</a></li>
+  <li><a href="exercise-65b.html">Exercise 65b</a></li>
+</ul>
+
+<!-- Section: Exercises 66 -->
+<h2>Exercises 66</h2>
+<ul>
+  <li><a href="exercise-66a.html">Exercise 66a</a></li>
+  <li><a href="exercise-66b.html">Exercise 66b</a></li>
+  <li><a href="exercise-66c.html">Exercise 66c</a></li>
+</ul>
+
+<!-- Section: Exercises 67 -->
+<h2>Exercises 67</h2>
+<ul>
+  <li><a href="exercise-67a.html">Exercise 67a</a></li>
+  <li><a href="exercise-67b.html">Exercise 67b</a></li>
+  <li><a href="exercise-67c.html">Exercise 67c</a></li>
+  <li><a href="exercise-67d.html">Exercise 67d</a></li>
+</ul>
+
+<!-- Section: Exercise 68 -->
+<h2>Exercise 68</h2>
+<ul>
+  <li><a href="exercise-68.html">Exercise 68</a></li>
+</ul>
+
+<!-- Section: Exercise 69 -->
+<h2>Exercise 69</h2>
+<ul>
+  <li><a href="exercise-69.html">Exercise 69</a></li>
+</ul>
+
+<!-- Section: Exercise 70 -->
+<h2>Exercise 70</h2>
+<ul>
+  <li><a href="exercise-70.html">Exercise 70</a></li>
+</ul>
+
+<!-- Section: Exercise 71 -->
+<h2>Exercise 71</h2>
+<ul>
+  <li><a href="exercise-71.html">Exercise 71</a></li>
+</ul>
+
+<!-- Section: Exercise 72 -->
+<h2>Exercise 72</h2>
+<ul>
+  <li><a href="exercise-72.html">Exercise 72</a></li>
+</ul>
+
+<!-- Section: Exercises 73 -->
+<h2>Exercises 73</h2>
+<ul>
+  <li><a href="exercise-73a.html">Exercise 73a</a></li>
+  <li><a href="exercise-73b.html">Exercise 73b</a></li>
+</ul>
 
