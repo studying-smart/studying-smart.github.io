@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 5a | Chapter 1 | The Practice of Statistics (2nd Edition)</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9fafb;
+      color: #222;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #0077cc;
+      text-align: center;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+    th {
+      background-color: #0077cc;
+      color: white;
+    }
+    canvas {
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Exercise 5a</h1>
+
+    <h3>Problem:</h3>
+    <p>The table below shows the percentage of females earning doctorates in different fields of study. Use this data to create a bar graph.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Field of Study</th>
+          <th>Percentage of Females Earning Doctorates</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Computer Science</td><td>15.4%</td></tr>
+        <tr><td>Education</td><td>60.8%</td></tr>
+        <tr><td>Engineering</td><td>11.1%</td></tr>
+        <tr><td>Life Sciences</td><td>40.7%</td></tr>
+        <tr><td>Physical Sciences</td><td>21.7%</td></tr>
+        <tr><td>Psychology</td><td>62.2%</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Solution:</h3>
+    <p>We can represent this data using a bar graph. In the bar graph, each field of study will be displayed along the horizontal axis. The height of each bar corresponds to the percentage of females earning doctorates in that field. This visual representation allows for an easy comparison between fields.</p>
+
+    <canvas id="barChart" width="800" height="400"></canvas>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('barChart').getContext('2d');
+    const barChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [
+          'Computer Science',
+          'Education',
+          'Engineering',
+          'Life Sciences',
+          'Physical Sciences',
+          'Psychology'
+        ],
+        datasets: [{
+          label: '% of Females Earning Doctorates',
+          data: [15.4, 60.8, 11.1, 40.7, 21.7, 62.2],
+          backgroundColor: '#0077cc'
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Percentage (%)'
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
