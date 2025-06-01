@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 28 | The Practice of Statistics (2nd Edition)</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9fafb;
+      color: #222;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #0077cc;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #444;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+    .result {
+      font-weight: bold;
+      color: #0077cc;
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1.3em;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    .nav-buttons {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .nav-buttons a {
+      text-decoration: none;
+      background-color: #0077cc;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Exercise 28</h1>
+
+    <p>We are asked to create a stemplot for the given data and describe its distribution.</p>
+
+    <h2>Stemplot</h2>
+    <p>We draw a vertical line and place the digits of the tenths to the left of the vertical line, while the digits of the hundredths go to the right of the vertical line.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Stem</th>
+          <th>Leaf</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>48</td><td>8</td></tr>
+        <tr><td>49</td><td></td></tr>
+        <tr><td>50</td><td>7</td></tr>
+        <tr><td>51</td><td>0</td></tr>
+        <tr><td>52</td><td>6 7 9 9</td></tr>
+        <tr><td>53</td><td>0 4 4 6 9</td></tr>
+        <tr><td>54</td><td>2 4 6 7</td></tr>
+        <tr><td>55</td><td>0 3 5 7 8</td></tr>
+        <tr><td>56</td><td>1 2 3 5 8</td></tr>
+        <tr><td>57</td><td>5 9</td></tr>
+        <tr><td>58</td><td>5</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Distribution Description</h2>
+    <p><strong>Shape:</strong> Roughly symmetric, as most data values lie in the middle of the stemplot, ignoring the single outlier at the top.</p>
+    <p><strong>Center:</strong> About 5.45, which also serves as an estimate of the density of the Earth.</p>
+    <p><strong>Spread:</strong> Data values range from 4.88 to 5.85.</p>
+    <p><strong>Outliers:</strong> There is one outlier at the top of the stemplot.</p>
+
+    <div class="result">
+      Final Answer: Density of Earth ≈ 5.45
+    </div>
+
+    <div class="nav-buttons">
+      <a href="exercise-27b.html">Back to Exercise 27b</a>
+      <a href="exercise-29.html">Next Exercise</a>
+    </div>
+  </div>
+
+</body>
+</html>
