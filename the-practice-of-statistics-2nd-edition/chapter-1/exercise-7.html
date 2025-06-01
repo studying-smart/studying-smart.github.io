@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 7 | The Practice of Statistics (2nd Edition)</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9fafb;
+      color: #222;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #0077cc;
+      text-align: center;
+    }
+    .container {
+      max-width: 850px;
+      margin: auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #444;
+      margin-top: 40px;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+    .dotplot {
+      display: flex;
+      justify-content: center;
+      margin: 40px 0;
+    }
+    .axis {
+      position: relative;
+      width: 700px;
+      height: 300px;
+      border-left: 2px solid #333;
+      border-bottom: 2px solid #333;
+    }
+    .tick {
+      position: absolute;
+      bottom: -10px;
+      width: 2px;
+      height: 10px;
+      background-color: #333;
+    }
+    .label {
+      position: absolute;
+      bottom: -30px;
+      font-size: 12px;
+      transform: translateX(-50%);
+    }
+    .dot {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #0077cc;
+    }
+    .nav-buttons {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .nav-buttons a {
+      text-decoration: none;
+      background-color: #0077cc;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Exercise 7</h1>
+
+    <p>We are asked to construct a dot plot for the given data and to describe the distribution of the data set.</p>
+
+    <h2>Dot Plot</h2>
+
+    <div class="dotplot">
+      <div class="axis">
+        <!-- X-axis ticks and labels -->
+        <div class="tick" style="left: 0%;"></div>
+        <div class="label" style="left: 0%;">0</div>
+        <div class="tick" style="left: 25%;"></div>
+        <div class="label" style="left: 25%;">10</div>
+        <div class="tick" style="left: 50%;"></div>
+        <div class="label" style="left: 50%;">20</div>
+        <div class="tick" style="left: 75%;"></div>
+        <div class="label" style="left: 75%;">30</div>
+        <div class="tick" style="left: 100%;"></div>
+        <div class="label" style="left: 100%;">40</div>
+
+        <!-- Dots -->
+        <!-- Most dots around 0 -->
+        <div class="dot" style="left: 0%; bottom: 10px;"></div>
+        <div class="dot" style="left: 0%; bottom: 30px;"></div>
+        <div class="dot" style="left: 0%; bottom: 50px;"></div>
+        <div class="dot" style="left: 0%; bottom: 70px;"></div>
+        <div class="dot" style="left: 0%; bottom: 90px;"></div>
+        <div class="dot" style="left: 0%; bottom: 110px;"></div>
+        <div class="dot" style="left: 0%; bottom: 130px;"></div>
+        <div class="dot" style="left: 0%; bottom: 150px;"></div>
+
+        <!-- Other data values -->
+        <div class="dot" style="left: 15%; bottom: 10px;"></div>
+        <div class="dot" style="left: 15%; bottom: 30px;"></div>
+
+        <div class="dot" style="left: 30%; bottom: 10px;"></div>
+
+        <div class="dot" style="left: 60%; bottom: 10px;"></div>
+        <div class="dot" style="left: 60%; bottom: 30px;"></div>
+
+        <div class="dot" style="left: 80%; bottom: 10px;"></div>
+
+        <div class="dot" style="left: 100%; bottom: 10px;"></div> <!-- 39 -->
+      </div>
+    </div>
+
+    <h2>Distribution Description</h2>
+
+    <p>The dot plot shows that most countries earned zero gold medals, as most of the dots are stacked above 0. This indicates that it was very common for a country not to win any gold medals.</p>
+
+    <p>There is one noticeable outlier at 39, which represents a large gap from the rest of the data. This indicates that one country (the United States) earned significantly more gold medals than all the others.</p>
+
+    <p>Overall, the data ranges from 0 to 39 gold medals.</p>
+
+    <div class="nav-buttons">
+      <a href="exercise-6c.html">Previous Exercise</a>
+      <a href="exercise-8a.html">Next Exercise</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
