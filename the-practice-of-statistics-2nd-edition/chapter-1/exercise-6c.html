@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 6c | The Practice of Statistics (2nd Edition)</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9fafb;
+      color: #222;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #0077cc;
+      text-align: center;
+    }
+    .container {
+      max-width: 850px;
+      margin: auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #444;
+      margin-top: 40px;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: center;
+    }
+    th {
+      background-color: #e6f0ff;
+    }
+    .pie-container {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: conic-gradient(
+        #4caf50 0deg 165.06deg, 
+        #ff9800 165.06deg 211.284deg, 
+        #03a9f4 211.284deg 250.884deg, 
+        #f44336 250.884deg 266.688deg, 
+        #9c27b0 266.688deg 280.728deg, 
+        #2196f3 280.728deg 360deg
+      );
+      margin: 40px auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .legend {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin: 5px 15px;
+    }
+    .color-box {
+      width: 15px;
+      height: 15px;
+      margin-right: 8px;
+    }
+    .green { background: #4caf50; }
+    .orange { background: #ff9800; }
+    .blue { background: #03a9f4; }
+    .red { background: #f44336; }
+    .purple { background: #9c27b0; }
+    .lightblue { background: #2196f3; }
+    .nav-buttons {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .nav-buttons a {
+      text-decoration: none;
+      background-color: #0077cc;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Exercise 6c</h1>
+
+    <p>We are asked whether it is appropriate to display this data using a pie chart. Pie charts are best used when the data set represents the entire whole, or 100% of the data.</p>
+
+    <h2>Data Table</h2>
+
+    <table>
+      <tr>
+        <th>Cause of Death</th>
+        <th>Number of Deaths</th>
+        <th>Percentage</th>
+      </tr>
+      <tr>
+        <td>Motor vehicle accident</td>
+        <td>42,340</td>
+        <td>45.85%</td>
+      </tr>
+      <tr>
+        <td>Fall</td>
+        <td>11,858</td>
+        <td>12.84%</td>
+      </tr>
+      <tr>
+        <td>Poisoning</td>
+        <td>10,163</td>
+        <td>11.00%</td>
+      </tr>
+      <tr>
+        <td>Drowning</td>
+        <td>4,051</td>
+        <td>4.39%</td>
+      </tr>
+      <tr>
+        <td>Fire</td>
+        <td>3,601</td>
+        <td>3.90%</td>
+      </tr>
+      <tr>
+        <td>Other</td>
+        <td>20,340</td>
+        <td>22.02%</td>
+      </tr>
+      <tr>
+        <th>Total</th>
+        <th>92,353</th>
+        <th>100%</th>
+      </tr>
+    </table>
+
+    <h2>Slice Size Calculations for Pie Chart</h2>
+
+    <p>We calculate each slice size by multiplying the percentage by 360°:</p>
+
+    <table>
+      <tr>
+        <th>Cause of Death</th>
+        <th>Slice Size (Degrees)</th>
+      </tr>
+      <tr>
+        <td>Motor vehicle accident</td>
+        <td>165.06°</td>
+      </tr>
+      <tr>
+        <td>Fall</td>
+        <td>46.22°</td>
+      </tr>
+      <tr>
+        <td>Poisoning</td>
+        <td>39.60°</td>
+      </tr>
+      <tr>
+        <td>Drowning</td>
+        <td>15.80°</td>
+      </tr>
+      <tr>
+        <td>Fire</td>
+        <td>14.04°</td>
+      </tr>
+      <tr>
+        <td>Other</td>
+        <td>79.27°</td>
+      </tr>
+      <tr>
+        <th>Total</th>
+        <th>360°</th>
+      </tr>
+    </table>
+
+    <h2>Pie Chart</h2>
+
+    <div class="pie-container"></div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="color-box green"></div>Motor vehicle accident</div>
+      <div class="legend-item"><div class="color-box orange"></div>Fall</div>
+      <div class="legend-item"><div class="color-box blue"></div>Poisoning</div>
+      <div class="legend-item"><div class="color-box red"></div>Drowning</div>
+      <div class="legend-item"><div class="color-box purple"></div>Fire</div>
+      <div class="legend-item"><div class="color-box lightblue"></div>Other</div>
+    </div>
+
+    <p>Since the total adds up to 100%, it is appropriate to display this data with a pie chart.</p>
+
+    <div class="nav-buttons">
+      <a href="exercise-6b.html">Previous Exercise</a>
+      <a href="exercise-7a.html">Next Exercise</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
