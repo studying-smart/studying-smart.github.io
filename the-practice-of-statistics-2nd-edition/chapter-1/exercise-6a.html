@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 6a | The Practice of Statistics (2nd Edition)</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9fafb;
+      color: #222;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #0077cc;
+      text-align: center;
+    }
+    .container {
+      max-width: 850px;
+      margin: auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #444;
+      margin-top: 40px;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: center;
+    }
+    th {
+      background-color: #e6f0ff;
+    }
+    .result {
+      font-weight: bold;
+      color: #0077cc;
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1.3em;
+    }
+    .nav-buttons {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .nav-buttons a {
+      text-decoration: none;
+      background-color: #0077cc;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Exercise 6a</h1>
+
+    <p>The data provided shows the number of deaths from various causes. Our task is to calculate what percentage of the total deaths each cause represents, and also find the percentage of deaths due to other causes not listed in the table.</p>
+
+    <h2>Original Data</h2>
+
+    <table>
+      <tr>
+        <th>Cause of Death</th>
+        <th>Number of Deaths</th>
+      </tr>
+      <tr>
+        <td>Motor vehicle accident</td>
+        <td>42,340</td>
+      </tr>
+      <tr>
+        <td>Fall</td>
+        <td>11,858</td>
+      </tr>
+      <tr>
+        <td>Poisoning</td>
+        <td>10,163</td>
+      </tr>
+      <tr>
+        <td>Drowning</td>
+        <td>4,051</td>
+      </tr>
+      <tr>
+        <td>Fire</td>
+        <td>3,601</td>
+      </tr>
+      <tr>
+        <th>Total</th>
+        <th>92,353</th>
+      </tr>
+    </table>
+
+    <h2>Calculating Percentages</h2>
+
+    <p>To determine the percentage for each cause, we divide the number of deaths for that cause by the total number of deaths (92,353), and then multiply by 100.</p>
+
+    <table>
+      <tr>
+        <th>Cause of Death</th>
+        <th>Number of Deaths</th>
+        <th>Percentage</th>
+      </tr>
+      <tr>
+        <td>Motor vehicle accident</td>
+        <td>42,340</td>
+        <td>45.85%</td>
+      </tr>
+      <tr>
+        <td>Fall</td>
+        <td>11,858</td>
+        <td>12.84%</td>
+      </tr>
+      <tr>
+        <td>Poisoning</td>
+        <td>10,163</td>
+        <td>11.00%</td>
+      </tr>
+      <tr>
+        <td>Drowning</td>
+        <td>4,051</td>
+        <td>4.39%</td>
+      </tr>
+      <tr>
+        <td>Fire</td>
+        <td>3,601</td>
+        <td>3.90%</td>
+      </tr>
+      <tr>
+        <th>Total</th>
+        <th>92,353</th>
+        <th>100%</th>
+      </tr>
+    </table>
+
+    <h2>Determining Percentage for Other Causes</h2>
+
+    <p>The listed percentages add up to:</p>
+    <p>45.85% + 12.84% + 11.00% + 4.39% + 3.90% = 77.98%</p>
+
+    <p>Since the total must equal 100%, the percentage of deaths from unlisted causes is:</p>
+    <p>100% - 77.98% = 22.02%</p>
+
+    <div class="result">
+      Final Answer:<br>
+      Motor vehicle accident: 45.85%<br>
+      Fall: 12.84%<br>
+      Poisoning: 11.00%<br>
+      Drowning: 4.39%<br>
+      Fire: 3.90%<br>
+      Other causes: 22.02%
+    </div>
+
+    <div class="nav-buttons">
+      <a href="exercise-5b.html">Previous Exercise</a>
+      <a href="exercise-6b.html">Next Exercise</a>
+    </div>
+  </div>
+
+</body>
+</html>
