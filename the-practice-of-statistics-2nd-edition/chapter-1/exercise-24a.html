@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 24a | The Practice of Statistics (2nd Edition)</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9fafb;
+      color: #222;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #0077cc;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #444;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+    ul {
+      margin-bottom: 20px;
+    }
+    .result {
+      font-weight: bold;
+      color: #0077cc;
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1.3em;
+    }
+    .nav-buttons {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .nav-buttons a {
+      text-decoration: none;
+      background-color: #0077cc;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Exercise 24a</h1>
+
+    <p>In this problem, we are asked to select appropriate graph types for two variables: the make of the car and the age of the car.</p>
+
+    <h2>Makes of Cars:</h2>
+    <p>The make of a car is a categorical variable, since it does not take on numeric values. For categorical variables, bar graphs and pie charts are generally appropriate. However, because there may be many different car makes, a bar graph is better suited, as pie charts can become difficult to read with too many categories.</p>
+
+    <h2>Age of Cars:</h2>
+    <p>The age of a car is a quantitative variable. Since we're not analyzing changes over time, time plots aren't appropriate here. Stemplots may not be ideal if there are very few stems. Dotplots might not be suitable if extreme values spread out the data too far. Ogives are generally used when cumulative percentages are of interest, which is not the case here. Therefore, a histogram is the most appropriate choice to display the distribution of car ages.</p>
+
+    <div class="result">
+      Makes of Cars: Bar Graph<br>
+      Age of Cars: Histogram
+    </div>
+
+    <div class="nav-buttons">
+      <a href="exercise-23.html">Previous Exercise</a>
+      <a href="exercise-24b.html">Next Exercise</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
