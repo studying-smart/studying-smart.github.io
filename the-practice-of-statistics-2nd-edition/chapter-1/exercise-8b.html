@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 8b | The Practice of Statistics (2nd Edition)</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9fafb;
+      color: #222;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #0077cc;
+      text-align: center;
+    }
+    .container {
+      max-width: 850px;
+      margin: auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #444;
+      margin-top: 40px;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+    .dotplot {
+      display: flex;
+      justify-content: center;
+      margin: 40px 0;
+    }
+    .axis {
+      position: relative;
+      width: 700px;
+      height: 300px;
+      border-left: 2px solid #333;
+      border-bottom: 2px solid #333;
+    }
+    .tick {
+      position: absolute;
+      bottom: -10px;
+      width: 2px;
+      height: 10px;
+      background-color: #333;
+    }
+    .label {
+      position: absolute;
+      bottom: -30px;
+      font-size: 12px;
+      transform: translateX(-50%);
+    }
+    .dot {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #0077cc;
+    }
+    .nav-buttons {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .nav-buttons a {
+      text-decoration: none;
+      background-color: #0077cc;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Exercise 8b</h1>
+
+    <p>In this part, we are asked to describe the distribution shown in the dot plot by analyzing its shape, center, spread, and possible outliers.</p>
+
+    <h2>Dot Plot</h2>
+
+    <div class="dotplot">
+      <div class="axis">
+        <!-- X-axis ticks and labels -->
+        <div class="tick" style="left: 0%;"></div>
+        <div class="label" style="left: 0%;">20</div>
+        <div class="tick" style="left: 20%;"></div>
+        <div class="label" style="left: 20%;">24</div>
+        <div class="tick" style="left: 40%;"></div>
+        <div class="label" style="left: 40%;">28</div>
+        <div class="tick" style="left: 60%;"></div>
+        <div class="label" style="left: 60%;">32</div>
+        <div class="tick" style="left: 80%;"></div>
+        <div class="label" style="left: 80%;">36</div>
+        <div class="tick" style="left: 100%;"></div>
+        <div class="label" style="left: 100%;">40</div>
+
+        <!-- Dots -->
+        <div class="dot" style="left: 5%; bottom: 10px;"></div>
+        <div class="dot" style="left: 15%; bottom: 10px;"></div>
+        <div class="dot" style="left: 15%; bottom: 30px;"></div>
+        <div class="dot" style="left: 20%; bottom: 10px;"></div>
+        <div class="dot" style="left: 30%; bottom: 10px;"></div>
+        <div class="dot" style="left: 30%; bottom: 30px;"></div>
+        <div class="dot" style="left: 30%; bottom: 50px;"></div>
+        <div class="dot" style="left: 30%; bottom: 70px;"></div>
+        <div class="dot" style="left: 30%; bottom: 90px;"></div>
+        <div class="dot" style="left: 30%; bottom: 110px;"></div>
+        <div class="dot" style="left: 35%; bottom: 10px;"></div>
+        <div class="dot" style="left: 35%; bottom: 30px;"></div>
+        <div class="dot" style="left: 35%; bottom: 50px;"></div>
+        <div class="dot" style="left: 40%; bottom: 10px;"></div>
+        <div class="dot" style="left: 40%; bottom: 30px;"></div>
+        <div class="dot" style="left: 45%; bottom: 10px;"></div>
+        <div class="dot" style="left: 50%; bottom: 10px;"></div>
+        <div class="dot" style="left: 50%; bottom: 30px;"></div>
+        <div class="dot" style="left: 50%; bottom: 50px;"></div>
+      </div>
+    </div>
+
+    <h2>Distribution Description</h2>
+
+    <p><strong>Shape:</strong> The distribution is bimodal since there are two clusters of data points, one around 24 mpg and another around 28 mpg.</p>
+    <p><strong>Center:</strong> The center appears to be approximately 26 mpg, as this value lies roughly between the two peaks.</p>
+    <p><strong>Spread:</strong> The data values extend from 21 mpg to 32 mpg.</p>
+    <p><strong>Outliers:</strong> The values at 21 and 32 mpg are separated from the majority of the data and could be considered potential outliers.</p>
+
+    <div class="nav-buttons">
+      <a href="exercise-8a.html">Previous Exercise</a>
+      <a href="exercise-9a.html">Next Exercise</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
