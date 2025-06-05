@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Guides | Studying Smart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-[#1D3557] min-h-screen flex flex-col">
+  <!-- Top Navbar -->
+  <nav class="bg-[#1D3557] text-white px-6 py-4 flex justify-between items-center shadow sticky top-0 z-50">
+    <div class="text-2xl font-bold">Studying Smart</div>
+    <div class="flex items-center space-x-6">
+      <a href="#" class="hover:text-[#0077B6] transition duration-200">Home</a>
+      <a href="#" class="hover:text-[#0077B6] transition duration-200">Subjects</a>
+      <a href="book-guides.html" class="hover:text-[#0077B6] transition duration-200 font-semibold">Book Guides</a>
+      <a href="#" class="hover:text-[#0077B6] transition duration-200">Textbook Solutions</a>
+      <a href="#" class="hover:text-[#0077B6] transition duration-200">About</a>
+      <div class="relative">
+        <button class="focus:outline-none">
+          <svg class="w-6 h-6 text-white hover:text-[#0077B6] transition duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 18.5a7.5 7.5 0 006.15-3.85z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Search Bar -->
+  <div class="max-w-6xl mx-auto py-10 px-6">
+    <div class="mb-8">
+      <input type="text" placeholder="Search book guides..." class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#0077B6]">
+    </div>
+
+    <!-- Book Guides Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Example Book 1 -->
+      <a href="to-kill-a-mockingbird-introduction.html" class="block bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition p-4">
+        <img src="https://via.placeholder.com/150x220" alt="Book Cover" class="mx-auto mb-4 rounded">
+        <h3 class="text-xl font-semibold mb-1 text-center">To Kill a Mockingbird</h3>
+        <p class="text-sm text-center">by Harper Lee</p>
+      </a>
+
+      <!-- Example Book 2 -->
+      <a href="poor-things-introduction.html" class="block bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition p-4">
+        <img src="https://via.placeholder.com/150x220" alt="Book Cover" class="mx-auto mb-4 rounded">
+        <h3 class="text-xl font-semibold mb-1 text-center">Poor Things</h3>
+        <p class="text-sm text-center">by Alasdair Gray</p>
+      </a>
+
+      <!-- Example Book 3 -->
+      <a href="frankissstein-introduction.html" class="block bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition p-4">
+        <img src="https://via.placeholder.com/150x220" alt="Book Cover" class="mx-auto mb-4 rounded">
+        <h3 class="text-xl font-semibold mb-1 text-center">Frankissstein</h3>
+        <p class="text-sm text-center">by Jeanette Winterson</p>
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-[#1D3557] text-white text-center py-6 mt-10">
+    <div class="space-x-4 mb-2">
+      <a href="#" class="hover:underline text-sm">Terms</a>
+      <a href="#" class="hover:underline text-sm">Privacy</a>
+      <a href="#" class="hover:underline text-sm">Contact</a>
+    </div>
+    <p class="text-sm">&copy; 2025 Studying Smart. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>
