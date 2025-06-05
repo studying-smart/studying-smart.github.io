@@ -11,6 +11,9 @@
     body {
       font-family: 'Inter', sans-serif;
     }
+    details summary::-webkit-details-marker {
+      display: none;
+    }
   </style>
 </head>
 
@@ -43,7 +46,12 @@
         <li><a href="#intro" class="hover:text-[#0077B6] transition duration-200">Introduction</a></li>
         <li>
           <details class="group">
-            <summary class="cursor-pointer hover:text-[#0077B6] transition duration-200 font-medium">Chapter Summaries</summary>
+            <summary class="cursor-pointer hover:text-[#0077B6] transition duration-200 font-medium flex justify-between items-center">
+              Chapter Summaries
+              <svg class="w-4 h-4 ml-2 transition-transform duration-300 group-open:rotate-90" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </summary>
             <ul class="pl-4 mt-2 space-y-2">
               <li><a href="#chapters-1-3" class="hover:text-[#0077B6] transition duration-200">Chapters 1–3</a></li>
               <li><a href="#chapters-4-6" class="hover:text-[#0077B6] transition duration-200">Chapters 4–6</a></li>
