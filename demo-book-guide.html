@@ -14,7 +14,7 @@
   </style>
 </head>
 
-<body class="bg-white text-[#1D3557]">
+<body class="bg-white text-[#1D3557] min-h-screen flex flex-col">
   <!-- Top Navbar -->
   <nav class="bg-[#1D3557] text-white px-6 py-4 flex justify-between items-center shadow sticky top-0 z-50">
     <div class="text-2xl font-bold">Studying Smart</div>
@@ -35,9 +35,9 @@
     </div>
   </nav>
 
-  <div class="flex min-h-screen">
+  <div class="flex flex-1">
     <!-- Sidebar -->
-    <aside class="w-64 bg-[#F7F9FC] p-6 shadow-lg sticky top-16 self-start">
+    <aside class="w-64 bg-[#F7F9FC] p-6 shadow-lg sticky top-16 h-[calc(100vh-4rem)]">
       <h2 class="text-xl font-semibold mb-4">Contents</h2>
       <ul class="space-y-3">
         <li><a href="#intro" class="hover:text-[#0077B6] transition duration-200">Introduction</a></li>
@@ -86,9 +86,15 @@
   </div>
 
   <!-- Footer -->
-  <footer class="bg-[#1D3557] text-white text-center py-4 mt-10">
+  <footer class="bg-[#1D3557] text-white text-center py-6 mt-10">
+    <div class="space-x-4 mb-2">
+      <a href="#" class="hover:underline text-sm">Terms</a>
+      <a href="#" class="hover:underline text-sm">Privacy</a>
+      <a href="#" class="hover:underline text-sm">Contact</a>
+    </div>
     <p class="text-sm">&copy; 2025 Studying Smart. All rights reserved.</p>
   </footer>
 </body>
 
 </html>
+
