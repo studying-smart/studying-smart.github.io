@@ -16,18 +16,18 @@
 
 <body class="bg-white text-[#1D3557]">
   <!-- Top Navbar -->
-  <nav class="bg-[#1D3557] text-white px-6 py-4 flex justify-between items-center shadow">
+  <nav class="bg-[#1D3557] text-white px-6 py-4 flex justify-between items-center shadow sticky top-0 z-50">
     <div class="text-2xl font-bold">Studying Smart</div>
     <div class="flex items-center space-x-6">
-      <a href="#" class="hover:text-[#0077B6]">Home</a>
-      <a href="#" class="hover:text-[#0077B6]">Subjects</a>
-      <a href="#" class="hover:text-[#0077B6]">Book Guides</a>
-      <a href="#" class="hover:text-[#0077B6]">Textbook Solutions</a>
-      <a href="#" class="hover:text-[#0077B6]">About</a>
+      <a href="#" class="hover:text-[#0077B6] transition duration-200">Home</a>
+      <a href="#" class="hover:text-[#0077B6] transition duration-200">Subjects</a>
+      <a href="#" class="hover:text-[#0077B6] transition duration-200">Book Guides</a>
+      <a href="#" class="hover:text-[#0077B6] transition duration-200">Textbook Solutions</a>
+      <a href="#" class="hover:text-[#0077B6] transition duration-200">About</a>
       <!-- Search Icon Placeholder -->
       <div class="relative">
         <button class="focus:outline-none">
-          <svg class="w-6 h-6 text-white hover:text-[#0077B6]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg class="w-6 h-6 text-white hover:text-[#0077B6] transition duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 18.5a7.5 7.5 0 006.15-3.85z"></path>
           </svg>
         </button>
@@ -40,48 +40,55 @@
     <aside class="w-64 bg-[#F7F9FC] p-6 shadow-lg sticky top-0 h-screen">
       <h2 class="text-xl font-semibold mb-4">Contents</h2>
       <ul class="space-y-3">
-        <li><a href="#intro" class="hover:text-[#0077B6]">Introduction</a></li>
-        <li><a href="#summary" class="hover:text-[#0077B6]">Chapter Summaries</a></li>
-        <li><a href="#themes" class="hover:text-[#0077B6]">Themes</a></li>
-        <li><a href="#characters" class="hover:text-[#0077B6]">Characters</a></li>
-        <li><a href="#quotes" class="hover:text-[#0077B6]">Important Quotes</a></li>
-        <li><a href="#essays" class="hover:text-[#0077B6]">Sample Essays</a></li>
+        <li><a href="#intro" class="hover:text-[#0077B6] transition duration-200">Introduction</a></li>
+        <li><a href="#summary" class="hover:text-[#0077B6] transition duration-200">Chapter Summaries</a></li>
+        <li><a href="#themes" class="hover:text-[#0077B6] transition duration-200">Themes</a></li>
+        <li><a href="#characters" class="hover:text-[#0077B6] transition duration-200">Characters</a></li>
+        <li><a href="#quotes" class="hover:text-[#0077B6] transition duration-200">Important Quotes</a></li>
+        <li><a href="#essays" class="hover:text-[#0077B6] transition duration-200">Sample Essays</a></li>
       </ul>
     </aside>
 
     <!-- Main Content -->
     <main class="flex-1 p-10 bg-white">
-      <section id="intro" class="mb-16">
-        <h1 class="text-4xl font-bold mb-4">Demo Book Guide</h1>
-        <p class="text-lg leading-relaxed">This is a fully responsive demo page for your book guide project. We are using a modern color palette, clean fonts, sticky sidebar, search functionality placeholder, and professional layout for your full academic website vision.</p>
-      </section>
+      <div class="max-w-5xl mx-auto bg-white p-10 rounded-lg shadow-lg">
+        <section id="intro" class="mb-16">
+          <h1 class="text-4xl font-bold mb-4">Demo Book Guide</h1>
+          <p class="text-lg leading-relaxed">This is a fully responsive demo page for your book guide project. We are using a modern color palette, clean fonts, sticky sidebar, search functionality placeholder, and professional layout for your full academic website vision.</p>
+        </section>
 
-      <section id="summary" class="mb-16">
-        <h2 class="text-3xl font-semibold mb-4">Chapter Summaries</h2>
-        <p class="leading-relaxed">Placeholder summary content goes here. Each chapter would be broken down with clean formatting and easy navigation.</p>
-      </section>
+        <section id="summary" class="mb-16">
+          <h2 class="text-3xl font-semibold mb-4">Chapter Summaries</h2>
+          <p class="leading-relaxed">Placeholder summary content goes here. Each chapter would be broken down with clean formatting and easy navigation.</p>
+        </section>
 
-      <section id="themes" class="mb-16">
-        <h2 class="text-3xl font-semibold mb-4">Themes</h2>
-        <p class="leading-relaxed">Placeholder themes discussion. This section would go into your deep literary analysis for each work.</p>
-      </section>
+        <section id="themes" class="mb-16">
+          <h2 class="text-3xl font-semibold mb-4">Themes</h2>
+          <p class="leading-relaxed">Placeholder themes discussion. This section would go into your deep literary analysis for each work.</p>
+        </section>
 
-      <section id="characters" class="mb-16">
-        <h2 class="text-3xl font-semibold mb-4">Characters</h2>
-        <p class="leading-relaxed">Placeholder characters list and descriptions.</p>
-      </section>
+        <section id="characters" class="mb-16">
+          <h2 class="text-3xl font-semibold mb-4">Characters</h2>
+          <p class="leading-relaxed">Placeholder characters list and descriptions.</p>
+        </section>
 
-      <section id="quotes" class="mb-16">
-        <h2 class="text-3xl font-semibold mb-4">Important Quotes</h2>
-        <p class="leading-relaxed">Key quotes would be displayed here with your custom analysis.</p>
-      </section>
+        <section id="quotes" class="mb-16">
+          <h2 class="text-3xl font-semibold mb-4">Important Quotes</h2>
+          <p class="leading-relaxed">Key quotes would be displayed here with your custom analysis.</p>
+        </section>
 
-      <section id="essays">
-        <h2 class="text-3xl font-semibold mb-4">Sample Essays</h2>
-        <p class="leading-relaxed">Placeholder essay content with professional formatting and styling.</p>
-      </section>
+        <section id="essays">
+          <h2 class="text-3xl font-semibold mb-4">Sample Essays</h2>
+          <p class="leading-relaxed">Placeholder essay content with professional formatting and styling.</p>
+        </section>
+      </div>
     </main>
   </div>
+
+  <!-- Footer -->
+  <footer class="bg-[#1D3557] text-white text-center py-4 mt-10">
+    <p class="text-sm">&copy; 2025 Studying Smart. All rights reserved.</p>
+  </footer>
 </body>
 
 </html>
