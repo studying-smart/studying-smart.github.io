@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To Kill a Mockingbird - Quiz Engine V5 Demo | Studying Smart</title>
+  <title>To Kill a Mockingbird - Quiz Engine V5 Fixed | Studying Smart</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -19,7 +19,7 @@
 
 <body class="bg-white text-[#1D3557] min-h-screen flex flex-col">
   <nav class="bg-[#1D3557] text-white px-6 py-4 flex justify-between items-center shadow sticky top-0 z-50">
-    <div class="text-2xl font-bold">Studying Smart</div>
+    <div class="text-2xl font-bold">Studing Smart</div>
     <div class="flex items-center space-x-6">
       <a href="#" class="hover:text-[#0077B6] transition duration-200">Home</a>
       <a href="#" class="hover:text-[#0077B6] transition duration-200">Subjects</a>
@@ -44,7 +44,7 @@
 
     <main class="flex-1 p-10 bg-white">
       <div class="max-w-5xl mx-auto px-6 py-8">
-        <h1 class="text-3xl font-bold mb-4">Quiz Engine V5 (Demo)</h1>
+        <h1 class="text-3xl font-bold mb-4">Quiz Engine V5 (Fixed)</h1>
         <div id="progress" class="text-lg font-semibold mb-4"></div>
         <div id="quiz" class="space-y-10"></div>
         <div class="mt-10 text-center">
@@ -143,6 +143,7 @@
         div.classList.add("p-6", "border", "rounded", "shadow");
         div.innerHTML = `<div class='flex justify-between items-center mb-2'><p class='font-semibold text-xl'>${i + 1}. ${q.question}</p><button id='hint-btn-${i}' onclick='toggleHint(${i})' class='px-3 py-1 border border-[#1D3557] rounded text-sm hover:bg-[#0077B6] hover:text-white transition'>Show Hint</button></div>`;
         div.innerHTML += `<div id='hint-${i}' class='text-blue-600 mb-2 hidden'>Hint: ${q.hint}</div>`;
+
         if (q.type === "multiple-choice") {
           div.innerHTML += q.options.map((opt, j) => `<button id="q${i}a${j}" onclick="selectMultipleChoice(${i}, ${j})" class="block w-full text-left border px-4 py-2 rounded mb-2 transition hover:bg-[#F1FAFF]">${opt}</button>`).join('') + `<div id="explanation-${i}" class="mt-4 text-lg"></div>`;
         }
@@ -183,23 +184,79 @@
       document.getElementById("progress").innerText = `Question ${current} of ${questions.length}`;
     }
 
-    document.addEventListener('keydown', function(e) {
-      const active = document.activeElement;
-      if (active.tagName === "INPUT" || active.tagName === "TEXTAREA") return;
-      const firstMC = document.querySelector("[id^='q0a']");
-      if (!firstMC) return;
-      if (e.key >= '1' && e.key <= '4') {
-        document.getElementById(`q0a${e.key-1}`).click();
-      } else if (e.key.toLowerCase() === 't') {
-        selectTrueFalse(0, true, document.querySelector("button[onclick*='true']"));
-      } else if (e.key.toLowerCase() === 'f') {
-        selectTrueFalse(0, false, document.querySelector("button[onclick*='false']"));
+    // ADD BACK THE FULL SELECTION LOGIC FROM ORIGINAL CODE:
+    function selectMultipleChoice(qIndex, selectedIndex) {
+      const q = questions[qIndex];
+      const button = document.getElementById(`q${qIndex}a${selectedIndex}`);
+      if (selectedIndex === q.correctIndex) {
+        button.classList.add("bg-green-100", "border-green-500", "text-green-700");
+        document.getElementById(`explanation-${qIndex}`).innerHTML = `<p class='text-green-700'>${q.explanations[selectedIndex]}</p>`;
+      } else {
+        button.classList.add("bg-red-100", "border-red-500", "text-red-700");
+        document.getElementById(`explanation-${qIndex}`).innerHTML = `<p class='text-red-700'>${q.explanations[selectedIndex]}</p>`;
       }
-    });
+    }
+
+    function selectTrueFalse(qIndex, answer, btn) {
+      const q = questions[qIndex];
+      if (answer === q.correctAnswer) {
+        btn.classList.add("bg-green-100", "border-green-500", "text-green-700");
+        document.getElementById(`explanation-${qIndex}`).innerHTML = `<p class='text-green-700'>Correct!</p>`;
+      } else {
+        btn.classList.add("bg-red-100", "border-red-500", "text-red-700");
+        document.getElementById(`explanation-${qIndex}`).innerHTML = `<p class='text-red-700'>Incorrect. ${q.explanation}</p>`;
+      }
+    }
+
+    function normalize(input) {
+      return input.trim().toLowerCase().replace(/[^a-z0-9 ]/g, "");
+    }
+
+    function submitShortAnswer(qIndex) {
+      const input = normalize(document.getElementById(`input-${qIndex}`).value);
+      const q = questions[qIndex];
+      const correct = q.acceptableAnswers.includes(input);
+      const explanationDiv = document.getElementById(`explanation-${qIndex}`);
+      explanationDiv.innerHTML = "";
+      setTimeout(() => {
+        if (correct) {
+          explanationDiv.innerHTML = `<p class='text-green-700'>Correct. ${q.explanation}</p>`;
+        } else {
+          explanationDiv.innerHTML = `<p class='text-red-700'>Incorrect. ${q.explanation}</p>`;
+        }
+      }, 100);
+    }
+
+    function submitLongAnswer(qIndex) {
+      const q = questions[qIndex];
+      const explanationDiv = document.getElementById(`explanation-${qIndex}`);
+      explanationDiv.innerHTML = `<p class='text-green-700'>Model Answer: ${q.modelAnswer}</p>`;
+    }
+
+    function submitMatching(qIndex) {
+      const q = questions[qIndex];
+      let correct = 0;
+      q.pairs.forEach((pair, idx) => {
+        const select = document.getElementById(`match-${qIndex}-${idx}`);
+        if (select.value === pair.right) {
+          select.classList.remove("border-red-500", "bg-red-100");
+          select.classList.add("border-green-500", "bg-green-100");
+          correct++;
+        } else {
+          select.classList.remove("border-green-500", "bg-green-100");
+          select.classList.add("border-red-500", "bg-red-100");
+        }
+      });
+      const explanationDiv = document.getElementById(`explanation-${qIndex}`);
+      if (correct === q.pairs.length) {
+        explanationDiv.innerHTML = `<p class='text-green-700'>Perfect! All matches correct.</p>`;
+      } else {
+        explanationDiv.innerHTML = `<p class='text-red-700'>${correct} out of ${q.pairs.length} correct. Keep trying!</p>`;
+      }
+    }
 
     initializeQuiz();
   </script>
 </body>
 
 </html>
-
