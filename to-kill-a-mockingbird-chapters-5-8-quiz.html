@@ -287,158 +287,179 @@ const originalQuestions = [
 ];
 </script>
 <script>
-let questions = [];
+let questions = [...originalQuestions];
 
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
-
-function initializeQuiz() {
-  questions = JSON.parse(JSON.stringify(originalQuestions));
-  questions = shuffle(questions);
-  questions.forEach(q => {
-    if (q.type === "multiple-choice") {
-      const optionsWithIndexes = q.options.map((opt, idx) => ({ opt, idx }));
-      shuffle(optionsWithIndexes);
-      q.options = optionsWithIndexes.map(o => o.opt);
-      const newCorrectIndex = optionsWithIndexes.findIndex(o => o.idx === q.correctIndex);
-      q.correctIndex = newCorrectIndex;
-    }
-  });
-  renderQuiz();
+// Utility to shuffle an array without affecting the original
+function shuffleArray(arr) {
+  return arr.map(a => [Math.random(), a])
+            .sort((a, b) => a[0] - b[0])
+            .map(a => a[1]);
 }
 
 function renderQuiz() {
-  const quizContainer = document.getElementById("quiz");
-  quizContainer.innerHTML = "";
-  questions.forEach((q, i) => {
-    const div = document.createElement("div");
-    div.classList.add("p-6", "border", "rounded", "shadow");
-    div.innerHTML = `<div class='flex justify-between items-center mb-2'><p class='font-semibold text-xl'>${i + 1}. ${q.question}</p><button id='hint-btn-${i}' onclick='toggleHint(${i})' class='px-3 py-1 border border-[#1D3557] rounded text-sm hover:bg-[#0077B6] hover:text-white transition'>Show Hint</button></div>`;
-    div.innerHTML += `<div id='hint-${i}' class='text-blue-600 mb-2 hidden'>Hint: ${q.hint}</div>`;
+  const container = document.getElementById("quiz-container");
+  container.innerHTML = "";
 
-    if (q.type === "multiple-choice") {
-      div.innerHTML += q.options.map((opt, j) => `<button id="q${i}a${j}" onclick="selectMultipleChoice(${i}, ${j})" class="block w-full text-left border px-4 py-2 rounded mb-2 transition hover:bg-[#F1FAFF]">${opt}</button>`).join('') + `<div id="explanation-${i}" class="mt-4 text-lg"></div>`;
+  questions.forEach((q, index) => {
+    const card = document.createElement("div");
+    card.className = "bg-gray-100 p-4 rounded shadow mb-6";
+    card.innerHTML = `<h3 class="text-lg font-semibold mb-2">Q${index + 1}. ${q.question}</h3>`;
+
+    if (q.type === "short-answer" || q.type === "long-answer") {
+      const input = document.createElement("input");
+      input.type = "text";
+      input.className = "w-full p-2 rounded border mb-2";
+      const feedback = document.createElement("div");
+      const checkBtn = document.createElement("button");
+      checkBtn.className = "bg-blue-600 text-white px-3 py-1 rounded";
+      checkBtn.textContent = "Check Answer";
+
+      checkBtn.onclick = () => {
+        const answer = input.value.trim().toLowerCase();
+        const correct = q.acceptableAnswers.some(a => answer === a.toLowerCase());
+        feedback.innerHTML = correct
+          ? `<p class="text-green-600">✅ Correct!</p><p class="text-sm mt-1">${q.explanation}</p>`
+          : `<p class="text-red-600">❌ Incorrect.</p><p class="text-sm mt-1">${q.explanation}</p>`;
+      };
+
+      card.appendChild(input);
+      card.appendChild(checkBtn);
+      card.appendChild(feedback);
     }
 
-    if (q.type === "true-false") {
-      div.innerHTML += `<button onclick="selectTrueFalse(${i}, true, this)" class="block w-full text-left border px-4 py-2 rounded mb-2 transition hover:bg-[#F1FAFF]">True</button><button onclick="selectTrueFalse(${i}, false, this)" class="block w-full text-left border px-4 py-2 rounded mb-2 transition hover:bg-[#F1FAFF]">False</button><div id="explanation-${i}" class="mt-4 text-lg"></div>`;
-    }
-
-    if (q.type === "short-answer") {
-      div.innerHTML += `<input id="input-${i}" type="text" class="border w-full px-4 py-2 rounded mb-2"><button onclick="submitShortAnswer(${i})" class="px-6 py-2 border-2 border-[#1D3557] text-[#1D3557] font-semibold rounded-lg hover:bg-[#0077B6] hover:text-white transition">Submit Answer</button><div id="explanation-${i}" class="mt-4 text-lg"></div>`;
-    }
-
-    if (q.type === "long-answer") {
-      div.innerHTML += `<textarea id="longinput-${i}" class="border w-full px-4 py-2 rounded mb-2" rows="4"></textarea><button onclick="submitLongAnswer(${i})" class="px-6 py-2 border-2 border-[#1D3557] text-[#1D3557] font-semibold rounded-lg hover:bg-[#0077B6] hover:text-white transition">Submit</button><div id="explanation-${i}" class="mt-4 text-lg"></div>`;
-    }
-
-    if (q.type === "matching") {
-      div.innerHTML += `<ul class="space-y-2">`;
-      q.pairs.forEach((pair, idx) => {
-        div.innerHTML += `<li><strong>${pair.left}</strong>: <select id="match-${i}-${idx}" class="border p-2 rounded"><option value="">Select...</option>${q.pairs.map(p => `<option value="${p.right}">${p.right}</option>`).join('')}</select></li>`;
+    else if (q.type === "true-false") {
+      ["True", "False"].forEach((val) => {
+        const label = document.createElement("label");
+        label.className = "block";
+        const input = document.createElement("input");
+        input.type = "radio";
+        input.name = `q${index}`;
+        input.value = val;
+        label.appendChild(input);
+        label.append(` ${val}`);
+        card.appendChild(label);
       });
-      div.innerHTML += `</ul><button onclick="submitMatching(${i})" class="mt-4 px-6 py-2 border-2 border-[#1D3557] text-[#1D3557] font-semibold rounded-lg hover:bg-[#0077B6] hover:text-white transition">Check Answers</button><div id="explanation-${i}" class="mt-4 text-lg"></div>`;
+
+      const checkBtn = document.createElement("button");
+      checkBtn.className = "mt-2 bg-blue-600 text-white px-3 py-1 rounded";
+      checkBtn.textContent = "Check Answer";
+
+      const feedback = document.createElement("div");
+      checkBtn.onclick = () => {
+        const selected = document.querySelector(`input[name=q${index}]:checked`);
+        if (!selected) return;
+        const selectedVal = selected.value === "True";
+        feedback.innerHTML = selectedVal === q.correctAnswer
+          ? `<p class="text-green-600">✅ Correct!</p><p class="text-sm mt-1">${q.explanation}</p>`
+          : `<p class="text-red-600">❌ Incorrect.</p><p class="text-sm mt-1">${q.explanation}</p>`;
+      };
+
+      card.appendChild(checkBtn);
+      card.appendChild(feedback);
     }
 
-    quizContainer.appendChild(div);
+    else if (q.type === "multiple-choice") {
+      const optionsShuffled = q.options.map((opt, i) => ({
+        label: String.fromCharCode(65 + i), // A, B, C, D
+        text: opt,
+        explanation: q.explanations[i],
+        isCorrect: i === q.correctIndex
+      }));
+
+      optionsShuffled.forEach((opt, i) => {
+        const label = document.createElement("label");
+        label.className = "block";
+        const input = document.createElement("input");
+        input.type = "radio";
+        input.name = `q${index}`;
+        input.value = opt.text;
+        label.appendChild(input);
+        label.append(` ${opt.label}) ${opt.text.split(') ').slice(1).join(') ')}`);
+        card.appendChild(label);
+      });
+
+      const checkBtn = document.createElement("button");
+      checkBtn.className = "mt-2 bg-blue-600 text-white px-3 py-1 rounded";
+      checkBtn.textContent = "Check Answer";
+
+      const feedback = document.createElement("div");
+      checkBtn.onclick = () => {
+        const selected = document.querySelector(`input[name=q${index}]:checked`);
+        if (!selected) return;
+
+        const selectedText = selected.value;
+        const match = optionsShuffled.find(o => o.text === selectedText);
+        const isCorrect = match && match.isCorrect;
+
+        feedback.innerHTML = isCorrect
+          ? `<p class="text-green-600">✅ Correct!</p><p class="text-sm mt-1">${match.explanation}</p>`
+          : `<p class="text-red-600">❌ Incorrect.</p><p class="text-sm mt-1">${match.explanation}</p>`;
+      };
+
+      card.appendChild(checkBtn);
+      card.appendChild(feedback);
+    }
+
+    else if (q.type === "matching") {
+      const form = document.createElement("div");
+      q.pairs.forEach((pair, i) => {
+        const select = document.createElement("select");
+        select.className = "block w-full p-1 border my-1 rounded";
+        ["1", "2", "3", "4"].forEach(val => {
+          const option = document.createElement("option");
+          option.value = val;
+          option.textContent = val;
+          select.appendChild(option);
+        });
+        const label = document.createElement("label");
+        label.textContent = pair.left;
+        label.appendChild(select);
+        form.appendChild(label);
+      });
+
+      const checkBtn = document.createElement("button");
+      checkBtn.className = "mt-2 bg-blue-600 text-white px-3 py-1 rounded";
+      checkBtn.textContent = "Check Answer";
+
+      const feedback = document.createElement("div");
+      checkBtn.onclick = () => {
+        const selects = form.querySelectorAll("select");
+        let correct = true;
+        selects.forEach((s, i) => {
+          const expected = q.pairs[i].right.charAt(0);
+          if (s.value !== expected) correct = false;
+        });
+
+        feedback.innerHTML = correct
+          ? `<p class="text-green-600">✅ All matches correct!</p>`
+          : `<p class="text-red-600">❌ Some matches are incorrect.</p>`;
+      };
+
+      card.appendChild(form);
+      card.appendChild(checkBtn);
+      card.appendChild(feedback);
+    }
+
+    // Add Hint
+    const hintToggle = document.createElement("button");
+    hintToggle.textContent = "Show Hint";
+    hintToggle.className = "mt-4 text-blue-600 underline block";
+    const hintBox = document.createElement("div");
+    hintBox.className = "mt-2 hidden text-sm text-gray-600";
+    hintBox.textContent = q.hint;
+    hintToggle.onclick = () => {
+      hintBox.classList.toggle("hidden");
+    };
+
+    card.appendChild(hintToggle);
+    card.appendChild(hintBox);
+    container.appendChild(card);
   });
-  updateProgress();
 }
 
-function toggleHint(index) {
-  const hint = document.getElementById(`hint-${index}`);
-  const btn = document.getElementById(`hint-btn-${index}`);
-  if (hint.classList.contains("hidden")) {
-    hint.classList.remove("hidden");
-    btn.innerText = "Hide Hint";
-  } else {
-    hint.classList.add("hidden");
-    btn.innerText = "Show Hint";
-  }
-}
-
-function updateProgress() {
-  document.getElementById("progress").innerText = `Total Questions: ${questions.length}`;
-}
-
-function selectMultipleChoice(qIndex, selectedIndex) {
-  const q = questions[qIndex];
-  const button = document.getElementById(`q${qIndex}a${selectedIndex}`);
-  if (selectedIndex === q.correctIndex) {
-    button.classList.add("bg-green-100", "border-green-500", "text-green-700");
-    document.getElementById(`explanation-${qIndex}`).innerHTML = `<p class='text-green-700'>${q.explanations[selectedIndex]}</p>`;
-  } else {
-    button.classList.add("bg-red-100", "border-red-500", "text-red-700");
-    document.getElementById(`explanation-${qIndex}`).innerHTML = `<p class='text-red-700'>${q.explanations[selectedIndex]}</p>`;
-  }
-}
-
-function selectTrueFalse(qIndex, answer, btn) {
-  const q = questions[qIndex];
-  if (answer === q.correctAnswer) {
-    btn.classList.add("bg-green-100", "border-green-500", "text-green-700");
-    document.getElementById(`explanation-${qIndex}`).innerHTML = `<p class='text-green-700'>Correct!</p>`;
-  } else {
-    btn.classList.add("bg-red-100", "border-red-500", "text-red-700");
-    document.getElementById(`explanation-${qIndex}`).innerHTML = `<p class='text-red-700'>Incorrect. ${q.explanation}</p>`;
-  }
-}
-
-function normalize(input) {
-  return input.trim().toLowerCase().replace(/[^a-z0-9 ]/g, "");
-}
-
-function submitShortAnswer(qIndex) {
-  const input = normalize(document.getElementById(`input-${qIndex}`).value);
-  const q = questions[qIndex];
-  const correctAnswers = q.acceptableAnswers.map(ans => normalize(ans));
-  const isCorrect = correctAnswers.includes(input);
-  const explanationDiv = document.getElementById(`explanation-${qIndex}`);
-  explanationDiv.innerHTML = "";
-  setTimeout(() => {
-    if (isCorrect) {
-      explanationDiv.innerHTML = `<p class='text-green-700'>Correct. ${q.explanation}</p>`;
-    } else {
-      explanationDiv.innerHTML = `<p class='text-red-700'>Incorrect. ${q.explanation}</p>`;
-    }
-  }, 100);
-}
-
-function submitLongAnswer(qIndex) {
-  const q = questions[qIndex];
-  const explanationDiv = document.getElementById(`explanation-${qIndex}`);
-  explanationDiv.innerHTML = `<p class='text-green-700'>Model Answer: ${q.modelAnswer}</p>`;
-}
-
-function submitMatching(qIndex) {
-  const q = questions[qIndex];
-  let correct = 0;
-  q.pairs.forEach((pair, idx) => {
-    const select = document.getElementById(`match-${qIndex}-${idx}`);
-    if (select.value === pair.right) {
-      select.classList.remove("border-red-500", "bg-red-100");
-      select.classList.add("border-green-500", "bg-green-100");
-      correct++;
-    } else {
-      select.classList.remove("border-green-500", "bg-green-100");
-      select.classList.add("border-red-500", "bg-red-100");
-    }
-  });
-  const explanationDiv = document.getElementById(`explanation-${qIndex}`);
-  if (correct === q.pairs.length) {
-    explanationDiv.innerHTML = `<p class='text-green-700'>Perfect! All matches correct.</p>`;
-  } else {
-    explanationDiv.innerHTML = `<p class='text-red-700'>${correct} out of ${q.pairs.length} correct. Keep trying!</p>`;
-  }
-}
-
-initializeQuiz();
+window.onload = renderQuiz;
 </script>
+
 </body>
 </html>
 
