@@ -439,6 +439,156 @@ function submitMatching(qIndex) {
 
 initializeQuiz();
 </script>
+  <script>
+let questions = [];
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+function initializeQuiz() {
+  questions = JSON.parse(JSON.stringify(originalQuestions));
+  questions = shuffle(questions);
+  questions.forEach(q => {
+    if (q.type === "multiple-choice") {
+      const optionsWithIndexes = q.options.map((opt, idx) => ({ opt, idx }));
+      shuffle(optionsWithIndexes);
+      q.options = optionsWithIndexes.map(o => o.opt);
+      const newCorrectIndex = optionsWithIndexes.findIndex(o => o.idx === q.correctIndex);
+      q.correctIndex = newCorrectIndex;
+    }
+  });
+  renderQuiz();
+}
+
+function renderQuiz() {
+  const quizContainer = document.getElementById("quiz");
+  quizContainer.innerHTML = "";
+  questions.forEach((q, i) => {
+    const div = document.createElement("div");
+    div.classList.add("p-6", "border", "rounded", "shadow");
+    div.innerHTML = `<div class='flex justify-between items-center mb-2'><p class='font-semibold text-xl'>${i + 1}. ${q.question}</p><button id='hint-btn-${i}' onclick='toggleHint(${i})' class='px-3 py-1 border border-[#1D3557] rounded text-sm hover:bg-[#0077B6] hover:text-white transition'>Show Hint</button></div>`;
+    div.innerHTML += `<div id='hint-${i}' class='text-blue-600 mb-2 hidden'>Hint: ${q.hint}</div>`;
+    if (q.type === "multiple-choice") {
+      div.innerHTML += q.options.map((opt, j) => `<button id="q${i}a${j}" onclick="selectMultipleChoice(${i}, ${j})" class="block w-full text-left border px-4 py-2 rounded mb-2 transition hover:bg-[#F1FAFF]">${opt}</button>`).join('') + `<div id="explanation-${i}" class="mt-4 text-lg"></div>`;
+    }
+    if (q.type === "true-false") {
+      div.innerHTML += `<button onclick="selectTrueFalse(${i}, true, this)" class="block w-full text-left border px-4 py-2 rounded mb-2 transition hover:bg-[#F1FAFF]">True</button><button onclick="selectTrueFalse(${i}, false, this)" class="block w-full text-left border px-4 py-2 rounded mb-2 transition hover:bg-[#F1FAFF]">False</button><div id="explanation-${i}" class="mt-4 text-lg"></div>`;
+    }
+    if (q.type === "short-answer") {
+      div.innerHTML += `<input id="input-${i}" type="text" class="border w-full px-4 py-2 rounded mb-2"><button onclick="submitShortAnswer(${i})" class="px-6 py-2 border-2 border-[#1D3557] text-[#1D3557] font-semibold rounded-lg hover:bg-[#0077B6] hover:text-white transition">Submit Answer</button><div id="explanation-${i}" class="mt-4 text-lg"></div>`;
+    }
+    if (q.type === "long-answer") {
+      div.innerHTML += `<textarea id="longinput-${i}" class="border w-full px-4 py-2 rounded mb-2" rows="4"></textarea><button onclick="submitLongAnswer(${i})" class="px-6 py-2 border-2 border-[#1D3557] text-[#1D3557] font-semibold rounded-lg hover:bg-[#0077B6] hover:text-white transition">Submit</button><div id="explanation-${i}" class="mt-4 text-lg"></div>`;
+    }
+    if (q.type === "matching") {
+      div.innerHTML += `<ul class="space-y-2">`;
+      q.pairs.forEach((pair, idx) => {
+        div.innerHTML += `<li><strong>${pair.left}</strong>: <select id="match-${i}-${idx}" class="border p-2 rounded"><option value="">Select...</option>${q.pairs.map(p => `<option value="${p.right}">${p.right}</option>`).join('')}</select></li>`;
+      });
+      div.innerHTML += `</ul><button onclick="submitMatching(${i})" class="mt-4 px-6 py-2 border-2 border-[#1D3557] text-[#1D3557] font-semibold rounded-lg hover:bg-[#0077B6] hover:text-white transition">Check Answers</button><div id="explanation-${i}" class="mt-4 text-lg"></div>`;
+    }
+    quizContainer.appendChild(div);
+  });
+  updateProgress();
+}
+
+function toggleHint(index) {
+  const hint = document.getElementById(`hint-${index}`);
+  const btn = document.getElementById(`hint-btn-${index}`);
+  if (hint.classList.contains("hidden")) {
+    hint.classList.remove("hidden");
+    btn.innerText = "Hide Hint";
+  } else {
+    hint.classList.add("hidden");
+    btn.innerText = "Show Hint";
+  }
+}
+
+function updateProgress() {
+  document.getElementById("progress").innerText = `Total Questions: ${questions.length}`;
+}
+
+function selectMultipleChoice(qIndex, selectedIndex) {
+  const q = questions[qIndex];
+  const button = document.getElementById(`q${qIndex}a${selectedIndex}`);
+  if (selectedIndex === q.correctIndex) {
+    button.classList.add("bg-green-100", "border-green-500", "text-green-700");
+    document.getElementById(`explanation-${qIndex}`).innerHTML = `<p class='text-green-700'>${q.explanations[selectedIndex]}</p>`;
+  } else {
+    button.classList.add("bg-red-100", "border-red-500", "text-red-700");
+    document.getElementById(`explanation-${qIndex}`).innerHTML = `<p class='text-red-700'>${q.explanations[selectedIndex]}</p>`;
+  }
+}
+
+function selectTrueFalse(qIndex, answer, btn) {
+  const q = questions[qIndex];
+  if (answer === q.correctAnswer) {
+    btn.classList.add("bg-green-100", "border-green-500", "text-green-700");
+    document.getElementById(`explanation-${qIndex}`).innerHTML = `<p class='text-green-700'>Correct!</p>`;
+  } else {
+    btn.classList.add("bg-red-100", "border-red-500", "text-red-700");
+    document.getElementById(`explanation-${qIndex}`).innerHTML = `<p class='text-red-700'>Incorrect. ${q.explanation}</p>`;
+  }
+}
+
+function normalize(input) {
+  return input.trim().toLowerCase().replace(/[^a-z0-9 ]/g, "");
+}
+
+function submitShortAnswer(qIndex) {
+  const input = normalize(document.getElementById(`input-${qIndex}`).value);
+  const q = questions[qIndex];
+  const correctAnswers = q.acceptableAnswers.map(ans => normalize(ans));
+  const isCorrect = correctAnswers.includes(input);
+  const explanationDiv = document.getElementById(`explanation-${qIndex}`);
+  explanationDiv.innerHTML = "";
+  setTimeout(() => {
+    if (isCorrect) {
+      explanationDiv.innerHTML = `<p class='text-green-700'>Correct. ${q.explanation}</p>`;
+    } else {
+      explanationDiv.innerHTML = `<p class='text-red-700'>Incorrect. ${q.explanation}</p>`;
+    }
+  }, 100);
+}
+
+function submitLongAnswer(qIndex) {
+  const q = questions[qIndex];
+  const explanationDiv = document.getElementById(`explanation-${qIndex}`);
+  explanationDiv.innerHTML = `<p class='text-green-700'>Model Answer: ${q.modelAnswer}</p>`;
+}
+
+function submitMatching(qIndex) {
+  const q = questions[qIndex];
+  let correct = 0;
+  q.pairs.forEach((pair, idx) => {
+    const select = document.getElementById(`match-${qIndex}-${idx}`);
+    if (select.value === pair.right) {
+      select.classList.remove("border-red-500", "bg-red-100");
+      select.classList.add("border-green-500", "bg-green-100");
+      correct++;
+    } else {
+      select.classList.remove("border-green-500", "bg-green-100");
+      select.classList.add("border-red-500", "bg-red-100");
+    }
+  });
+  const explanationDiv = document.getElementById(`explanation-${qIndex}`);
+  if (correct === q.pairs.length) {
+    explanationDiv.innerHTML = `<p class='text-green-700'>Perfect! All matches correct.</p>`;
+  } else {
+    explanationDiv.innerHTML = `<p class='text-red-700'>${correct} out of ${q.pairs.length} correct. Keep trying!</p>`;
+  }
+}
+
+initializeQuiz();
+</script>
+</body>
+</html>
+
 </body>
 </html>
 
