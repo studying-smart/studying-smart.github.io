@@ -89,6 +89,15 @@
         type: "long-answer",
         question: "Explain why Atticus defends Tom Robinson.",
         modelAnswer: "Atticus believes in justice and equality. He knows Tom is innocent and feels morally obligated to defend him even against public opinion."
+      },
+      {
+        type: "matching",
+        question: "Match the characters to their descriptions:",
+        pairs: [
+          { left: "Scout", right: "Narrator of the novel" },
+          { left: "Boo Radley", right: "Reclusive neighbor" },
+          { left: "Atticus", right: "Scout's father and lawyer" }
+        ]
       }
     ];
 
@@ -129,6 +138,22 @@
         `;
       }
 
+      if (q.type === "matching") {
+        div.innerHTML += `<ul class="space-y-2">`;
+        q.pairs.forEach((pair, idx) => {
+          div.innerHTML += `
+            <li><strong>${pair.left}</strong>: <select id="match-${i}-${idx}" class="border p-2 rounded">
+              <option value="">Select...</option>
+              ${q.pairs.map(p => `<option value="${p.right}">${p.right}</option>`).join('')}
+            </select></li>
+          `;
+        });
+        div.innerHTML += `</ul>
+          <button onclick="submitMatching(${i})" class="mt-4 px-6 py-2 border-2 border-[#1D3557] text-[#1D3557] font-semibold rounded-lg hover:bg-[#0077B6] hover:text-white transition">Check Answers</button>
+          <div id="explanation-${i}" class="mt-4 text-lg"></div>
+        `;
+      }
+
       quizContainer.appendChild(div);
     });
 
@@ -164,6 +189,7 @@
       const q = questions[qIndex];
       const correct = q.acceptableAnswers.includes(input);
       const explanationDiv = document.getElementById(`explanation-${qIndex}`);
+      explanationDiv.innerHTML = ""; // <-- this refreshes visually every time
       if (correct) {
         explanationDiv.innerHTML = `<p class='text-green-700'>Correct. ${q.explanation}</p>`;
       } else {
@@ -176,9 +202,25 @@
       const explanationDiv = document.getElementById(`explanation-${qIndex}`);
       explanationDiv.innerHTML = `<p class='text-green-700'>Model Answer: ${q.modelAnswer}</p>`;
     }
+
+    function submitMatching(qIndex) {
+      const q = questions[qIndex];
+      let correct = 0;
+      q.pairs.forEach((pair, idx) => {
+        const userValue = document.getElementById(`match-${qIndex}-${idx}`).value;
+        if (userValue === pair.right) correct++;
+      });
+      const explanationDiv = document.getElementById(`explanation-${qIndex}`);
+      if (correct === q.pairs.length) {
+        explanationDiv.innerHTML = `<p class='text-green-700'>Perfect! All matches correct.</p>`;
+      } else {
+        explanationDiv.innerHTML = `<p class='text-red-700'>${correct} out of ${q.pairs.length} correct. Keep trying!</p>`;
+      }
+    }
   </script>
 </body>
 
 </html>
+
 
 
