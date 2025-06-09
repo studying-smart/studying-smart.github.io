@@ -30,21 +30,45 @@
   </nav>
 
   <div class="flex flex-1">
-    <aside class="w-64 bg-[#F7F9FC] p-6 shadow-lg sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto">
-      <h2 class="text-xl font-semibold mb-4">Contents</h2>
-      <ul class="space-y-3">
-        <li><a href="to-kill-a-mockingbird-introduction.html" class="hover:text-[#0077B6] transition duration-200">Introduction</a></li>
-        <li><a href="to-kill-a-mockingbird-background.html" class="hover:text-[#0077B6] transition duration-200">Background</a></li>
-        <li><a href="to-kill-a-mockingbird-chapters-1-4.html" class="hover:text-[#0077B6] transition duration-200">Chapters 1-4</a></li>
-        <li><a href="to-kill-a-mockingbird-quotes.html" class="hover:text-[#0077B6] transition duration-200">Quotes</a></li>
-        <li><a href="to-kill-a-mockingbird-essays.html" class="hover:text-[#0077B6] transition duration-200">Essays</a></li>
-        <li><a href="#" class="hover:text-[#0077B6] transition duration-200 font-semibold">Quiz Engine V6 Pro</a></li>
-      </ul>
-    </aside>
+    
+    
+  <aside class="w-64 bg-[#F7F9FC] p-6 shadow-lg sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto">
+  <h2 class="text-xl font-semibold mb-4">Contents</h2>
+  <ul class="space-y-3">
+    <li><a href="to-kill-a-mockingbird-introduction.html" class="hover:text-[#0077B6] transition duration-200">Introduction</a></li>
+    <li><a href="to-kill-a-mockingbird-background.html" class="hover:text-[#0077B6] transition duration-200">Background</a></li>
+    <li>
+      <details class="group" open>
+        <summary class="cursor-pointer hover:text-[#0077B6] transition duration-200 font-medium flex justify-between items-center">
+          Chapter Summaries
+          <svg class="w-4 h-4 ml-2 transition-transform duration-300 group-open:rotate-90" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </summary>
+        <ul class="pl-4 mt-2 space-y-2">
+          <li><a href="to-kill-a-mockingbird-chapters-1-4.html" class="hover:text-[#0077B6] transition duration-200 font-semibold">Chapters 1-4</a></li>
+          <li><a href="to-kill-a-mockingbird-chapters-5-8.html" class="hover:text-[#0077B6] transition duration-200">Chapters 5-8</a></li>
+          <li><a href="to-kill-a-mockingbird-chapters-9-12.html" class="hover:text-[#0077B6] transition duration-200">Chapters 9-12</a></li>
+          <li><a href="to-kill-a-mockingbird-chapters-13-16.html" class="hover:text-[#0077B6] transition duration-200">Chapters 13-16</a></li>
+          <li><a href="to-kill-a-mockingbird-chapters-17-20.html" class="hover:text-[#0077B6] transition duration-200">Chapters 17-20</a></li>
+          <li><a href="to-kill-a-mockingbird-chapters-21-24.html" class="hover:text-[#0077B6] transition duration-200">Chapters 21-24</a></li>
+          <li><a href="to-kill-a-mockingbird-chapters-25-28.html" class="hover:text-[#0077B6] transition duration-200">Chapters 25-28</a></li>
+          <li><a href="to-kill-a-mockingbird-chapters-29-31.html" class="hover:text-[#0077B6] transition duration-200">Chapters 29-31</a></li>
+        </ul>
+      </details>
+    </li>
+    <li><a href="to-kill-a-mockingbird-characters.html" class="hover:text-[#0077B6] transition duration-200">Characters</a></li>
+    <li><a href="to-kill-a-mockingbird-symbols.html" class="hover:text-[#0077B6] transition duration-200">Symbols & Motifs</a></li>
+    <li><a href="to-kill-a-mockingbird-themes.html" class="hover:text-[#0077B6] transition duration-200">Themes</a></li>
+    <li><a href="to-kill-a-mockingbird-quotes.html" class="hover:text-[#0077B6] transition duration-200">Important Quotes</a></li>
+    <li><a href="to-kill-a-mockingbird-essays.html" class="hover:text-[#0077B6] transition duration-200">Essays</a></li>
+  </ul>
+</aside>
+
 
     <main class="flex-1 p-10 bg-white">
       <div class="max-w-5xl mx-auto px-6 py-8">
-        <h1 class="text-3xl font-bold mb-4">Quiz Engine V6 (Pro Edition)</h1>
+        <h1 class="text-3xl font-bold mb-4">Chapters 1-4 Practice Test</h1>
         <div id="progress" class="text-lg font-semibold mb-4"></div>
         <div id="quiz" class="space-y-10"></div>
         <div class="mt-10 text-center">
@@ -361,19 +385,20 @@
     }
 
     function submitShortAnswer(qIndex) {
-      const input = normalize(document.getElementById(`input-${qIndex}`).value);
-      const q = questions[qIndex];
-      const correct = q.acceptableAnswers.includes(input);
-      const explanationDiv = document.getElementById(`explanation-${qIndex}`);
-      explanationDiv.innerHTML = "";
-      setTimeout(() => {
-        if (correct) {
-          explanationDiv.innerHTML = `<p class='text-green-700'>Correct. ${q.explanation}</p>`;
-        } else {
-          explanationDiv.innerHTML = `<p class='text-red-700'>Incorrect. ${q.explanation}</p>`;
-        }
-      }, 100);
+  const input = normalize(document.getElementById(`input-${qIndex}`).value);
+  const q = questions[qIndex];
+  const correctAnswers = q.acceptableAnswers.map(ans => normalize(ans));
+  const isCorrect = correctAnswers.includes(input);
+  const explanationDiv = document.getElementById(`explanation-${qIndex}`);
+  explanationDiv.innerHTML = "";
+  setTimeout(() => {
+    if (isCorrect) {
+      explanationDiv.innerHTML = `<p class='text-green-700'>Correct. ${q.explanation}</p>`;
+    } else {
+      explanationDiv.innerHTML = `<p class='text-red-700'>Incorrect. ${q.explanation}</p>`;
     }
+  }, 100);
+}
 
     function submitLongAnswer(qIndex) {
       const q = questions[qIndex];
