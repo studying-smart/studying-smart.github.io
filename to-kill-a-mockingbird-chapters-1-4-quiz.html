@@ -1,16 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To Kill a Mockingbird - Chapters 1-4 Quiz | Studying Smart</title>
+  <title>To Kill a Mockingbird - Quiz | Studying Smart</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    details summary::-webkit-details-marker { display: none; }
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .hint-button {
+      background-color: #E0F2FF;
+      color: #0077B6;
+      font-weight: 600;
+    }
+
+    .hint-button:hover {
+      background-color: #0077B6;
+      color: white;
+    }
+
+    .try-again-button {
+      background-color: #BEE3F8;
+      color: #1D3557;
+    }
+
+    .try-again-button:hover {
+      background-color: #0077B6;
+      color: white;
+    }
   </style>
 </head>
+
 <body class="bg-white text-[#1D3557] min-h-screen flex flex-col">
   <nav class="bg-[#1D3557] text-white px-6 py-4 flex justify-between items-center shadow sticky top-0 z-50">
     <div class="text-2xl font-bold">Studying Smart</div>
@@ -22,16 +50,412 @@
       <a href="#" class="hover:text-[#0077B6] transition duration-200">About</a>
     </div>
   </nav>
-  <main class="flex-1 p-10 bg-white">
-    <div class="max-w-5xl mx-auto px-6 py-8">
-      <h1 class="text-3xl font-bold mb-4">Chapters 1–4 Quiz</h1>
-      <div id="quiz" class="space-y-10"></div>
-      <div class="mt-10 text-center">
-        <button onclick="initializeQuiz()" class="px-8 py-3 border-2 border-[#1D3557] text-[#1D3557] font-semibold rounded-lg hover:bg-[#0077B6] hover:text-white transition">Take Again</button>
+
+  <div class="flex flex-1">
+    <aside class="w-64 bg-[#F7F9FC] p-6 shadow-lg sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto">
+      <h2 class="text-xl font-semibold mb-4">Contents</h2>
+      <ul class="space-y-3">
+        <li><a href="to-kill-a-mockingbird-introduction.html" class="hover:text-[#0077B6] transition duration-200">Introduction</a></li>
+        <li><a href="to-kill-a-mockingbird-background.html" class="hover:text-[#0077B6] transition duration-200">Background</a></li>
+        <li><a href="to-kill-a-mockingbird-chapters-1-4.html" class="hover:text-[#0077B6] transition duration-200">Chapters 1-4</a></li>
+        <li><a href="to-kill-a-mockingbird-quotes.html" class="hover:text-[#0077B6] transition duration-200">Quotes</a></li>
+        <li><a href="to-kill-a-mockingbird-essays.html" class="hover:text-[#0077B6] transition duration-200">Essays</a></li>
+        <li><a href="#" class="hover:text-[#0077B6] transition duration-200 font-semibold">Quiz</a></li>
+      </ul>
+    </aside>
+
+    <main class="flex-1 p-10 bg-white">
+      <div class="max-w-5xl mx-auto px-6 py-8">
+        <h1 class="text-3xl font-bold mb-8">Chapters 1–4 Quiz</h1>
+        <div id="quiz" class="space-y-10"></div>
+        <div class="mt-10 text-center">
+          <button onclick="initializeQuiz()" class="try-again-button px-6 py-3 rounded-lg shadow-md text-lg transition">🔁 Try Again</button>
+        </div>
       </div>
-    </div>
-  </main>
-  <footer class="bg-[#1D3557] text-white text-center py-6">
+    </main>
+  </div>
+  <script>
+    const originalQuestions = [
+      {
+        type: "short-answer",
+        question: "What is Scout Finch’s full first name?",
+        acceptableAnswers: ["jean louise", "jean-louise"],
+        explanation: "Scout’s full name is Jean Louise Finch.",
+        hint: "Scout’s full name is only mentioned briefly, but it's her formal given name."
+      },
+      {
+        type: "long-answer",
+        question: "Explain the role that Boo Radley plays in Scout, Jem, and Dill's early adventures. How do the children's perceptions of him reflect larger themes in the novel?",
+        modelAnswer: "Boo Radley becomes the subject of the children’s fascination and imaginative games. They are both fearful of him and curious, based on town gossip and superstition. The rumors make Boo seem monstrous, but their fascination reflects how easily people can misunderstand and isolate those who are different. Boo represents a symbol of 'the unknown other' — someone the town fears but doesn’t truly know. As the children grow, their views of Boo begin to mature, reflecting their own moral development and the novel's theme of empathy.",
+        hint: "Think about what the kids believe about Boo at first vs. what we learn about Boo through subtle hints."
+      },
+      {
+        type: "multiple-choice",
+        question: "Why does Miss Caroline punish Scout on her first day of school?",
+        options: [
+          "Scout refuses to participate in reading aloud.",
+          "Scout corrects Miss Caroline’s teaching method.",
+          "Scout explains that Walter Cunningham cannot accept lunch money.",
+          "Scout mocks another student in class."
+        ],
+        correctIndex: 2,
+        explanations: [
+          "Incorrect. Scout enjoys reading but does not refuse to participate.",
+          "Incorrect. She doesn’t directly correct Miss Caroline’s teaching method.",
+          "Correct. Scout explains Walter can’t accept money, which embarrasses the teacher.",
+          "Incorrect. Scout doesn’t mock another student in class."
+        ],
+        hint: "Scout tries to explain Maycomb’s social customs to her inexperienced teacher."
+      },
+      {
+        type: "true-false",
+        question: "Scout learned to read at home before attending school.",
+        correctAnswer: true,
+        explanation: "Atticus taught Scout to read at home, which frustrates Miss Caroline.",
+        hint: "Think about Scout’s relationship with Atticus before school begins."
+      },
+      {
+        type: "multiple-choice",
+        question: "Who is Dill staying with when he first arrives in Maycomb?",
+        options: [
+          "His grandmother",
+          "His aunt",
+          "His cousin",
+          "His teacher"
+        ],
+        correctIndex: 1,
+        explanations: [
+          "Incorrect. There’s no mention of Dill staying with his grandmother.",
+          "Correct. Dill stays with his Aunt Rachel during his visits to Maycomb.",
+          "Incorrect. Dill’s cousin is not part of the living arrangement.",
+          "Incorrect. His teacher has no role in his family situation."
+        ],
+        hint: "Scout mentions Dill’s guardian when introducing him."
+      },
+      {
+        type: "matching",
+        question: "Match the character to their description:",
+        pairs: [
+          { left: "Atticus Finch", right: "Scout and Jem’s father and moral role model" },
+          { left: "Calpurnia", right: "The Finch family's cook and caretaker" },
+          { left: "Dill", right: "Imaginative friend who visits Maycomb each summer" },
+          { left: "Boo Radley", right: "Mysterious neighbor who never leaves his house" }
+        ],
+        hint: "Think about the children’s household, friendships, and local mysteries."
+      },
+      {
+        type: "multiple-choice",
+        question: "Why does Jem invite Walter Cunningham to lunch after the schoolyard fight?",
+        options: [
+          "To avoid punishment from Atticus",
+          "Because Walter was injured",
+          "As an apology for Scout’s earlier fight with him",
+          "To question him about Boo Radley"
+        ],
+        correctIndex: 2,
+        explanations: [
+          "Incorrect. Jem wasn’t threatened with punishment.",
+          "Incorrect. Walter was not physically injured.",
+          "Correct. Jem shows maturity by inviting Walter as a peace offering.",
+          "Incorrect. Boo Radley was not the topic of their lunch conversation."
+        ],
+        hint: "Jem shows kindness after breaking up Scout’s fight."
+      },
+      {
+        type: "true-false",
+        question: "The Finch family has lived in Maycomb for generations, originally settling there to farm.",
+        correctAnswer: true,
+        explanation: "Their ancestor Simon Finch established Finch’s Landing, a plantation along the Alabama River.",
+        hint: "Scout gives the family history in Chapter 1."
+      },
+      {
+        type: "multiple-choice",
+        question: "How does Scout describe Maycomb in the beginning of the novel?",
+        options: [
+          "A busy industrial town",
+          "A quiet, depressed town with little activity",
+          "A dangerous city full of crime",
+          "A modern progressive community"
+        ],
+        correctIndex: 1,
+        explanations: [
+          "Incorrect. There’s no industry or busyness described.",
+          "Correct. Scout explains that the Great Depression makes Maycomb slow and stagnant.",
+          "Incorrect. Crime isn’t a central issue described early on.",
+          "Incorrect. Maycomb is very traditional, not progressive."
+        ],
+        hint: "Economic hardship shapes Maycomb’s slow pace."
+      },
+      {
+        type: "matching",
+        question: "Match each child to their significant trait or event:",
+        pairs: [
+          { left: "Scout", right: "Gets into fights but tries to learn empathy" },
+          { left: "Jem", right: "Protects Scout and invites Walter to lunch" },
+          { left: "Burris Ewell", right: "Comes to school only on the first day" },
+          { left: "Chuck Little", right: "Comforts Miss Caroline when she cries" }
+        ],
+        hint: "Think about their behavior in school and toward Miss Caroline."
+      },
+      {
+        type: "multiple-choice",
+        question: "What is Jem’s reaction to Dill daring him to touch the Radley house?",
+        options: [
+          "He refuses completely",
+          "He touches it reluctantly and runs away",
+          "He knocks on the door",
+          "He tries to look through the window"
+        ],
+        correctIndex: 1,
+        explanations: [
+          "Incorrect. Jem does eventually give in to the dare.",
+          "Correct. Jem builds up courage, touches the house quickly, and sprints away.",
+          "Incorrect. He doesn’t knock.",
+          "Incorrect. Peeking through windows happens later in the novel."
+        ],
+        hint: "This is the first real interaction with the Radley property."
+      },
+      {
+        type: "true-false",
+        question: "Miss Caroline understands the customs of Maycomb well when she begins teaching.",
+        correctAnswer: false,
+        explanation: "She struggles because she comes from a more urban area and doesn’t understand the town’s ways.",
+        hint: "Think about her reactions to Walter Cunningham and Scout’s reading ability."
+      },
+      {
+        type: "multiple-choice",
+        question: "Why does Nathan Radley plug the hole in the Radley tree?",
+        options: [
+          "To prevent termites",
+          "To stop Boo from leaving gifts",
+          "Because the tree was diseased",
+          "Because Scout and Jem asked him to"
+        ],
+        correctIndex: 1,
+        explanations: [
+          "Incorrect. Termites are never mentioned.",
+          "Correct. Nathan Radley cuts off Boo’s quiet communication with the children.",
+          "Incorrect. Atticus questions whether the tree was truly diseased.",
+          "Incorrect. The children had no role in the decision."
+        ],
+        hint: "Consider who was leaving objects in the tree."
+      },
+      {
+        type: "matching",
+        question: "Match each adult character to their major action or role:",
+        pairs: [
+          { left: "Miss Maudie", right: "Offers Scout wisdom and friendship" },
+          { left: "Atticus", right: "Teaches Scout how to read at home" },
+          { left: "Miss Caroline", right: "Struggles to manage her first class" },
+          { left: "Calpurnia", right: "Disciplinary but nurturing housekeeper" }
+        ],
+        hint: "Each adult shapes Scout’s life in a different way."
+      },
+      {
+        type: "multiple-choice",
+        question: "What lesson does Atticus try to teach Scout after her rough first day of school?",
+        options: [
+          "To avoid troublemakers",
+          "That everyone deserves charity",
+          "To see situations from other people’s perspectives",
+          "That she should defend herself when others are unfair"
+        ],
+        correctIndex: 2,
+        explanations: [
+          "Incorrect. Atticus never advises avoidance.",
+          "Incorrect. Charity isn’t the main point here.",
+          "Correct. Atticus teaches Scout empathy, one of the novel’s key moral lessons.",
+          "Incorrect. He teaches understanding, not confrontation."
+        ],
+        hint: "This becomes Scout’s guiding principle throughout the novel."
+      }
+    ];
+    const quizContainer = document.getElementById("quiz");
+
+    questions.forEach((q, i) => {
+      const div = document.createElement("div");
+      div.classList.add("p-6", "border", "rounded", "shadow", "relative");
+      div.innerHTML = `<p class='font-semibold text-xl mb-4'>${i + 1}. ${q.question}</p>`;
+
+      // Hint toggle
+      if (q.hint) {
+        div.innerHTML += `
+          <button onclick="toggleHint(${i})" id="hint-btn-${i}" class="mb-3 text-sm text-blue-600 hover:text-blue-800 underline">Show Hint</button>
+          <div id="hint-${i}" class="hidden text-gray-600 italic mb-4">${q.hint}</div>
+        `;
+      }
+
+      if (q.type === "multiple-choice") {
+        div.innerHTML += q.options.map((opt, j) => `
+          <button id="q${i}a${j}" onclick="selectMultipleChoice(${i}, ${j})" class="block w-full text-left border px-4 py-2 rounded mb-2 transition hover:bg-[#F1FAFF]">${opt}</button>
+        `).join('') + `<div id="explanation-${i}" class="mt-4 text-lg"></div>`;
+      }
+
+      if (q.type === "true-false") {
+        div.innerHTML += `
+          <button onclick="selectTrueFalse(${i}, true, this)" class="block w-full text-left border px-4 py-2 rounded mb-2 transition hover:bg-[#F1FAFF]">True</button>
+          <button onclick="selectTrueFalse(${i}, false, this)" class="block w-full text-left border px-4 py-2 rounded mb-2 transition hover:bg-[#F1FAFF]">False</button>
+          <div id="explanation-${i}" class="mt-4 text-lg"></div>
+        `;
+      }
+
+      if (q.type === "short-answer") {
+        div.innerHTML += `
+          <input id="input-${i}" type="text" class="border w-full px-4 py-2 rounded mb-2">
+          <button onclick="submitShortAnswer(${i})" class="px-6 py-2 border-2 border-[#1D3557] text-[#1D3557] font-semibold rounded-lg hover:bg-[#0077B6] hover:text-white transition">Submit Answer</button>
+          <div id="explanation-${i}" class="mt-4 text-lg"></div>
+        `;
+      }
+
+      if (q.type === "long-answer") {
+        div.innerHTML += `
+          <textarea id="longinput-${i}" class="border w-full px-4 py-2 rounded mb-2" rows="4"></textarea>
+          <button onclick="submitLongAnswer(${i})" class="px-6 py-2 border-2 border-[#1D3557] text-[#1D3557] font-semibold rounded-lg hover:bg-[#0077B6] hover:text-white transition">Submit</button>
+          <div id="explanation-${i}" class="mt-4 text-lg"></div>
+        `;
+      }
+
+      if (q.type === "matching") {
+        div.innerHTML += `<ul class="space-y-2">`;
+        q.pairs.forEach((pair, idx) => {
+          div.innerHTML += `
+            <li><strong>${pair.left}</strong>: <select id="match-${i}-${idx}" class="border p-2 rounded">
+              <option value="">Select...</option>
+              ${q.pairs.map(p => `<option value="${p.right}">${p.right}</option>`).join('')}
+            </select></li>
+          `;
+        });
+        div.innerHTML += `</ul>
+          <button onclick="submitMatching(${i})" class="mt-4 px-6 py-2 border-2 border-[#1D3557] text-[#1D3557] font-semibold rounded-lg hover:bg-[#0077B6] hover:text-white transition">Check Answers</button>
+          <div id="explanation-${i}" class="mt-4 text-lg"></div>
+        `;
+      }
+
+      quizContainer.appendChild(div);
+    });
+    function toggleHint(index) {
+      const hint = document.getElementById(`hint-${index}`);
+      const button = document.getElementById(`hint-btn-${index}`);
+      const isHidden = hint.classList.contains("hidden");
+      hint.classList.toggle("hidden");
+      button.textContent = isHidden ? "Hide Hint" : "Show Hint";
+    }
+
+    function selectMultipleChoice(qIndex, aIndex) {
+      const question = questions[qIndex];
+      const buttons = question.options.map((_, i) => document.getElementById(`q${qIndex}a${i}`));
+      buttons.forEach(btn => {
+        btn.classList.remove("bg-green-100", "bg-red-100", "border-green-600", "border-red-600");
+      });
+
+      const selectedBtn = buttons[aIndex];
+      if (aIndex === question.correctIndex) {
+        selectedBtn.classList.add("bg-green-100", "border-green-600");
+      } else {
+        selectedBtn.classList.add("bg-red-100", "border-red-600");
+        buttons[question.correctIndex].classList.add("bg-green-100", "border-green-600");
+      }
+
+      const explanation = document.getElementById(`explanation-${qIndex}`);
+      explanation.innerHTML = question.explanations[aIndex];
+    }
+
+    function selectTrueFalse(qIndex, userAnswer, btn) {
+      const q = questions[qIndex];
+      const explanation = document.getElementById(`explanation-${qIndex}`);
+      const buttons = btn.parentElement.querySelectorAll("button");
+
+      buttons.forEach(b => b.classList.remove("bg-green-100", "bg-red-100", "border-green-600", "border-red-600"));
+
+      if (userAnswer === q.correctAnswer) {
+        btn.classList.add("bg-green-100", "border-green-600");
+        explanation.textContent = q.explanation;
+      } else {
+        btn.classList.add("bg-red-100", "border-red-600");
+        explanation.textContent = "Incorrect. " + q.explanation;
+      }
+    }
+
+    function submitShortAnswer(qIndex) {
+      const input = document.getElementById(`input-${qIndex}`);
+      const user = input.value.trim().toLowerCase();
+      const q = questions[qIndex];
+      const explanation = document.getElementById(`explanation-${qIndex}`);
+
+      if (q.acceptableAnswers.includes(user)) {
+        explanation.innerHTML = `<span class="text-green-700 font-semibold">Correct!</span> ${q.explanation}`;
+      } else {
+        explanation.innerHTML = `<span class="text-red-700 font-semibold">Incorrect.</span> ${q.explanation}`;
+      }
+    }
+
+    function submitLongAnswer(qIndex) {
+      const q = questions[qIndex];
+      const userAnswer = document.getElementById(`longinput-${qIndex}`).value;
+      const explanation = document.getElementById(`explanation-${qIndex}`);
+      explanation.innerHTML = `
+        <strong>Sample Answer:</strong><br>${q.modelAnswer}
+        <br><br><em>Your response:</em><br>${userAnswer}
+      `;
+    }
+
+    function submitMatching(qIndex) {
+      const q = questions[qIndex];
+      const explanation = document.getElementById(`explanation-${qIndex}`);
+      explanation.innerHTML = ""; // clear
+      let allCorrect = true;
+
+      q.pairs.forEach((pair, idx) => {
+        const sel = document.getElementById(`match-${qIndex}-${idx}`);
+        const selected = sel.value;
+        sel.classList.remove("bg-green-100", "bg-red-100", "border-green-600", "border-red-600");
+
+        if (selected === pair.right) {
+          sel.classList.add("bg-green-100", "border-green-600");
+        } else {
+          sel.classList.add("bg-red-100", "border-red-600");
+          allCorrect = false;
+        }
+      });
+
+      explanation.textContent = allCorrect
+        ? "All matches correct!"
+        : "Some matches are incorrect. Try again!";
+    }
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    function resetQuiz() {
+      const container = document.getElementById("quiz");
+      container.innerHTML = "";
+      shuffle(questions);
+      questions.forEach(q => {
+        if (q.options) shuffle(q.options);
+        if (q.pairs) shuffle(q.pairs);
+      });
+      questions.forEach((_, i) => toggleHint(i)); // ensure all hints are reset
+      questions.forEach((_, i) => toggleHint(i)); // double toggle to reset all to default state
+      questions.forEach((_, i) => {
+        const exp = document.getElementById(`explanation-${i}`);
+        if (exp) exp.innerHTML = "";
+      });
+      location.reload();
+    }
+  </script>
+  <div id="quiz" class="space-y-8 px-6 py-10 max-w-4xl mx-auto"></div>
+
+  <div class="flex justify-end max-w-4xl mx-auto pb-10 px-6">
+    <button onclick="resetQuiz()" class="px-6 py-3 text-white font-semibold rounded-lg bg-blue-300 hover:bg-blue-600 transition">
+      Try Again (Randomize Quiz)
+    </button>
+  </div>
+
+  <footer class="bg-[#1D3557] text-white text-center py-6 mt-10">
     <div class="space-x-4 mb-2">
       <a href="#" class="hover:underline text-sm">Terms</a>
       <a href="#" class="hover:underline text-sm">Privacy</a>
@@ -39,321 +463,6 @@
     </div>
     <p class="text-sm">&copy; 2025 Studying Smart. All rights reserved.</p>
   </footer>
-  <script>
-    const questions = [
-  {
-    type: "short-answer",
-    question: "What is Scout Finch’s full first name?",
-    acceptableAnswers: ["jean louise"],
-    explanation: "Scout’s full name is Jean Louise.",
-    hint: "Scout’s full name is only mentioned briefly, but it's her formal given name."
-  },
-  {
-    type: "long-answer",
-    question: "Explain the role that Boo Radley plays in Scout, Jem, and Dill's early adventures. How do the children's perceptions of him reflect larger themes in the novel?",
-    modelAnswer: "Boo Radley becomes the subject of the children’s fascination and imaginative games. They are both fearful of him and curious, based on town gossip and superstition. The rumors make Boo seem monstrous, but their fascination reflects how easily people can misunderstand and isolate those who are different. Boo represents a symbol of 'the unknown other' — someone the town fears but doesn’t truly know. As the children grow, their views of Boo begin to mature, reflecting their own moral development and the novel's theme of empathy.",
-    hint: "Think about what the kids believe about Boo at first vs. what we learn about Boo through subtle hints."
-  },
-  {
-    type: "multiple-choice",
-    question: "Why does Miss Caroline punish Scout on her first day of school?",
-    options: [
-      "Scout refuses to participate in reading aloud.",
-      "Scout corrects Miss Caroline’s teaching method.",
-      "Scout explains that Walter Cunningham cannot accept lunch money.",
-      "Scout mocks another student in class."
-    ],
-    correctIndex: 2,
-    explanations: [
-      "Incorrect. Scout enjoys reading but does not refuse to participate.",
-      "Incorrect. She doesn't directly correct Miss Caroline’s teaching method, but rather reveals she can already read.",
-      "Correct. Scout explains that Walter Cunningham cannot accept lunch money.",
-      "Incorrect. Scout does not mock another student during class; she fights Walter later at recess."
-    ],
-    hint: "Scout tries to explain Maycomb’s social customs to her inexperienced teacher."
-  },
-  {
-    type: "true-false",
-    question: "Scout learned to read at home before attending school.",
-    correctAnswer: true,
-    explanation: "Atticus taught Scout to read at home, which frustrates Miss Caroline, who believes Scout is being taught improperly.",
-    hint: "Think about Scout’s relationship with Atticus before school begins."
-  },
-  {
-    type: "multiple-choice",
-    question: "Who is Dill staying with when he first arrives in Maycomb?",
-    options: ["His grandmother", "His aunt", "His cousin", "His teacher"],
-    correctIndex: 1,
-    explanations: [
-      "Incorrect. No mention of Dill staying with his grandmother.",
-      "Correct. Dill stays with his Aunt Rachel.",
-      "Incorrect. His cousin is not part of the living arrangement.",
-      "Incorrect. His teacher has no role in his family situation."
-    ],
-    hint: "Scout mentions Dill’s guardian when introducing him."
-  },
-  {
-    type: "matching",
-    question: "Match the character to their description:",
-    pairs: [
-      { left: "Atticus Finch", right: "C. Scout and Jem’s father and moral role model" },
-      { left: "Calpurnia", right: "A. The Finch family's cook and caretaker" },
-      { left: "Dill", right: "D. Imaginative friend who visits Maycomb each summer" },
-      { left: "Boo Radley", right: "B. Mysterious neighbor who never leaves his house" }
-    ],
-    hint: "Think about the children’s household, friendships, and local mysteries."
-  },
-  {
-    type: "multiple-choice",
-    question: "Why does Jem invite Walter Cunningham to lunch after the schoolyard fight?",
-    options: [
-      "To avoid punishment from Atticus",
-      "Because Walter was injured",
-      "As an apology for Scout’s earlier fight with him",
-      "To question him about Boo Radley"
-    ],
-    correctIndex: 2,
-    explanations: [
-      "Incorrect. Jem wasn’t threatened with punishment.",
-      "Incorrect. Walter was not physically injured.",
-      "Correct. Jem shows maturity by inviting Walter to lunch.",
-      "Incorrect. Boo Radley was not the topic of their lunch."
-    ],
-    hint: "Jem shows kindness after breaking up Scout’s fight."
-  },
-  {
-    type: "true-false",
-    question: "The Finch family has lived in Maycomb for generations, originally settling there to farm.",
-    correctAnswer: true,
-    explanation: "Simon Finch established Finch’s Landing, a plantation along the Alabama River.",
-    hint: "Scout gives the family history in Chapter 1."
-  },
-  {
-    type: "multiple-choice",
-    question: "How does Scout describe Maycomb in the beginning of the novel?",
-    options: [
-      "A busy industrial town",
-      "A quiet, depressed town with little activity",
-      "A dangerous city full of crime",
-      "A modern progressive community"
-    ],
-    correctIndex: 1,
-    explanations: [
-      "Incorrect. There’s no industry or busyness described.",
-      "Correct. Maycomb is slow and stagnant.",
-      "Incorrect. Crime isn’t central early on.",
-      "Incorrect. Maycomb is very traditional."
-    ],
-    hint: "Economic hardship shapes Maycomb’s slow pace."
-  },
-  {
-    type: "matching",
-    question: "Match each child to their significant trait or event:",
-    pairs: [
-      { left: "Scout", right: "C. Gets into fights but tries to learn empathy" },
-      { left: "Jem", right: "D. Protects Scout and invites Walter to lunch" },
-      { left: "Burris Ewell", right: "A. Comes to school only on the first day" },
-      { left: "Chuck Little", right: "B. Comforts Miss Caroline when she cries" }
-    ],
-    hint: "Think about their behavior in school and toward Miss Caroline."
-  },
-  {
-    type: "multiple-choice",
-    question: "What is Jem’s reaction to Dill daring him to touch the Radley house?",
-    options: [
-      "He refuses completely",
-      "He touches it reluctantly and runs away",
-      "He knocks on the door",
-      "He tries to look through the window"
-    ],
-    correctIndex: 1,
-    explanations: [
-      "Incorrect. Jem does eventually give in to the dare.",
-      "Correct. Jem builds up courage, touches the house quickly, and sprints away.",
-      "Incorrect. He doesn’t knock.",
-      "Incorrect. Peeking through windows happens later."
-    ],
-    hint: "This is the first real interaction with the Radley property."
-  },
-  {
-    type: "true-false",
-    question: "Miss Caroline understands the customs of Maycomb well when she begins teaching.",
-    correctAnswer: false,
-    explanation: "She struggles because she comes from a more urban area and doesn’t understand the town’s ways.",
-    hint: "Think about her reactions to Walter Cunningham and Scout’s reading ability."
-  },
-  {
-    type: "multiple-choice",
-    question: "Why does Nathan Radley plug the hole in the Radley tree?",
-    options: [
-      "To prevent termites",
-      "To stop Boo from leaving gifts",
-      "Because the tree was diseased",
-      "Because Scout and Jem asked him to"
-    ],
-    correctIndex: 1,
-    explanations: [
-      "Incorrect. Termites are never mentioned.",
-      "Correct. Nathan Radley cuts off Boo’s communication.",
-      "Incorrect. Atticus questions if the tree was diseased.",
-      "Incorrect. The children had no role in the decision."
-    ],
-    hint: "Consider who was leaving objects in the tree."
-  },
-  {
-    type: "matching",
-    question: "Match each adult character to their major action or role:",
-    pairs: [
-      { left: "Miss Maudie", right: "A. Offers Scout wisdom and friendship" },
-      { left: "Atticus", right: "B. Teaches Scout how to read at home" },
-      { left: "Miss Caroline", right: "C. Struggles to manage her first class" },
-      { left: "Calpurnia", right: "D. Disciplinary but nurturing housekeeper" }
-    ],
-    hint: "Each adult shapes Scout’s life differently."
-  },
-  {
-    type: "multiple-choice",
-    question: "What lesson does Atticus try to teach Scout after her rough first day of school?",
-    options: [
-      "To avoid troublemakers",
-      "That everyone deserves charity",
-      "To see situations from other people’s perspectives",
-      "That she should defend herself when others are unfair"
-    ],
-    correctIndex: 2,
-    explanations: [
-      "Incorrect. Atticus never advises avoidance.",
-      "Incorrect. Charity isn’t the main point.",
-      "Correct. Atticus teaches Scout empathy.",
-      "Incorrect. He teaches understanding, not confrontation."
-    ],
-    hint: "This becomes Scout’s guiding principle throughout the novel."
-  }
-];
-
-    function initializeQuiz() {
-      const quizContainer = document.getElementById("quiz");
-      quizContainer.innerHTML = "";
-      questions.forEach((q, i) => {
-        const div = document.createElement("div");
-        div.classList.add("p-6", "border", "rounded", "shadow");
-        div.innerHTML = `<p class='font-semibold text-xl mb-4'>${i + 1}. ${q.question}</p>`;
-        if (q.hint) {
-          div.innerHTML += `<button onclick="toggleHint(${i})" class="mb-2 text-sm text-blue-600 underline">Show Hint</button><div id="hint-${i}" class="text-sm text-blue-500 hidden mb-2">Hint: ${q.hint}</div>`;
-        }
-        if (q.type === "multiple-choice") {
-          div.innerHTML += q.options.map((opt, j) => `
-            <button id="q${i}a${j}" onclick="selectMultipleChoice(${i}, ${j})" class="block w-full text-left border px-4 py-2 rounded mb-2 hover:bg-[#F1FAFF]">${opt}</button>
-          `).join('') + `<div id="explanation-${i}" class="mt-4 text-lg"></div>`;
-        }
-        if (q.type === "true-false") {
-          div.innerHTML += `
-            <button onclick="selectTrueFalse(${i}, true, this)" class="block w-full text-left border px-4 py-2 rounded mb-2 hover:bg-[#F1FAFF]">True</button>
-            <button onclick="selectTrueFalse(${i}, false, this)" class="block w-full text-left border px-4 py-2 rounded mb-2 hover:bg-[#F1FAFF]">False</button>
-            <div id="explanation-${i}" class="mt-4 text-lg"></div>
-          `;
-        }
-        if (q.type === "short-answer") {
-          div.innerHTML += `
-            <input id="input-${i}" type="text" class="border w-full px-4 py-2 rounded mb-2">
-            <button onclick="submitShortAnswer(${i})" class="px-6 py-2 border text-sm rounded hover:bg-[#0077B6] hover:text-white transition">Submit</button>
-            <div id="explanation-${i}" class="mt-4 text-lg"></div>
-          `;
-        }
-        if (q.type === "long-answer") {
-          div.innerHTML += `
-            <textarea id="longinput-${i}" class="border w-full px-4 py-2 rounded mb-2" rows="4"></textarea>
-            <button onclick="submitLongAnswer(${i})" class="px-6 py-2 border text-sm rounded hover:bg-[#0077B6] hover:text-white transition">Submit</button>
-            <div id="explanation-${i}" class="mt-4 text-lg"></div>
-          `;
-        }
-        if (q.type === "matching") {
-          div.innerHTML += `<ul class="space-y-2">`;
-          q.pairs.forEach((pair, idx) => {
-            div.innerHTML += `
-              <li><strong>${pair.left}</strong>: 
-                <select id="match-${i}-${idx}" class="border p-2 rounded">
-                  <option value="">Select...</option>
-                  ${q.pairs.map(p => `<option value="${p.right}">${p.right}</option>`).join('')}
-                </select>
-              </li>
-            `;
-          });
-          div.innerHTML += `</ul><button onclick="submitMatching(${i})" class="mt-4 px-6 py-2 border rounded hover:bg-[#0077B6] hover:text-white transition">Check Answers</button><div id="explanation-${i}" class="mt-4 text-lg"></div>`;
-        }
-        quizContainer.appendChild(div);
-      });
-    }
-
-    function toggleHint(i) {
-      document.getElementById(`hint-${i}`).classList.toggle("hidden");
-    }
-
-    function normalize(input) {
-      return input.trim().toLowerCase().replace(/[^a-z0-9 ]/g, "");
-    }
-
-    function submitShortAnswer(i) {
-      const input = normalize(document.getElementById(`input-${i}`).value);
-      const q = questions[i];
-      const explanationDiv = document.getElementById(`explanation-${i}`);
-      if (q.acceptableAnswers.includes(input)) {
-        explanationDiv.innerHTML = `<p class='text-green-700'>Correct. ${q.explanation}</p>`;
-      } else {
-        explanationDiv.innerHTML = `<p class='text-red-700'>Incorrect. ${q.explanation}</p>`;
-      }
-    }
-
-    function submitLongAnswer(i) {
-      const q = questions[i];
-      document.getElementById(`explanation-${i}`).innerHTML = `<p class='text-green-700'>Model Answer: ${q.modelAnswer}</p>`;
-    }
-
-    function selectMultipleChoice(i, selectedIndex) {
-      const q = questions[i];
-      const button = document.getElementById(`q${i}a${selectedIndex}`);
-      const explanation = document.getElementById(`explanation-${i}`);
-      if (selectedIndex === q.correctIndex) {
-        button.classList.add("bg-green-100", "border-green-500", "text-green-700");
-        explanation.innerHTML = `<p class='text-green-700'>${q.explanations[selectedIndex]}</p>`;
-      } else {
-        button.classList.add("bg-red-100", "border-red-500", "text-red-700");
-        explanation.innerHTML = `<p class='text-red-700'>${q.explanations[selectedIndex]}</p>`;
-      }
-    }
-
-    function selectTrueFalse(i, answer, btn) {
-      const q = questions[i];
-      const explanation = document.getElementById(`explanation-${i}`);
-      if (answer === q.correctAnswer) {
-        btn.classList.add("bg-green-100", "border-green-500", "text-green-700");
-        explanation.innerHTML = `<p class='text-green-700'>Correct!</p>`;
-      } else {
-        btn.classList.add("bg-red-100", "border-red-500", "text-red-700");
-        explanation.innerHTML = `<p class='text-red-700'>Incorrect. ${q.explanation}</p>`;
-      }
-    }
-
-    function submitMatching(i) {
-      const q = questions[i];
-      let correct = 0;
-      q.pairs.forEach((pair, idx) => {
-        const select = document.getElementById(`match-${i}-${idx}`);
-        if (select.value === pair.right) {
-          select.classList.add("bg-green-100", "border-green-500");
-          correct++;
-        } else {
-          select.classList.add("bg-red-100", "border-red-500");
-        }
-      });
-      const explanation = document.getElementById(`explanation-${i}`);
-      explanation.innerHTML = (correct === q.pairs.length)
-        ? `<p class='text-green-700'>Perfect! All matches correct.</p>`
-        : `<p class='text-red-700'>${correct} out of ${q.pairs.length} correct. Keep trying!</p>`;
-    }
-
-    initializeQuiz();
-  </script>
 </body>
 </html>
 
