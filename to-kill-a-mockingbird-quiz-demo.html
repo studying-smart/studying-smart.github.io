@@ -82,14 +82,13 @@
       {
         type: "short-answer",
         question: "Who is Scout's brother?",
-        acceptableAnswers: ["jem", "jeremy"],
+        acceptableAnswers: ["jem", "jeremy", "jem finch", "jeremy finch"],
         explanation: "Scout's brother is Jem Finch."
       },
       {
-        type: "short-answer",
-        question: "Name one theme from the novel.",
-        acceptableAnswers: ["racism", "justice", "morality", "prejudice", "innocence"],
-        explanation: "Possible themes include racism, justice, morality, prejudice, and innocence."
+        type: "long-answer",
+        question: "Explain why Atticus defends Tom Robinson.",
+        modelAnswer: "Atticus believes in justice and equality. He knows Tom is innocent and feels morally obligated to defend him even against public opinion."
       }
     ];
 
@@ -122,6 +121,14 @@
         `;
       }
 
+      if (q.type === "long-answer") {
+        div.innerHTML += `
+          <textarea id="longinput-${i}" class="border w-full px-4 py-2 rounded mb-2" rows="4"></textarea>
+          <button onclick="submitLongAnswer(${i})" class="px-6 py-2 border-2 border-[#1D3557] text-[#1D3557] font-semibold rounded-lg hover:bg-[#0077B6] hover:text-white transition">Submit</button>
+          <div id="explanation-${i}" class="mt-4 text-lg"></div>
+        `;
+      }
+
       quizContainer.appendChild(div);
     });
 
@@ -148,8 +155,12 @@
       }
     }
 
+    function normalize(input) {
+      return input.trim().toLowerCase().replace(/[^a-z0-9 ]/g, "");
+    }
+
     function submitShortAnswer(qIndex) {
-      const input = document.getElementById(`input-${qIndex}`).value.trim().toLowerCase();
+      const input = normalize(document.getElementById(`input-${qIndex}`).value);
       const q = questions[qIndex];
       const correct = q.acceptableAnswers.includes(input);
       const explanationDiv = document.getElementById(`explanation-${qIndex}`);
@@ -158,6 +169,12 @@
       } else {
         explanationDiv.innerHTML = `<p class='text-red-700'>Incorrect. ${q.explanation}</p>`;
       }
+    }
+
+    function submitLongAnswer(qIndex) {
+      const q = questions[qIndex];
+      const explanationDiv = document.getElementById(`explanation-${qIndex}`);
+      explanationDiv.innerHTML = `<p class='text-green-700'>Model Answer: ${q.modelAnswer}</p>`;
     }
   </script>
 </body>
