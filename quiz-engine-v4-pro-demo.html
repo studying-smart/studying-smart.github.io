@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Kill a Mockingbird - Quiz Engine V4 Pro Demo | Studying Smart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    details summary::-webkit-details-marker { display: none; }
+  </style>
+</head>
+
+<body class="bg-white text-[#1D3557] min-h-screen flex flex-col">
+  <nav class="bg-[#1D3557] text-white px-6 py-4 flex justify-between items-center shadow sticky top-0 z-50">
+    <div class="text-2xl font-bold">Studying Smart</div>
+  </nav>
+
+  <div class="flex flex-1">
+    <main class="flex-1 p-10 bg-white">
+      <div class="max-w-5xl mx-auto px-6 py-8">
+        <h1 class="text-3xl font-bold mb-8">Quiz Engine V4 Pro Demo</h1>
+        <div id="quiz" class="space-y-10"></div>
+        <div id="summary" class="hidden mt-10 p-6 border rounded shadow-lg text-xl font-semibold text-center"></div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        type: "multiple-choice",
+        question: "Who narrates To Kill a Mockingbird?",
+        options: ["Atticus Finch", "Scout Finch", "Jem Finch", "Harper Lee"],
+        correctIndex: 1,
+        explanations: [
+          "Incorrect. Atticus is Scout's father.",
+          "Correct. Scout narrates the novel.",
+          "Incorrect. Jem is Scout's brother.",
+          "Incorrect. Harper Lee is the author."
+        ]
+      },
+      {
+        type: "true-false",
+        question: "Tom Robinson was found not guilty.",
+        correctAnswer: false,
+        explanation: "Tom Robinson was sadly convicted despite being innocent."
+      },
+      {
+        type: "short-answer",
+        question: "Who is Scout's brother?",
+        acceptableAnswers: ["jem", "jeremy", "jem finch", "jeremy finch"],
+        explanation: "Scout's brother is Jem Finch."
+      },
+      {
+        type: "matching",
+        question: "Match the characters to their descriptions:",
+        pairs: [
+          { left: "Scout", right: "Narrator of the novel" },
+          { left: "Boo Radley", right: "Reclusive neighbor" },
+          { left: "Atticus", right: "Scout's father and lawyer" }
+        ]
+      }
+    ];
+
+    let score = 0;
+    const quizContainer = document.getElementById("quiz");
+
+    questions.forEach((q, i) => {
+      const div = document.createElement("div");
+      div.classList.add("p-6", "border", "rounded", "shadow");
+      div.innerHTML = `<p class='font-semibold text-xl mb-4'>${i + 1}. ${q.question}</p>`;
+
+      if (q.type === "multiple-choice") {
+        div.innerHTML += q.options.map((opt, j) => `
+          <button id="q${i}a${j}" onclick="handleMC(${i}, ${j})" class="block w-full text-left border px-4 py-2 rounded mb-2 transition hover:bg-[#F1FAFF]">${opt}</button>
+        `).join('') + `<div id="explanation-${i}" class="mt-4 text-lg"></div>`;
+      }
+
+      if (q.type === "true-false") {
+        div.innerHTML += `
+          <button onclick="handleTF(${i}, true, this)" class="block w-full text-left border px-4 py-2 rounded mb-2 transition hover:bg-[#F1FAFF]">True</button>
+          <button onclick="handleTF(${i}, false, this)" class="block w-full text-left border px-4 py-2 rounded mb-2 transition hover:bg-[#F1FAFF]">False</button>
+          <div id="explanation-${i}" class="mt-4 text-lg"></div>
+        `;
+      }
+
+      if (q.type === "short-answer") {
+        div.innerHTML += `
+          <input id="input-${i}" type="text" class="border w-full px-4 py-2 rounded mb-2">
+          <button onclick="handleSA(${i})" class="px-6 py-2 border-2 border-[#1D3557] text-[#1D3557] font-semibold rounded-lg hover:bg-[#0077B6] hover:text-white transition">Submit</button>
+          <div id="explanation-${i}" class="mt-4 text-lg"></div>
+        `;
+      }
+
+      if (q.type === "matching") {
+        div.innerHTML += `<ul class="space-y-2">`;
+        q.pairs.forEach((pair, idx) => {
+          div.innerHTML += `
+            <li><strong>${pair.left}</strong>: <select id="match-${i}-${idx}" class="border p-2 rounded">
+              <option value="">Select...</option>
+              ${q.pairs.map(p => `<option value="${p.right}">${p.right}</option>`).join('')}
+            </select></li>
+          `;
+        });
+        div.innerHTML += `</ul>
+          <button onclick="handleMatch(${i})" class="mt-4 px-6 py-2 border-2 border-[#1D3557] text-[#1D3557] font-semibold rounded-lg hover:bg-[#0077B6] hover:text-white transition">Check Matches</button>
+          <div id="explanation-${i}" class="mt-4 text-lg"></div>`;
+      }
+
+      quizContainer.appendChild(div);
+    });
+
+    function handleMC(qIndex, selectedIndex) {
+      const q = questions[qIndex];
+      if (selectedIndex === q.correctIndex) {
+        document.getElementById(`explanation-${qIndex}`).innerHTML = `<p class='text-green-700'>${q.explanations[selectedIndex]}</p>`;
+        score++;
+      } else {
+        document.getElementById(`explanation-${qIndex}`).innerHTML = `<p class='text-red-700'>${q.explanations[selectedIndex]}</p>`;
+      }
+      checkEnd();
+    }
+
+    function handleTF(qIndex, answer, btn) {
+      const q = questions[qIndex];
+      if (answer === q.correctAnswer) {
+        document.getElementById(`explanation-${qIndex}`).innerHTML = `<p class='text-green-700'>Correct!</p>`;
+        score++;
+      } else {
+        document.getElementById(`explanation-${qIndex}`).innerHTML = `<p class='text-red-700'>Incorrect. ${q.explanation}</p>`;
+      }
+      checkEnd();
+    }
+
+    function handleSA(qIndex) {
+      const input = document.getElementById(`input-${qIndex}`).value.trim().toLowerCase().replace(/[^a-z0-9 ]/g, "");
+      const q = questions[qIndex];
+      const correct = q.acceptableAnswers.includes(input);
+      const expDiv = document.getElementById(`explanation-${qIndex}`);
+      expDiv.innerHTML = "";
+      setTimeout(() => {
+        if (correct) {
+          expDiv.innerHTML = `<p class='text-green-700'>Correct. ${q.explanation}</p>`;
+          score++;
+        } else {
+          expDiv.innerHTML = `<p class='text-red-700'>Incorrect. ${q.explanation}</p>`;
+        }
+        checkEnd();
+      }, 100);
+    }
+
+    function handleMatch(qIndex) {
+      const q = questions[qIndex];
+      let correct = 0;
+      q.pairs.forEach((pair, idx) => {
+        const select = document.getElementById(`match-${qIndex}-${idx}`);
+        if (select.value === pair.right) {
+          select.classList.add("bg-green-100", "border-green-500");
+          select.classList.remove("bg-red-100", "border-red-500");
+          correct++;
+        } else {
+          select.classList.add("bg-red-100", "border-red-500");
+          select.classList.remove("bg-green-100", "border-green-500");
+        }
+      });
+      if (correct === q.pairs.length) score++;
+      checkEnd();
+    }
+
+    function checkEnd() {
+      const summary = document.getElementById("summary");
+      const total = questions.length;
+      summary.classList.remove("hidden");
+      summary.innerText = `Score: ${score} / ${total}`;
+    }
+  </script>
+</body>
+</html>
