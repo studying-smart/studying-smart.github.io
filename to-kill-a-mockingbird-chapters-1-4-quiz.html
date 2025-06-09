@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Kill a Mockingbird - Chapters 1-4 Quiz | Studying Smart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    details summary::-webkit-details-marker { display: none; }
+  </style>
+</head>
+<body class="bg-white text-[#1D3557] min-h-screen flex flex-col">
+  <nav class="bg-[#1D3557] text-white px-6 py-4 flex justify-between items-center shadow sticky top-0 z-50">
+    <div class="text-2xl font-bold">Studying Smart</div>
+    <div class="flex items-center space-x-6">
+      <a href="#" class="hover:text-[#0077B6] transition duration-200">Home</a>
+      <a href="#" class="hover:text-[#0077B6] transition duration-200">Subjects</a>
+      <a href="book-guides.html" class="hover:text-[#0077B6] transition duration-200">Book Guides</a>
+      <a href="#" class="hover:text-[#0077B6] transition duration-200">Textbook Solutions</a>
+      <a href="#" class="hover:text-[#0077B6] transition duration-200">About</a>
+    </div>
+  </nav>
+  <main class="flex-1 p-10 bg-white">
+    <div class="max-w-5xl mx-auto px-6 py-8">
+      <h1 class="text-3xl font-bold mb-4">Chapters 1–4 Quiz</h1>
+      <div id="quiz" class="space-y-10"></div>
+      <div class="mt-10 text-center">
+        <button onclick="initializeQuiz()" class="px-8 py-3 border-2 border-[#1D3557] text-[#1D3557] font-semibold rounded-lg hover:bg-[#0077B6] hover:text-white transition">Take Again</button>
+      </div>
+    </div>
+  </main>
+  <footer class="bg-[#1D3557] text-white text-center py-6">
+    <div class="space-x-4 mb-2">
+      <a href="#" class="hover:underline text-sm">Terms</a>
+      <a href="#" class="hover:underline text-sm">Privacy</a>
+      <a href="#" class="hover:underline text-sm">Contact</a>
+    </div>
+    <p class="text-sm">&copy; 2025 Studying Smart. All rights reserved.</p>
+  </footer>
+  <script>
+    const questions = [
+      { type: "short-answer", question: "What is Scout Finch’s full first name?", acceptableAnswers: ["jean louise"], explanation: "Scout’s full name is Jean Louise.", hint: "Scout’s full name is only mentioned briefly, but it's her formal given name." },
+      { type: "long-answer", question: "Explain the role that Boo Radley plays in Scout, Jem, and Dill's early adventures. How do the children's perceptions of him reflect larger themes in the novel?", modelAnswer: "Boo Radley becomes the subject of the children’s fascination and imaginative games...", hint: "Think about what the kids believe about Boo at first vs. what we learn about Boo through subtle hints." },
+      { type: "multiple-choice", question: "Why does Miss Caroline punish Scout on her first day of school?", options: ["Scout refuses to participate in reading aloud.","Scout corrects Miss Caroline’s teaching method.","Scout explains that Walter Cunningham cannot accept lunch money.","Scout mocks another student in class."], correctIndex: 2, explanations: ["Incorrect. Scout enjoys reading but does not refuse to participate.","Incorrect. She doesn't directly correct Miss Caroline’s teaching method, but rather reveals she can already read.","Correct. Scout explains that Walter Cunningham cannot accept lunch money.","Incorrect. Scout does not mock another student during class; she fights Walter later at recess."], hint: "Scout tries to explain Maycomb’s social customs to her inexperienced teacher." },
+      { type: "true-false", question: "Scout learned to read at home before attending school.", correctAnswer: true, explanation: "Atticus taught Scout to read at home, which frustrates Miss Caroline, who believes Scout is being taught improperly.", hint: "Think about Scout’s relationship with Atticus before school begins." },
+      { type: "multiple-choice", question: "Who is Dill staying with when he first arrives in Maycomb?", options: ["His grandmother","His aunt","His cousin","His teacher"], correctIndex: 1, explanations: ["Incorrect. No mention of Dill staying with his grandmother.","Correct. Dill stays with his Aunt Rachel.","Incorrect. His cousin is not part of the living arrangement.","Incorrect. His teacher has no role in his family situation."], hint: "Scout mentions Dill’s guardian when introducing him." },
+      { type: "matching", question: "Match the character to their description:", pairs: [{ left: "Atticus Finch", right: "C. Scout and Jem’s father and moral role model" },{ left: "Calpurnia", right: "A. The Finch family's cook and caretaker" },{ left: "Dill", right: "D. Imaginative friend who visits Maycomb each summer" },{ left: "Boo Radley", right: "B. Mysterious neighbor who never leaves his house" }], hint: "Think about the children’s household, friendships, and local mysteries." },
+      { type: "multiple-choice", question: "Why does Jem invite Walter Cunningham to lunch after the schoolyard fight?", options: ["To avoid punishment from Atticus","Because Walter was injured","As an apology for Scout’s earlier fight with him","To question him about Boo Radley"], correctIndex: 2, explanations: ["Incorrect. Jem wasn’t threatened with punishment.","Incorrect. Walter was not physically injured.","Correct. Jem shows maturity by inviting Walter to lunch.","Incorrect. Boo Radley was not the topic of their lunch."], hint: "Jem shows kindness after breaking up Scout’s fight." },
+      { type: "true-false", question: "The Finch family has lived in Maycomb for generations, originally settling there to farm.", correctAnswer: true, explanation: "Simon Finch established Finch’s Landing, a plantation along the Alabama River.", hint: "Scout gives the family history in Chapter 1." },
+      { type: "multiple-choice", question: "How does Scout describe Maycomb in the beginning of the novel?", options: ["A busy industrial town","A quiet, depressed town with little activity","A dangerous city full of crime","A modern progressive community"], correctIndex: 1, explanations: ["Incorrect. There’s no industry or busyness described.","Correct. Maycomb is slow and stagnant.","Incorrect. Crime isn’t central early on.","Incorrect. Maycomb is very traditional."], hint: "Economic hardship shapes Maycomb’s slow pace." },
+      { type: "matching", question: "Match each child to their significant trait or event:", pairs: [{ left: "Scout", right: "C. Gets into fights but tries to learn empathy" },{ left: "Jem", right: "D. Protects Scout and invites Walter to lunch" },{ left: "Burris Ewell", right: "A. Comes to school only on the first day" },{ left: "Chuck Little", right: "B. Comforts Miss Caroline when she cries" }], hint: "Think about their behavior in school and toward Miss Caroline." },
+      { type: "multiple-choice", question: "What is Jem’s reaction to Dill daring him to touch the Radley house?", options: ["He refuses completely","He touches it reluctantly and runs away","He knocks on the door","He tries to look through the window"], correctIndex: 1, explanations: ["Incorrect. Jem does eventually give in to the dare.","Correct. Jem builds up courage, touches the house quickly, and sprints away.","Incorrect. He doesn’t knock.","Incorrect. Peeking through windows happens later."], hint: "This is the first real interaction with the Radley property." },
+      { type: "true-false", question: "Miss Caroline understands the customs of Maycomb well when she begins teaching.", correctAnswer: false, explanation: "She struggles because she comes from a more urban area and doesn’t understand the town’s ways.", hint: "Think about her reactions to Walter Cunningham and Scout’s reading ability." },
+      { type: "multiple-choice", question: "Why does Nathan Radley plug the hole in the Radley tree?", options: ["To prevent termites","To stop Boo from leaving gifts","Because the tree was diseased","Because Scout and Jem asked him to"], correctIndex: 1, explanations: ["Incorrect. Termites are never mentioned.","Correct. Nathan Radley cuts off Boo’s communication.","Incorrect. Atticus questions if the tree was diseased.","Incorrect. The children had no role in the decision."], hint: "Consider who was leaving objects in the tree." },
+      { type: "matching", question: "Match each adult character to their major action or role:", pairs: [{ left: "Miss Maudie", right: "A. Offers Scout wisdom and friendship" },{ left: "Atticus", right: "B. Teaches Scout how to read at home" },{ left: "Miss Caroline", right: "C. Struggles to manage her first class" },{ left: "Calpurnia", right: "D. Disciplinary but nurturing housekeeper" }], hint: "Each adult shapes Scout’s life differently." },
+      { type: "multiple-choice", question: "What lesson does Atticus try to teach Scout after her rough first day of school?", options: ["To avoid troublemakers","That everyone deserves charity","To see situations from other people’s perspectives","That she should defend herself when others are unfair"], correctIndex: 2, explanations: ["Incorrect. Atticus never advises avoidance.","Incorrect. Charity isn’t the main point.","Correct. Atticus teaches Scout empathy.","Incorrect. He teaches understanding, not confrontation."], hint: "This becomes Scout’s guiding principle throughout the novel." }
+    ];
+  </script>
+</body>
+</html>
