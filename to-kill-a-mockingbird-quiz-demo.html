@@ -189,12 +189,14 @@
       const q = questions[qIndex];
       const correct = q.acceptableAnswers.includes(input);
       const explanationDiv = document.getElementById(`explanation-${qIndex}`);
-      explanationDiv.innerHTML = ""; // <-- this refreshes visually every time
-      if (correct) {
-        explanationDiv.innerHTML = `<p class='text-green-700'>Correct. ${q.explanation}</p>`;
-      } else {
-        explanationDiv.innerHTML = `<p class='text-red-700'>Incorrect. ${q.explanation}</p>`;
-      }
+      explanationDiv.innerHTML = "";
+      setTimeout(() => {
+        if (correct) {
+          explanationDiv.innerHTML = `<p class='text-green-700'>Correct. ${q.explanation}</p>`;
+        } else {
+          explanationDiv.innerHTML = `<p class='text-red-700'>Incorrect. ${q.explanation}</p>`;
+        }
+      }, 100);
     }
 
     function submitLongAnswer(qIndex) {
@@ -207,8 +209,15 @@
       const q = questions[qIndex];
       let correct = 0;
       q.pairs.forEach((pair, idx) => {
-        const userValue = document.getElementById(`match-${qIndex}-${idx}`).value;
-        if (userValue === pair.right) correct++;
+        const select = document.getElementById(`match-${qIndex}-${idx}`);
+        if (select.value === pair.right) {
+          select.classList.remove("border-red-500", "bg-red-100");
+          select.classList.add("border-green-500", "bg-green-100");
+          correct++;
+        } else {
+          select.classList.remove("border-green-500", "bg-green-100");
+          select.classList.add("border-red-500", "bg-red-100");
+        }
       });
       const explanationDiv = document.getElementById(`explanation-${qIndex}`);
       if (correct === q.pairs.length) {
