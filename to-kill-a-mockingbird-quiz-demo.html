@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To Kill a Mockingbird - Chapter 1-4 Quiz Demo | Studying Smart</title>
+  <title>To Kill a Mockingbird - Interactive Quiz Engine | Studying Smart</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -35,34 +35,17 @@
       <ul class="space-y-3">
         <li><a href="to-kill-a-mockingbird-introduction.html" class="hover:text-[#0077B6] transition duration-200">Introduction</a></li>
         <li><a href="to-kill-a-mockingbird-background.html" class="hover:text-[#0077B6] transition duration-200">Background</a></li>
-        <li>
-          <details class="group" open>
-            <summary class="cursor-pointer hover:text-[#0077B6] transition duration-200 font-medium flex justify-between items-center">
-              Chapter Summaries
-              <svg class="w-4 h-4 ml-2 transition-transform duration-300 group-open:rotate-90" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </summary>
-            <ul class="pl-4 mt-2 space-y-2">
-              <li><a href="to-kill-a-mockingbird-chapters-1-4.html" class="hover:text-[#0077B6] transition duration-200">Chapters 1-4</a></li>
-            </ul>
-          </details>
-        </li>
-        <li><a href="to-kill-a-mockingbird-characters.html" class="hover:text-[#0077B6] transition duration-200">Characters</a></li>
-        <li><a href="to-kill-a-mockingbird-symbols.html" class="hover:text-[#0077B6] transition duration-200">Symbols & Motifs</a></li>
-        <li><a href="to-kill-a-mockingbird-themes.html" class="hover:text-[#0077B6] transition duration-200">Themes</a></li>
-        <li><a href="to-kill-a-mockingbird-quotes.html" class="hover:text-[#0077B6] transition duration-200">Important Quotes</a></li>
+        <li><a href="to-kill-a-mockingbird-chapters-1-4.html" class="hover:text-[#0077B6] transition duration-200">Chapters 1-4</a></li>
+        <li><a href="to-kill-a-mockingbird-quotes.html" class="hover:text-[#0077B6] transition duration-200">Quotes</a></li>
         <li><a href="to-kill-a-mockingbird-essays.html" class="hover:text-[#0077B6] transition duration-200">Essays</a></li>
-        <li><a href="to-kill-a-mockingbird-quiz-demo.html" class="hover:text-[#0077B6] transition duration-200 font-semibold">Quiz Demo</a></li>
+        <li><a href="#" class="hover:text-[#0077B6] transition duration-200 font-semibold">Quiz Demo</a></li>
       </ul>
     </aside>
 
     <main class="flex-1 p-10 bg-white">
       <div class="max-w-5xl mx-auto px-6 py-8">
-        <h1 class="text-3xl font-bold mb-6">Chapter 1-4 Quiz Demo</h1>
-        <div id="quiz" class="space-y-8"></div>
-        <button onclick="submitQuiz()" class="mt-8 px-6 py-3 bg-[#1D3557] text-white font-bold rounded-lg hover:bg-[#0077B6] transition">Submit Quiz</button>
-        <div id="result" class="mt-8 text-xl font-semibold"></div>
+        <h1 class="text-3xl font-bold mb-8">Chapter 1-4 Interactive Quiz Demo</h1>
+        <div id="quiz" class="space-y-10"></div>
       </div>
     </main>
   </div>
@@ -79,28 +62,22 @@
   <script>
     const questions = [
       {
-        question: "Who is the narrator of To Kill a Mockingbird?",
+        question: "Who narrates To Kill a Mockingbird?",
         options: ["Atticus Finch", "Scout Finch", "Jem Finch", "Harper Lee"],
         answer: 1,
         explanation: "Scout Finch narrates the story as an adult recalling her childhood."
       },
       {
-        question: "Where does the story take place?",
+        question: "Where does the novel take place?",
         options: ["New York", "Maycomb, Alabama", "Chicago", "Atlanta"],
         answer: 1,
-        explanation: "The novel is set in Maycomb, Alabama during the Great Depression."
+        explanation: "The novel is set in Maycomb, Alabama."
       },
       {
-        question: "Why is Boo Radley a source of fascination for the children?",
-        options: ["He travels a lot", "He is rarely seen outside", "He is a famous author", "He is Scout's teacher"],
+        question: "Who is Boo Radley?",
+        options: ["The town sheriff", "A reclusive neighbor", "Scout's uncle", "Tom Robinson's lawyer"],
         answer: 1,
-        explanation: "Boo Radley stays inside his house, making him mysterious to Scout, Jem, and Dill."
-      },
-      {
-        question: "What profession does Atticus Finch have?",
-        options: ["Doctor", "Judge", "Lawyer", "Teacher"],
-        answer: 2,
-        explanation: "Atticus Finch works as a lawyer in Maycomb."
+        explanation: "Boo Radley is the mysterious neighbor who rarely leaves his house."
       }
     ];
 
@@ -108,40 +85,31 @@
 
     questions.forEach((q, i) => {
       const div = document.createElement('div');
-      div.classList.add('p-4', 'border', 'rounded', 'shadow-sm');
-      div.innerHTML = `<p class='font-semibold mb-2'>${i + 1}. ${q.question}</p>` +
+      div.classList.add('p-6', 'border', 'rounded', 'shadow');
+      div.innerHTML = `<p class='font-semibold text-xl mb-4'>${i + 1}. ${q.question}</p>` +
         q.options.map((opt, j) => `
-          <div class="mb-1">
-            <label class="cursor-pointer">
-              <input type="radio" name="q${i}" value="${j}" class="mr-2">
-              ${opt}
-            </label>
-          </div>
-        `).join('');
+          <button onclick="selectAnswer(${i}, ${j}, this)" class="block w-full text-left border px-4 py-2 rounded mb-2 transition hover:bg-[#F1FAFF]">${opt}</button>
+        `).join('') +
+        `<div id="explanation-${i}" class="mt-4 hidden"></div>`;
       quizContainer.appendChild(div);
     });
 
-    function submitQuiz() {
-      let score = 0;
-      let feedback = "";
-      questions.forEach((q, i) => {
-        const selected = document.querySelector(`input[name=q${i}]:checked`);
-        if (selected) {
-          const answer = parseInt(selected.value);
-          if (answer === q.answer) {
-            score++;
-            feedback += `<p class='text-green-600'>Question ${i + 1}: Correct! ${q.explanation}</p>`;
-          } else {
-            feedback += `<p class='text-red-600'>Question ${i + 1}: Incorrect. ${q.explanation}</p>`;
-          }
-        } else {
-          feedback += `<p class='text-yellow-600'>Question ${i + 1}: No answer selected.</p>`;
-        }
-      });
-      document.getElementById('result').innerHTML =
-        `You scored ${score} out of ${questions.length}.<br><br>${feedback}`;
+    function selectAnswer(questionIndex, selectedIndex, button) {
+      const q = questions[questionIndex];
+      const buttons = button.parentNode.querySelectorAll('button');
+      buttons.forEach(btn => btn.disabled = true);
+
+      if (selectedIndex === q.answer) {
+        button.classList.add('bg-green-100', 'border-green-500', 'text-green-700');
+        document.getElementById(`explanation-${questionIndex}`).innerHTML = `<p class='text-green-700'>Correct! ${q.explanation}</p>`;
+      } else {
+        button.classList.add('bg-red-100', 'border-red-500', 'text-red-700');
+        document.getElementById(`explanation-${questionIndex}`).innerHTML = `<p class='text-red-700'>Incorrect. ${q.explanation}</p>`;
+      }
+      document.getElementById(`explanation-${questionIndex}`).classList.remove('hidden');
     }
   </script>
 </body>
 
 </html>
+
