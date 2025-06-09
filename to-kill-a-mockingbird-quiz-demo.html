@@ -77,13 +77,19 @@
         type: "true-false",
         question: "Tom Robinson was found not guilty.",
         correctAnswer: false,
-        explanation: "Incorrect. Tom Robinson was sadly convicted despite being innocent."
+        explanation: "Tom Robinson was sadly convicted despite being innocent."
       },
       {
         type: "short-answer",
         question: "Who is Scout's brother?",
         acceptableAnswers: ["jem", "jeremy"],
-        explanation: "Correct. Scout's brother is Jem Finch."
+        explanation: "Scout's brother is Jem Finch."
+      },
+      {
+        type: "short-answer",
+        question: "Name one theme from the novel.",
+        acceptableAnswers: ["racism", "justice", "morality", "prejudice", "innocence"],
+        explanation: "Possible themes include racism, justice, morality, prejudice, and innocence."
       }
     ];
 
@@ -124,20 +130,22 @@
       const button = document.getElementById(`q${qIndex}a${selectedIndex}`);
       if (selectedIndex === q.correctIndex) {
         button.classList.add("bg-green-100", "border-green-500", "text-green-700");
+        document.getElementById(`explanation-${qIndex}`).innerHTML = `<p class='text-green-700'>${q.explanations[selectedIndex]}</p>`;
       } else {
         button.classList.add("bg-red-100", "border-red-500", "text-red-700");
+        document.getElementById(`explanation-${qIndex}`).innerHTML = `<p class='text-red-700'>${q.explanations[selectedIndex]}</p>`;
       }
-      document.getElementById(`explanation-${qIndex}`).innerText = q.explanations[selectedIndex];
     }
 
     function selectTrueFalse(qIndex, answer, btn) {
       const q = questions[qIndex];
       if (answer === q.correctAnswer) {
         btn.classList.add("bg-green-100", "border-green-500", "text-green-700");
+        document.getElementById(`explanation-${qIndex}`).innerHTML = `<p class='text-green-700'>Correct!</p>`;
       } else {
         btn.classList.add("bg-red-100", "border-red-500", "text-red-700");
+        document.getElementById(`explanation-${qIndex}`).innerHTML = `<p class='text-red-700'>Incorrect. ${q.explanation}</p>`;
       }
-      document.getElementById(`explanation-${qIndex}`).innerText = q.explanation;
     }
 
     function submitShortAnswer(qIndex) {
