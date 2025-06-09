@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To Kill a Mockingbird - Quiz Engine V2 | Studying Smart</title>
+  <title>To Kill a Mockingbird - Quiz Engine V3 Master | Studying Smart</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -38,13 +38,13 @@
         <li><a href="to-kill-a-mockingbird-chapters-1-4.html" class="hover:text-[#0077B6] transition duration-200">Chapters 1-4</a></li>
         <li><a href="to-kill-a-mockingbird-quotes.html" class="hover:text-[#0077B6] transition duration-200">Quotes</a></li>
         <li><a href="to-kill-a-mockingbird-essays.html" class="hover:text-[#0077B6] transition duration-200">Essays</a></li>
-        <li><a href="#" class="hover:text-[#0077B6] transition duration-200 font-semibold">Quiz Engine V2</a></li>
+        <li><a href="#" class="hover:text-[#0077B6] transition duration-200 font-semibold">Quiz Engine V3</a></li>
       </ul>
     </aside>
 
     <main class="flex-1 p-10 bg-white">
       <div class="max-w-5xl mx-auto px-6 py-8">
-        <h1 class="text-3xl font-bold mb-8">Interactive Quiz Engine V2 (Demo)</h1>
+        <h1 class="text-3xl font-bold mb-8">Quiz Engine V3 (Master Demo)</h1>
         <div id="quiz" class="space-y-10"></div>
       </div>
     </main>
@@ -62,82 +62,94 @@
   <script>
     const questions = [
       {
+        type: "multiple-choice",
         question: "Who narrates To Kill a Mockingbird?",
-        options: [
-          "Atticus Finch",
-          "Scout Finch",
-          "Jem Finch",
-          "Harper Lee"
-        ],
+        options: ["Atticus Finch", "Scout Finch", "Jem Finch", "Harper Lee"],
         correctIndex: 1,
         explanations: [
-          "Incorrect. Atticus is Scout's father, not the narrator.",
-          "Correct. Scout Finch narrates the novel.",
-          "Incorrect. Jem is Scout's brother, not the narrator.",
-          "Incorrect. Harper Lee is the author, not a character."
+          "Incorrect. Atticus is Scout's father.",
+          "Correct. Scout narrates the novel.",
+          "Incorrect. Jem is Scout's brother.",
+          "Incorrect. Harper Lee is the author."
         ]
       },
       {
-        question: "Where does the novel take place?",
-        options: [
-          "New York",
-          "Maycomb, Alabama",
-          "Chicago",
-          "Atlanta"
-        ],
-        correctIndex: 1,
-        explanations: [
-          "Incorrect. The novel does not take place in New York.",
-          "Correct. The story is set in Maycomb, Alabama.",
-          "Incorrect. Chicago is not the setting.",
-          "Incorrect. Atlanta is not the correct setting." 
-        ]
+        type: "true-false",
+        question: "Tom Robinson was found not guilty.",
+        correctAnswer: false,
+        explanation: "Incorrect. Tom Robinson was sadly convicted despite being innocent."
       },
       {
-        question: "Who is Boo Radley?",
-        options: [
-          "The town sheriff",
-          "A reclusive neighbor",
-          "Scout's uncle",
-          "Tom Robinson's lawyer"
-        ],
-        correctIndex: 1,
-        explanations: [
-          "Incorrect. Heck Tate is the sheriff.",
-          "Correct. Boo Radley is the mysterious neighbor.",
-          "Incorrect. Jack Finch is Scout's uncle.",
-          "Incorrect. Atticus Finch is Tom Robinson's lawyer."
-        ]
+        type: "short-answer",
+        question: "Who is Scout's brother?",
+        acceptableAnswers: ["jem", "jeremy"],
+        explanation: "Correct. Scout's brother is Jem Finch."
       }
     ];
 
-    const quizContainer = document.getElementById('quiz');
+    const quizContainer = document.getElementById("quiz");
 
     questions.forEach((q, i) => {
-      const div = document.createElement('div');
-      div.classList.add('p-6', 'border', 'rounded', 'shadow');
-      div.innerHTML = `<p class='font-semibold text-xl mb-4'>${i + 1}. ${q.question}</p>` +
-        q.options.map((opt, j) => `
-          <button id="q${i}a${j}" onclick="selectAnswer(${i}, ${j})" class="block w-full text-left border px-4 py-2 rounded mb-2 transition hover:bg-[#F1FAFF]">${opt}</button>
-        `).join('') +
-        `<div id="explanation-${i}" class="mt-4 text-lg"></div>`;
+      const div = document.createElement("div");
+      div.classList.add("p-6", "border", "rounded", "shadow");
+      div.innerHTML = `<p class='font-semibold text-xl mb-4'>${i + 1}. ${q.question}</p>`;
+      
+      if (q.type === "multiple-choice") {
+        div.innerHTML += q.options.map((opt, j) => `
+          <button id="q${i}a${j}" onclick="selectMultipleChoice(${i}, ${j})" class="block w-full text-left border px-4 py-2 rounded mb-2 transition hover:bg-[#F1FAFF]">${opt}</button>
+        `).join('') + `<div id="explanation-${i}" class="mt-4 text-lg"></div>`;
+      }
+      
+      if (q.type === "true-false") {
+        div.innerHTML += `
+          <button onclick="selectTrueFalse(${i}, true, this)" class="block w-full text-left border px-4 py-2 rounded mb-2 transition hover:bg-[#F1FAFF]">True</button>
+          <button onclick="selectTrueFalse(${i}, false, this)" class="block w-full text-left border px-4 py-2 rounded mb-2 transition hover:bg-[#F1FAFF]">False</button>
+          <div id="explanation-${i}" class="mt-4 text-lg"></div>
+        `;
+      }
+
+      if (q.type === "short-answer") {
+        div.innerHTML += `
+          <input id="input-${i}" type="text" class="border w-full px-4 py-2 rounded mb-2">
+          <button onclick="submitShortAnswer(${i})" class="px-6 py-2 border-2 border-[#1D3557] text-[#1D3557] font-semibold rounded-lg hover:bg-[#0077B6] hover:text-white transition">Submit Answer</button>
+          <div id="explanation-${i}" class="mt-4 text-lg"></div>
+        `;
+      }
+
       quizContainer.appendChild(div);
     });
 
-    function selectAnswer(questionIndex, selectedIndex) {
-      const q = questions[questionIndex];
-      const buttons = document.querySelectorAll(`#q${questionIndex}a${selectedIndex}`);
-      const explanationDiv = document.getElementById(`explanation-${questionIndex}`);
-      const button = document.getElementById(`q${questionIndex}a${selectedIndex}`);
-      
+    function selectMultipleChoice(qIndex, selectedIndex) {
+      const q = questions[qIndex];
+      const button = document.getElementById(`q${qIndex}a${selectedIndex}`);
       if (selectedIndex === q.correctIndex) {
-        button.classList.remove('border', 'hover:bg-[#F1FAFF]');
-        button.classList.add('bg-green-100', 'border-green-500', 'text-green-700');
+        button.classList.add("bg-green-100", "border-green-500", "text-green-700");
       } else {
-        button.classList.remove('border', 'hover:bg-[#F1FAFF]');
-        button.classList.add('bg-red-100', 'border-red-500', 'text-red-700');
+        button.classList.add("bg-red-100", "border-red-500", "text-red-700");
       }
-      explanationDiv.innerHTML = `<p>${q.explanations[selectedIndex]}</p>`;
+      document.getElementById(`explanation-${qIndex}`).innerText = q.explanations[selectedIndex];
+    }
+
+    function selectTrueFalse(qIndex, answer, btn) {
+      const q = questions[qIndex];
+      if (answer === q.correctAnswer) {
+        btn.classList.add("bg-green-100", "border-green-500", "text-green-700");
+      } else {
+        btn.classList.add("bg-red-100", "border-red-500", "text-red-700");
+      }
+      document.getElementById(`explanation-${qIndex}`).innerText = q.explanation;
+    }
+
+    function submitShortAnswer(qIndex) {
+      const input = document.getElementById(`input-${qIndex}`).value.trim().toLowerCase();
+      const q = questions[qIndex];
+      const correct = q.acceptableAnswers.includes(input);
+      const explanationDiv = document.getElementById(`explanation-${qIndex}`);
+      if (correct) {
+        explanationDiv.innerHTML = `<p class='text-green-700'>Correct. ${q.explanation}</p>`;
+      } else {
+        explanationDiv.innerHTML = `<p class='text-red-700'>Incorrect. ${q.explanation}</p>`;
+      }
     }
   </script>
 </body>
