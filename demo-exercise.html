@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,9 +9,29 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
+      transition: background 0.4s, color 0.4s;
     }
-    .step-number {
-      @apply text-white bg-[#0077B6] w-10 h-10 flex items-center justify-center rounded-full text-base font-bold shadow-md;
+    [data-theme="dark"] {
+      background-color: #0b1620;
+      color: #e0f2fe;
+    }
+    [data-theme="dark"] .bg-white {
+      background-color: #102030 !important;
+    }
+    [data-theme="dark"] .text-[#1D3557] {
+      color: #e0f2fe !important;
+    }
+    [data-theme="dark"] .bg-[#E0F2FE] {
+      background-color: #1c2c3a !important;
+    }
+    [data-theme="dark"] .text-[#0077B6] {
+      color: #90cdf4 !important;
+    }
+    .step-label {
+      @apply text-sm font-semibold text-white bg-[#0077B6] px-3 py-1 rounded-full shadow;
+    }
+    .step-box {
+      @apply transform transition hover:scale-[1.02] hover:shadow-lg;
     }
   </style>
 </head>
@@ -26,6 +46,7 @@
       <a href="#" class="hover:text-[#A8DADC] transition">Book Guides</a>
       <a href="#" class="hover:text-[#A8DADC] transition">Textbook Solutions</a>
       <a href="#" class="hover:text-[#A8DADC] transition">About</a>
+      <button onclick="toggleTheme()" class="bg-[#A8DADC] text-[#1D3557] px-3 py-1 rounded hover:bg-white transition">Toggle Theme</button>
     </div>
   </nav>
 
@@ -48,36 +69,36 @@
 
       <!-- Answer Card -->
       <div class="bg-[#E0F2FE] p-8 sm:p-10 rounded-2xl shadow-xl space-y-10">
-        <div class="flex items-start gap-6">
-          <div class="step-number">1</div>
+        <div class="step-box flex items-start gap-6">
+          <div class="step-label">Step 1</div>
           <div>
             <h2 class="text-xl font-semibold mb-2">Understand the Question</h2>
             <p class="text-base leading-relaxed">Start by carefully reading the problem. Identify the key terms and what the question is really asking.</p>
           </div>
         </div>
-        <div class="flex items-start gap-6">
-          <div class="step-number">2</div>
+        <div class="step-box flex items-start gap-6">
+          <div class="step-label">Step 2</div>
           <div>
             <h2 class="text-xl font-semibold mb-2">Break Down the Data</h2>
             <p class="text-base leading-relaxed">Highlight any numerical values, units, and relationships. Sketch diagrams if needed to visualize the setup.</p>
           </div>
         </div>
-        <div class="flex items-start gap-6">
-          <div class="step-number">3</div>
+        <div class="step-box flex items-start gap-6">
+          <div class="step-label">Step 3</div>
           <div>
             <h2 class="text-xl font-semibold mb-2">Choose the Right Formula</h2>
             <p class="text-base leading-relaxed">Select a formula that fits the scenario. This might involve rate, area, probability, or energy conversion depending on the subject.</p>
           </div>
         </div>
-        <div class="flex items-start gap-6">
-          <div class="step-number">4</div>
+        <div class="step-box flex items-start gap-6">
+          <div class="step-label">Step 4</div>
           <div>
             <h2 class="text-xl font-semibold mb-2">Solve Step-by-Step</h2>
             <p class="text-base leading-relaxed">Perform your calculations cleanly, showing all units and conversions. Double check your math as you go.</p>
           </div>
         </div>
-        <div class="flex items-start gap-6">
-          <div class="step-number">5</div>
+        <div class="step-box flex items-start gap-6">
+          <div class="step-label">Step 5</div>
           <div>
             <h2 class="text-xl font-semibold mb-2">State the Final Answer</h2>
             <p class="text-base leading-relaxed">Round your result only if necessary and clearly label it with the correct unit. For example: <strong>Answer: 12.3 m/s</strong></p>
@@ -116,6 +137,13 @@
     <p class="text-sm">&copy; 2025 Studying Smart. All rights reserved.</p>
   </footer>
 
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
+    }
+  </script>
 </body>
 </html>
+
 
