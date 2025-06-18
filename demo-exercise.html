@@ -1,151 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Page 54: Exercise 1 | Studying Smart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #eef6fb;
-      color: #2d2d2d;
     }
-    header {
-      background-color: #ffffff;
-      padding: 20px 40px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-      border-bottom: 1px solid #e0e0e0;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 24px;
-      color: #007bff;
-    }
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
-      background-color: #ffffff;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.04);
-      box-sizing: border-box;
-    }
-    .page-title {
-      font-size: 32px;
-      font-weight: 800;
-      text-align: center;
-      color: #1a1a1a;
-      margin-bottom: 50px;
+    .step-box {
+      @apply flex items-start gap-4 p-6 rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-md transition;
     }
     .step-label {
-      font-size: 18px;
-      font-weight: 700;
-      color: #007bff;
+      @apply font-bold text-[#0077B6] text-lg whitespace-nowrap;
     }
-    .step {
-      padding: 32px 24px;
-      background-color: #fcfcfc;
-      border-radius: 10px;
-      margin-bottom: 40px;
-      border-top: 1px solid #00000022;
-    }
-    .step p {
-      font-size: 17px;
-      font-weight: 500;
-      line-height: 1.8;
-      color: #2d2d2d;
-      margin-top: 12px;
-    }
-    .final {
-      padding: 32px 24px;
-      background-color: #fefefe;
-      border: 1px solid #000;
-      border-radius: 10px;
-      margin-bottom: 40px;
-    }
-    .final .result {
-      font-size: 17px;
-      font-weight: 600;
-      color: #007bff;
-      margin-top: 12px;
-    }
-    .nav-buttons {
-      margin-top: 40px;
-      display: flex;
-      justify-content: space-between;
-    }
-    .nav-buttons a {
-      text-decoration: none;
-      background-color: #007bff;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 6px;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
-    }
-    .nav-buttons a:hover {
-      background-color: #0056b3;
-    }
-    footer {
-      background-color: #ffffff;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #666;
-      border-top: 1px solid #e0e0e0;
-      margin-top: 60px;
+    .final-box {
+      @apply border border-black rounded-xl p-6 mt-8 bg-white;
     }
   </style>
 </head>
-<body>
-  <header>
-    <h1>Studying Smart</h1>
-  </header>
+<body class="bg-[#F8FAFC] text-[#1D3557] min-h-screen flex flex-col">
 
-  <div class="container">
-    <div class="page-title">Page 54: Exercise 1</div>
-
-    <div class="step">
-      <span class="step-label">Step 1:</span>
-      <p>Start by carefully reading the problem. Identify the key terms and what the question is really asking.</p>
+  <!-- Navbar -->
+  <nav class="bg-[#1D3557] text-white px-6 py-4 flex justify-between items-center shadow sticky top-0 z-50">
+    <div class="text-2xl font-bold">Studying Smart</div>
+    <div class="flex items-center space-x-6 text-sm font-medium">
+      <a href="#" class="hover:text-[#A8DADC] transition">Home</a>
+      <a href="#" class="hover:text-[#A8DADC] transition">Subjects</a>
+      <a href="#" class="hover:text-[#A8DADC] transition">Book Guides</a>
+      <a href="#" class="hover:text-[#A8DADC] transition">Textbook Solutions</a>
+      <a href="#" class="hover:text-[#A8DADC] transition">About</a>
     </div>
+  </nav>
 
-    <div class="step">
-      <span class="step-label">Step 2:</span>
-      <p>Highlight any numerical values, units, and relationships. Sketch diagrams if needed to visualize the setup.</p>
+  <!-- Main Content -->
+  <main class="flex-1 px-6 py-10 sm:px-10">
+    <div class="max-w-4xl mx-auto">
+      <!-- Top Link -->
+      <div class="mb-4">
+        <a href="#" class="text-[#0077B6] underline underline-offset-2 font-medium hover:text-[#005f99] transition">
+          ← Back to Chapter
+        </a>
+      </div>
+
+      <!-- Title -->
+      <div class="text-center mb-10">
+        <p class="text-sm uppercase tracking-wide text-[#0077B6] font-semibold">Chapter 1</p>
+        <h1 class="text-4xl font-extrabold mt-2 mb-2 text-[#1D3557]">Page 54: Exercise 1</h1>
+      </div>
+
+      <!-- Steps -->
+      <div class="space-y-10">
+        <div class="step-box">
+          <div class="step-label">Step 1:</div>
+          <div class="text-lg font-bold text-[#1D3557]">Read the question and identify what's being asked.</div>
+        </div>
+
+        <div class="step-box">
+          <div class="step-label">Step 2:</div>
+          <div class="text-lg font-bold text-[#1D3557]">Highlight all key numbers, units, and relationships provided.</div>
+        </div>
+
+        <div class="step-box">
+          <div class="step-label">Step 3:</div>
+          <div class="text-lg font-bold text-[#1D3557]">Choose the correct equation or concept that fits the problem.</div>
+        </div>
+
+        <div class="step-box">
+          <div class="step-label">Step 4:</div>
+          <div class="text-lg font-bold text-[#1D3557]">Plug in your values and solve the equation carefully.</div>
+        </div>
+
+        <div class="step-box">
+          <div class="step-label">Step 5:</div>
+          <div class="text-lg font-bold text-[#1D3557]">Double-check your units and make sure the result makes sense.</div>
+        </div>
+
+        <!-- Final Answer Box -->
+        <div class="final-box">
+          <div class="flex gap-4 items-start">
+            <div class="step-label">Final Result:</div>
+            <div class="text-lg font-bold text-[#1D3557]">Answer: <span class="text-[#0077B6]">(b)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="flex justify-between mt-12">
+        <a href="#" class="flex items-center space-x-2 bg-[#1D3557] text-white px-5 py-2 rounded-xl hover:bg-[#16324c] transition shadow">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          <span>Back</span>
+        </a>
+        <a href="#" class="flex items-center space-x-2 bg-[#1D3557] text-white px-5 py-2 rounded-xl hover:bg-[#16324c] transition shadow">
+          <span>Next</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
     </div>
+  </main>
 
-    <div class="step">
-      <span class="step-label">Step 3:</span>
-      <p>Select a formula that fits the scenario. This might involve rate, area, probability, or energy conversion depending on the subject.</p>
+  <!-- Footer -->
+  <footer class="bg-[#1D3557] text-white text-center py-6 mt-16">
+    <div class="space-x-4 mb-2 text-sm">
+      <a href="#" class="hover:underline">Terms</a>
+      <a href="#" class="hover:underline">Privacy</a>
+      <a href="#" class="hover:underline">Contact</a>
     </div>
-
-    <div class="step">
-      <span class="step-label">Step 4:</span>
-      <p>Perform your calculations cleanly, showing all units and conversions. Double check your math as you go.</p>
-    </div>
-
-    <div class="step">
-      <span class="step-label">Step 5:</span>
-      <p>Round your result only if necessary and clearly label it with the correct unit. For example: <strong>Answer: 12.3 m/s</strong></p>
-    </div>
-
-    <div class="final">
-      <span class="step-label">Final Result:</span>
-      <p class="result">(b)</p>
-    </div>
-
-    <div class="nav-buttons">
-      <a href="#">Back</a>
-      <a href="#">Next</a>
-    </div>
-  </div>
-
-  <footer>
-    &copy; 2025 Studying Smart. All rights reserved.
+    <p class="text-sm">&copy; 2025 Studying Smart. All rights reserved.</p>
   </footer>
 </body>
 </html>
+
 
 
