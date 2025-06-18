@@ -1,31 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chapter 1 – Exercise Demo | Studying Smart</title>
+  <title>Chapter 1 – Page 44: Exercise 1 | Studying Smart</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      transition: background 0.4s, color 0.4s;
-    }
-    [data-theme="dark"] {
-      background-color: #0b1620;
-      color: #e0f2fe;
-    }
-    [data-theme="dark"] .bg-white {
-      background-color: #102030 !important;
-    }
-    [data-theme="dark"] .text-[#1D3557] {
-      color: #e0f2fe !important;
-    }
-    [data-theme="dark"] .bg-[#E0F2FE] {
-      background-color: #1c2c3a !important;
-    }
-    [data-theme="dark"] .text-[#0077B6] {
-      color: #90cdf4 !important;
     }
     .step-label {
       @apply text-sm font-semibold text-white bg-[#0077B6] px-3 py-1 rounded-full shadow;
@@ -46,7 +29,6 @@
       <a href="#" class="hover:text-[#A8DADC] transition">Book Guides</a>
       <a href="#" class="hover:text-[#A8DADC] transition">Textbook Solutions</a>
       <a href="#" class="hover:text-[#A8DADC] transition">About</a>
-      <button onclick="toggleTheme()" class="bg-[#A8DADC] text-[#1D3557] px-3 py-1 rounded hover:bg-white transition">Toggle Theme</button>
     </div>
   </nav>
 
@@ -63,8 +45,7 @@
       <!-- Chapter and Problem Title -->
       <div class="text-center mb-10">
         <p class="text-sm uppercase tracking-wide text-[#0077B6] font-semibold">Chapter 1</p>
-        <h1 class="text-4xl font-extrabold mt-1 mb-1">Exercise Demo</h1>
-        <p class="text-lg text-[#555]">Sample solution with step-by-step explanation</p>
+        <h1 class="text-4xl font-extrabold mt-1 mb-1">Page 44: Exercise 1</h1>
       </div>
 
       <!-- Answer Card -->
@@ -72,36 +53,31 @@
         <div class="step-box flex items-start gap-6">
           <div class="step-label">Step 1</div>
           <div>
-            <h2 class="text-xl font-semibold mb-2">Understand the Question</h2>
-            <p class="text-base leading-relaxed">Start by carefully reading the problem. Identify the key terms and what the question is really asking.</p>
+            <p class="text-base leading-relaxed"><strong>STEP 1</strong><br>Start by carefully reading the problem. Identify the key terms and what the question is really asking.</p>
           </div>
         </div>
         <div class="step-box flex items-start gap-6">
           <div class="step-label">Step 2</div>
           <div>
-            <h2 class="text-xl font-semibold mb-2">Break Down the Data</h2>
-            <p class="text-base leading-relaxed">Highlight any numerical values, units, and relationships. Sketch diagrams if needed to visualize the setup.</p>
+            <p class="text-base leading-relaxed"><strong>STEP 2</strong><br>Highlight any numerical values, units, and relationships. Sketch diagrams if needed to visualize the setup.</p>
           </div>
         </div>
         <div class="step-box flex items-start gap-6">
           <div class="step-label">Step 3</div>
           <div>
-            <h2 class="text-xl font-semibold mb-2">Choose the Right Formula</h2>
-            <p class="text-base leading-relaxed">Select a formula that fits the scenario. This might involve rate, area, probability, or energy conversion depending on the subject.</p>
+            <p class="text-base leading-relaxed"><strong>STEP 3</strong><br>Select a formula that fits the scenario. This might involve rate, area, probability, or energy conversion depending on the subject.</p>
           </div>
         </div>
         <div class="step-box flex items-start gap-6">
           <div class="step-label">Step 4</div>
           <div>
-            <h2 class="text-xl font-semibold mb-2">Solve Step-by-Step</h2>
-            <p class="text-base leading-relaxed">Perform your calculations cleanly, showing all units and conversions. Double check your math as you go.</p>
+            <p class="text-base leading-relaxed"><strong>STEP 4</strong><br>Perform your calculations cleanly, showing all units and conversions. Double check your math as you go.</p>
           </div>
         </div>
         <div class="step-box flex items-start gap-6">
           <div class="step-label">Step 5</div>
           <div>
-            <h2 class="text-xl font-semibold mb-2">State the Final Answer</h2>
-            <p class="text-base leading-relaxed">Round your result only if necessary and clearly label it with the correct unit. For example: <strong>Answer: 12.3 m/s</strong></p>
+            <p class="text-base leading-relaxed"><strong>STEP 5</strong><br>Round your result only if necessary and clearly label it with the correct unit. For example: <strong>Answer: 12.3 m/s</strong></p>
           </div>
         </div>
         <div class="border-t pt-4">
@@ -136,14 +112,5 @@
     </div>
     <p class="text-sm">&copy; 2025 Studying Smart. All rights reserved.</p>
   </footer>
-
-  <script>
-    function toggleTheme() {
-      const html = document.documentElement;
-      html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
-    }
-  </script>
 </body>
 </html>
-
-   
