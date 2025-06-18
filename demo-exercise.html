@@ -8,38 +8,28 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #f5f7fa;
+      background-color: #eef6fb;
       color: #2d2d2d;
+    }
+    header {
+      background-color: #ffffff;
+      padding: 20px 40px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      border-bottom: 1px solid #e0e0e0;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #007bff;
     }
     .container {
       max-width: 800px;
-      margin: 60px auto;
+      margin: 40px auto;
       background-color: #ffffff;
       padding: 40px;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.04);
       box-sizing: border-box;
-    }
-    h1 {
-      color: #007bff;
-      text-align: center;
-      margin-bottom: 10px;
-      font-size: 32px;
-      font-weight: 700;
-    }
-    h2 {
-      color: #1a1a1a;
-      margin-top: 24px;
-      font-size: 24px;
-      font-weight: 600;
-    }
-    .step {
-      border: 1px solid #e0e0e0;
-      border-left: 5px solid #007bff;
-      padding: 20px 24px;
-      margin-bottom: 24px;
-      border-radius: 10px;
-      background-color: #fcfcfc;
     }
     .step-label {
       font-size: 14px;
@@ -47,14 +37,33 @@
       color: #007bff;
       text-transform: uppercase;
     }
+    h2 {
+      color: #1a1a1a;
+      margin: 10px 0;
+      font-size: 22px;
+      font-weight: 600;
+    }
+    .step {
+      padding: 24px;
+      background-color: #fcfcfc;
+      border-radius: 10px;
+      margin-bottom: 32px;
+    }
+    .step + .step {
+      border-top: 1px solid #ccc;
+    }
     .step p {
       font-size: 16.5px;
       line-height: 1.8;
-      margin-top: 10px;
       color: #444;
+      margin-top: 10px;
     }
     .final {
-      border-left: 5px solid #000;
+      border: 1px solid #000;
+      background-color: #fefefe;
+      padding: 24px;
+      border-radius: 10px;
+      margin-bottom: 32px;
     }
     .result {
       font-weight: bold;
@@ -79,9 +88,22 @@
     .nav-buttons a:hover {
       background-color: #0056b3;
     }
+    footer {
+      background-color: #ffffff;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #666;
+      border-top: 1px solid #e0e0e0;
+      margin-top: 60px;
+    }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Studying Smart</h1>
+  </header>
+
   <div class="container">
     <h1>Exercise Demo</h1>
     <p style="text-align:center; color:#555; margin-bottom: 40px; font-size: 16px;">A complete walkthrough with each step explained</p>
@@ -116,7 +138,7 @@
       <p>Round your result only if necessary and clearly label it with the correct unit. For example: <strong>Answer: 12.3 m/s</strong></p>
     </div>
 
-    <div class="step final">
+    <div class="final">
       <span class="step-label">Final Result</span>
       <h2>Answer Choice</h2>
       <p class="result">(b)</p>
@@ -127,6 +149,11 @@
       <a href="#">Next</a>
     </div>
   </div>
+
+  <footer>
+    &copy; 2025 Studying Smart. All rights reserved.
+  </footer>
 </body>
 </html>
+
 
