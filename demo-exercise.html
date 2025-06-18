@@ -11,14 +11,17 @@
       font-family: 'Inter', sans-serif;
     }
     .step-box {
-      @apply flex items-start gap-4 p-6 rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-md transition;
+      @apply p-6 sm:p-8 rounded-2xl bg-[#E0F2FE] border border-[#b9e1fc] shadow-xl hover:shadow-2xl transition-all duration-300;
     }
     .step-label {
-      @apply font-bold text-[#0077B6] text-base whitespace-nowrap;
+      @apply font-bold text-[#0077B6] text-base mb-2 block;
+    }
+    .step-box:hover {
+      background-color: #d6effe;
     }
   </style>
 </head>
-<body class="bg-[#F8FAFC] text-[#1D3557] min-h-screen flex flex-col">
+<body class="bg-[#f2f6fa] text-[#1D3557] min-h-screen flex flex-col">
 
   <!-- Navbar -->
   <nav class="bg-[#1D3557] text-white px-6 py-4 flex justify-between items-center shadow sticky top-0 z-50">
@@ -33,7 +36,7 @@
   </nav>
 
   <!-- Main Content -->
-  <main class="flex-1 px-6 py-10 sm:px-10">
+  <main class="flex-1 px-6 py-12 sm:px-10">
     <div class="max-w-4xl mx-auto">
       <!-- Top Link -->
       <div class="mb-4">
@@ -43,48 +46,38 @@
       </div>
 
       <!-- Chapter and Problem Title -->
-      <div class="text-center mb-10">
+      <div class="text-center mb-12">
         <p class="text-sm uppercase tracking-wide text-[#0077B6] font-semibold">Chapter 1</p>
-        <h1 class="text-4xl font-extrabold mt-1 mb-1">Exercise Demo</h1>
-        <p class="text-lg text-[#555]">Sample solution with step-by-step explanation</p>
+        <h1 class="text-5xl font-extrabold mt-2 mb-3">Exercise Demo</h1>
+        <p class="text-lg text-[#444]">Sample solution with step-by-step explanation</p>
       </div>
 
       <!-- Answer Cards -->
       <div class="space-y-6">
         <div class="step-box">
-          <div class="step-label">Step 1:</div>
-          <div>
-            <h2 class="text-lg font-semibold mb-1">Understand the Question</h2>
-            <p class="text-base leading-relaxed text-[#333]">Start by carefully reading the problem. Identify the key terms and what the question is really asking.</p>
-          </div>
+          <span class="step-label">Step 1</span>
+          <h2 class="text-xl font-semibold mb-2">Understand the Question</h2>
+          <p class="text-base leading-relaxed text-[#333]">Start by carefully reading the problem. Identify the key terms and what the question is really asking.</p>
         </div>
         <div class="step-box">
-          <div class="step-label">Step 2:</div>
-          <div>
-            <h2 class="text-lg font-semibold mb-1">Break Down the Data</h2>
-            <p class="text-base leading-relaxed text-[#333]">Highlight any numerical values, units, and relationships. Sketch diagrams if needed to visualize the setup.</p>
-          </div>
+          <span class="step-label">Step 2</span>
+          <h2 class="text-xl font-semibold mb-2">Break Down the Data</h2>
+          <p class="text-base leading-relaxed text-[#333]">Highlight any numerical values, units, and relationships. Sketch diagrams if needed to visualize the setup.</p>
         </div>
         <div class="step-box">
-          <div class="step-label">Step 3:</div>
-          <div>
-            <h2 class="text-lg font-semibold mb-1">Choose the Right Formula</h2>
-            <p class="text-base leading-relaxed text-[#333]">Select a formula that fits the scenario. This might involve rate, area, probability, or energy conversion depending on the subject.</p>
-          </div>
+          <span class="step-label">Step 3</span>
+          <h2 class="text-xl font-semibold mb-2">Choose the Right Formula</h2>
+          <p class="text-base leading-relaxed text-[#333]">Select a formula that fits the scenario. This might involve rate, area, probability, or energy conversion depending on the subject.</p>
         </div>
         <div class="step-box">
-          <div class="step-label">Step 4:</div>
-          <div>
-            <h2 class="text-lg font-semibold mb-1">Solve Step-by-Step</h2>
-            <p class="text-base leading-relaxed text-[#333]">Perform your calculations cleanly, showing all units and conversions. Double check your math as you go.</p>
-          </div>
+          <span class="step-label">Step 4</span>
+          <h2 class="text-xl font-semibold mb-2">Solve Step-by-Step</h2>
+          <p class="text-base leading-relaxed text-[#333]">Perform your calculations cleanly, showing all units and conversions. Double check your math as you go.</p>
         </div>
         <div class="step-box">
-          <div class="step-label">Step 5:</div>
-          <div>
-            <h2 class="text-lg font-semibold mb-1">State the Final Answer</h2>
-            <p class="text-base leading-relaxed text-[#333]">Round your result only if necessary and clearly label it with the correct unit. For example: <strong>Answer: 12.3 m/s</strong></p>
-          </div>
+          <span class="step-label">Step 5</span>
+          <h2 class="text-xl font-semibold mb-2">State the Final Answer</h2>
+          <p class="text-base leading-relaxed text-[#333]">Round your result only if necessary and clearly label it with the correct unit. For example: <strong>Answer: 12.3 m/s</strong></p>
         </div>
         <div class="text-right pt-2">
           <p class="text-xl font-bold">Result: <span class="text-[#0077B6]">(b)</span></p>
@@ -120,5 +113,6 @@
   </footer>
 </body>
 </html>
+
 
 
