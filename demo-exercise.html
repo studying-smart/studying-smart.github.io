@@ -1,38 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Page 54: Exercise 1 | Studying Smart</title>
+  <title>Chapter 1 – Exercise Demo | Studying Smart</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
       font-family: 'Inter', sans-serif;
+      transition: background 0.4s, color 0.4s;
+    }
+    [data-theme="dark"] {
+      background-color: #0b1620;
+      color: #e0f2fe;
+    }
+    [data-theme="dark"] .bg-white {
+      background-color: #102030 !important;
+    }
+    [data-theme="dark"] .text-[#1D3557] {
+      color: #e0f2fe !important;
+    }
+    [data-theme="dark"] .bg-[#E0F2FE] {
+      background-color: #1c2c3a !important;
+    }
+    [data-theme="dark"] .text-[#0077B6] {
+      color: #90cdf4 !important;
+    }
+    .step-label {
+      @apply text-sm font-semibold text-white bg-[#0077B6] px-3 py-1 rounded-full shadow;
     }
     .step-box {
-      @apply p-6 rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-md transition;
-    }
-    .step-text {
-      @apply text-lg text-[#1D3557];
-    }
-    .final-box {
-      @apply border border-black rounded-xl p-6 mt-10 bg-white;
+      @apply transform transition hover:scale-[1.02] hover:shadow-lg;
     }
   </style>
 </head>
-<body class="bg-[#F8FAFC] text-[#1D3557] min-h-screen flex flex-col">
+<body class="bg-white text-[#1D3557] min-h-screen flex flex-col">
 
   <!-- Navbar -->
   <nav class="bg-[#1D3557] text-white px-6 py-4 flex justify-between items-center shadow sticky top-0 z-50">
     <div class="text-2xl font-bold">Studying Smart</div>
     <div class="flex items-center space-x-6 text-sm font-medium">
-      <a href="#" class="hover:text-[#A8D
       <a href="#" class="hover:text-[#A8DADC] transition">Home</a>
       <a href="#" class="hover:text-[#A8DADC] transition">Subjects</a>
       <a href="#" class="hover:text-[#A8DADC] transition">Book Guides</a>
       <a href="#" class="hover:text-[#A8DADC] transition">Textbook Solutions</a>
       <a href="#" class="hover:text-[#A8DADC] transition">About</a>
+      <button onclick="toggleTheme()" class="bg-[#A8DADC] text-[#1D3557] px-3 py-1 rounded hover:bg-white transition">Toggle Theme</button>
     </div>
   </nav>
 
@@ -46,38 +60,57 @@
         </a>
       </div>
 
-      <!-- Title -->
+      <!-- Chapter and Problem Title -->
       <div class="text-center mb-10">
         <p class="text-sm uppercase tracking-wide text-[#0077B6] font-semibold">Chapter 1</p>
-        <h1 class="text-4xl font-extrabold mt-2 mb-2 text-[#1D3557]">Page 54: Exercise 1</h1>
+        <h1 class="text-4xl font-extrabold mt-1 mb-1">Exercise Demo</h1>
+        <p class="text-lg text-[#555]">Sample solution with step-by-step explanation</p>
       </div>
 
-      <!-- Steps -->
-      <div class="space-y-10">
-        <div class="step-box">
-          <p class="step-text"><strong>Step 1:</strong> Read the question and identify what's being asked.</p>
+      <!-- Answer Card -->
+      <div class="bg-[#E0F2FE] p-8 sm:p-10 rounded-2xl shadow-xl space-y-10">
+        <div class="step-box flex items-start gap-6">
+          <div class="step-label">Step 1</div>
+          <div>
+            <h2 class="text-xl font-semibold mb-2">Understand the Question</h2>
+            <p class="text-base leading-relaxed">Start by carefully reading the problem. Identify the key terms and what the question is really asking.</p>
+          </div>
         </div>
-        <div class="step-box">
-          <p class="step-text"><strong>Step 2:</strong> Highlight all key numbers, units, and relationships provided.</p>
+        <div class="step-box flex items-start gap-6">
+          <div class="step-label">Step 2</div>
+          <div>
+            <h2 class="text-xl font-semibold mb-2">Break Down the Data</h2>
+            <p class="text-base leading-relaxed">Highlight any numerical values, units, and relationships. Sketch diagrams if needed to visualize the setup.</p>
+          </div>
         </div>
-        <div class="step-box">
-          <p class="step-text"><strong>Step 3:</strong> Choose the correct equation or concept that fits the problem.</p>
+        <div class="step-box flex items-start gap-6">
+          <div class="step-label">Step 3</div>
+          <div>
+            <h2 class="text-xl font-semibold mb-2">Choose the Right Formula</h2>
+            <p class="text-base leading-relaxed">Select a formula that fits the scenario. This might involve rate, area, probability, or energy conversion depending on the subject.</p>
+          </div>
         </div>
-        <div class="step-box">
-          <p class="step-text"><strong>Step 4:</strong> Plug in your values and solve the equation carefully.</p>
+        <div class="step-box flex items-start gap-6">
+          <div class="step-label">Step 4</div>
+          <div>
+            <h2 class="text-xl font-semibold mb-2">Solve Step-by-Step</h2>
+            <p class="text-base leading-relaxed">Perform your calculations cleanly, showing all units and conversions. Double check your math as you go.</p>
+          </div>
         </div>
-        <div class="step-box">
-          <p class="step-text"><strong>Step 5:</strong> Double-check your units and make sure the result makes sense.</p>
+        <div class="step-box flex items-start gap-6">
+          <div class="step-label">Step 5</div>
+          <div>
+            <h2 class="text-xl font-semibold mb-2">State the Final Answer</h2>
+            <p class="text-base leading-relaxed">Round your result only if necessary and clearly label it with the correct unit. For example: <strong>Answer: 12.3 m/s</strong></p>
+          </div>
         </div>
-
-        <!-- Final Result -->
-        <div class="final-box">
-          <p class="step-text"><strong>Final Result:</strong> Answer: <span class="text-[#0077B6]">(b)</span></p>
+        <div class="border-t pt-4">
+          <p class="text-xl font-bold">Result: <span class="text-[#0077B6]">(b)</span></p>
         </div>
       </div>
 
       <!-- Navigation Buttons -->
-      <div class="flex justify-between mt-12">
+      <div class="flex justify-between mt-10">
         <a href="#" class="flex items-center space-x-2 bg-[#1D3557] text-white px-5 py-2 rounded-xl hover:bg-[#16324c] transition shadow">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -103,6 +136,13 @@
     </div>
     <p class="text-sm">&copy; 2025 Studying Smart. All rights reserved.</p>
   </footer>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
+    }
+  </script>
 </body>
 </html>
 
