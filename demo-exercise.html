@@ -11,15 +11,14 @@
       font-family: 'Inter', sans-serif;
     }
     .step-box {
-      @apply bg-white rounded-xl p-6 sm:p-8 shadow-lg border-l-4 border-[#0077B6] relative transition-transform hover:scale-[1.01];
+      @apply rounded-xl p-6 sm:p-8 bg-[#E8F4FB] shadow-md border border-[#CCE5F6] transition duration-200 hover:shadow-lg;
     }
-    .step-box::before {
-      content: attr(data-step);
-      @apply absolute -top-3 -left-3 bg-[#0077B6] text-white font-bold text-xs px-3 py-1 rounded-md shadow;
+    .step-label {
+      @apply text-sm font-bold text-[#0077B6] mb-2 inline-block;
     }
   </style>
 </head>
-<body class="bg-gradient-to-b from-[#F0F4F8] to-[#ffffff] text-[#1D3557] min-h-screen flex flex-col">
+<body class="bg-[#F2F6FA] text-[#1D3557] min-h-screen flex flex-col">
 
   <!-- Navbar -->
   <nav class="bg-[#1D3557] text-white px-6 py-4 flex justify-between items-center shadow sticky top-0 z-50">
@@ -51,25 +50,30 @@
       </div>
 
       <!-- Answer Cards -->
-      <div class="space-y-8">
-        <div class="step-box" data-step="Step 1">
-          <h2 class="text-2xl font-semibold mb-2">Understand the Question</h2>
+      <div class="space-y-6">
+        <div class="step-box">
+          <span class="step-label">Step 1</span>
+          <h2 class="text-xl font-semibold mb-2">Understand the Question</h2>
           <p class="text-base leading-relaxed text-[#333]">Start by carefully reading the problem. Identify the key terms and what the question is really asking.</p>
         </div>
-        <div class="step-box" data-step="Step 2">
-          <h2 class="text-2xl font-semibold mb-2">Break Down the Data</h2>
+        <div class="step-box">
+          <span class="step-label">Step 2</span>
+          <h2 class="text-xl font-semibold mb-2">Break Down the Data</h2>
           <p class="text-base leading-relaxed text-[#333]">Highlight any numerical values, units, and relationships. Sketch diagrams if needed to visualize the setup.</p>
         </div>
-        <div class="step-box" data-step="Step 3">
-          <h2 class="text-2xl font-semibold mb-2">Choose the Right Formula</h2>
+        <div class="step-box">
+          <span class="step-label">Step 3</span>
+          <h2 class="text-xl font-semibold mb-2">Choose the Right Formula</h2>
           <p class="text-base leading-relaxed text-[#333]">Select a formula that fits the scenario. This might involve rate, area, probability, or energy conversion depending on the subject.</p>
         </div>
-        <div class="step-box" data-step="Step 4">
-          <h2 class="text-2xl font-semibold mb-2">Solve Step-by-Step</h2>
+        <div class="step-box">
+          <span class="step-label">Step 4</span>
+          <h2 class="text-xl font-semibold mb-2">Solve Step-by-Step</h2>
           <p class="text-base leading-relaxed text-[#333]">Perform your calculations cleanly, showing all units and conversions. Double check your math as you go.</p>
         </div>
-        <div class="step-box" data-step="Step 5">
-          <h2 class="text-2xl font-semibold mb-2">State the Final Answer</h2>
+        <div class="step-box">
+          <span class="step-label">Step 5</span>
+          <h2 class="text-xl font-semibold mb-2">State the Final Answer</h2>
           <p class="text-base leading-relaxed text-[#333]">Round your result only if necessary and clearly label it with the correct unit. For example: <strong>Answer: 12.3 m/s</strong></p>
         </div>
         <div class="text-right pt-2">
