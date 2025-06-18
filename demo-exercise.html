@@ -11,12 +11,12 @@
       font-family: 'Inter', sans-serif;
     }
     .step-box {
-      @apply flex items-start gap-4 p-6 rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-md transition;
+      @apply flex items-start gap-2 p-6 rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-md transition;
     }
     .step-label {
-      @apply font-bold text-[#0077B6] text-lg whitespace-nowrap;
+      @apply font-bold text-[#1D3557] text-lg;
     }
-    .step-text {
+    .step-content {
       @apply text-lg text-[#1D3557];
     }
     .final-box {
@@ -57,36 +57,30 @@
       <!-- Steps -->
       <div class="space-y-10">
         <div class="step-box">
-          <div class="step-label">Step 1:</div>
-          <div class="step-text">Read the question and identify what's being asked.</div>
+          <span class="step-label">Step 1:</span>
+          <p class="step-content">Read the question and identify what's being asked.</p>
         </div>
-
         <div class="step-box">
-          <div class="step-label">Step 2:</div>
-          <div class="step-text">Highlight all key numbers, units, and relationships provided.</div>
+          <span class="step-label">Step 2:</span>
+          <p class="step-content">Highlight all key numbers, units, and relationships provided.</p>
         </div>
-
         <div class="step-box">
-          <div class="step-label">Step 3:</div>
-          <div class="step-text">Choose the correct equation or concept that fits the problem.</div>
+          <span class="step-label">Step 3:</span>
+          <p class="step-content">Choose the correct equation or concept that fits the problem.</p>
         </div>
-
         <div class="step-box">
-          <div class="step-label">Step 4:</div>
-          <div class="step-text">Plug in your values and solve the equation carefully.</div>
+          <span class="step-label">Step 4:</span>
+          <p class="step-content">Plug in your values and solve the equation carefully.</p>
         </div>
-
         <div class="step-box">
-          <div class="step-label">Step 5:</div>
-          <div class="step-text">Double-check your units and make sure the result makes sense.</div>
+          <span class="step-label">Step 5:</span>
+          <p class="step-content">Double-check your units and make sure the result makes sense.</p>
         </div>
 
-        <!-- Final Answer Box -->
-        <div class="final-box">
-          <div class="flex gap-4 items-start">
-            <div class="step-label">Final Result:</div>
-            <div class="text-lg font-bold text-[#1D3557]">Answer: <span class="text-[#0077B6]">(b)</span></div>
-          </div>
+        <!-- Final Result -->
+        <div class="final-box flex gap-2 items-start">
+          <span class="step-label">Final Result:</span>
+          <p class="step-content">Answer: <span class="text-[#0077B6]">(b)</span></p>
         </div>
       </div>
 
@@ -119,3 +113,4 @@
   </footer>
 </body>
 </html>
+   
