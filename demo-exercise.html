@@ -11,14 +11,17 @@
       font-family: 'Inter', sans-serif;
     }
     .step-box {
-      @apply bg-white rounded-2xl p-6 sm:p-8 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300;
+      @apply bg-white rounded-2xl p-6 sm:p-8 shadow-xl border border-gray-300 hover:shadow-2xl transition-all duration-300;
     }
     .step-label {
       @apply text-base font-bold text-[#0077B6] uppercase mb-1 inline-block;
     }
+    .icon-box {
+      @apply flex items-center justify-center w-10 h-10 bg-[#0077B6] text-white rounded-full shadow;
+    }
   </style>
 </head>
-<body class="bg-gradient-to-br from-[#E0F2FE] to-[#F5FAFD] text-[#1D3557] min-h-screen flex flex-col">
+<body class="bg-[#F5FAFD] text-[#1D3557] min-h-screen flex flex-col">
 
   <!-- Navbar -->
   <nav class="bg-white text-[#1D3557] px-6 py-4 flex justify-between items-center shadow-md sticky top-0 z-50">
@@ -53,44 +56,95 @@
       </div>
 
       <!-- Step Boxes -->
-      <div class="grid gap-8">
+      <div class="grid gap-8 border-t border-gray-300 pt-8">
         <div class="step-box">
-          <div class="flex items-center gap-3 mb-2">
-            <span class="step-label">Step 1</span>
-            <h2 class="text-xl font-semibold">Understand the Question</h2>
+          <div class="flex items-start gap-4 mb-2">
+            <div class="icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16h8M8 12h8m-8-4h8" />
+              </svg>
+            </div>
+            <div>
+              <span class="step-label">Step 1</span>
+              <h2 class="text-xl font-semibold">Understand the Question</h2>
+              <p class="text-base text-gray-700 mt-1">Start by carefully reading the problem. Identify the key terms and what the question is really asking.</p>
+            </div>
           </div>
-          <p class="text-base text-gray-700">Start by carefully reading the problem. Identify the key terms and what the question is really asking.</p>
         </div>
+
         <div class="step-box">
-          <div class="flex items-center gap-3 mb-2">
-            <span class="step-label">Step 2</span>
-            <h2 class="text-xl font-semibold">Break Down the Data</h2>
+          <div class="flex items-start gap-4 mb-2">
+            <div class="icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-6h13m-5-5l5 5-5 5" />
+              </svg>
+            </div>
+            <div>
+              <span class="step-label">Step 2</span>
+              <h2 class="text-xl font-semibold">Break Down the Data</h2>
+              <p class="text-base text-gray-700 mt-1">Highlight any numerical values, units, and relationships. Sketch diagrams if needed to visualize the setup.</p>
+            </div>
           </div>
-          <p class="text-base text-gray-700">Highlight any numerical values, units, and relationships. Sketch diagrams if needed to visualize the setup.</p>
         </div>
+
         <div class="step-box">
-          <div class="flex items-center gap-3 mb-2">
-            <span class="step-label">Step 3</span>
-            <h2 class="text-xl font-semibold">Choose the Right Formula</h2>
+          <div class="flex items-start gap-4 mb-2">
+            <div class="icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3" />
+              </svg>
+            </div>
+            <div>
+              <span class="step-label">Step 3</span>
+              <h2 class="text-xl font-semibold">Choose the Right Formula</h2>
+              <p class="text-base text-gray-700 mt-1">Select a formula that fits the scenario. This might involve rate, area, probability, or energy conversion depending on the subject.</p>
+            </div>
           </div>
-          <p class="text-base text-gray-700">Select a formula that fits the scenario. This might involve rate, area, probability, or energy conversion depending on the subject.</p>
         </div>
+
         <div class="step-box">
-          <div class="flex items-center gap-3 mb-2">
-            <span class="step-label">Step 4</span>
-            <h2 class="text-xl font-semibold">Solve Step-by-Step</h2>
+          <div class="flex items-start gap-4 mb-2">
+            <div class="icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 17l-4 4m0 0l-4-4m4 4V3" />
+              </svg>
+            </div>
+            <div>
+              <span class="step-label">Step 4</span>
+              <h2 class="text-xl font-semibold">Solve Step-by-Step</h2>
+              <p class="text-base text-gray-700 mt-1">Perform your calculations cleanly, showing all units and conversions. Double check your math as you go.</p>
+            </div>
           </div>
-          <p class="text-base text-gray-700">Perform your calculations cleanly, showing all units and conversions. Double check your math as you go.</p>
         </div>
+
         <div class="step-box">
-          <div class="flex items-center gap-3 mb-2">
-            <span class="step-label">Step 5</span>
-            <h2 class="text-xl font-semibold">State the Final Answer</h2>
+          <div class="flex items-start gap-4 mb-2">
+            <div class="icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div>
+              <span class="step-label">Step 5</span>
+              <h2 class="text-xl font-semibold">State the Final Answer</h2>
+              <p class="text-base text-gray-700 mt-1">Round your result only if necessary and clearly label it with the correct unit. For example: <strong>Answer: 12.3 m/s</strong></p>
+            </div>
           </div>
-          <p class="text-base text-gray-700">Round your result only if necessary and clearly label it with the correct unit. For example: <strong>Answer: 12.3 m/s</strong></p>
         </div>
-        <div class="text-right pt-4">
-          <p class="text-xl font-bold">Final Result: <span class="text-[#0077B6]">(b)</span></p>
+
+        <div class="step-box border-black border">
+          <div class="flex items-start gap-4 mb-2">
+            <div class="icon-box bg-black">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20h9" />
+              </svg>
+            </div>
+            <div>
+              <span class="step-label">Final Result</span>
+              <h2 class="text-xl font-semibold">Answer Choice</h2>
+              <p class="text-base text-gray-700 mt-1">The best answer for this question is: <strong class="text-[#0077B6]">(b)</strong></p>
+            </div>
+          </div>
         </div>
       </div>
 
