@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 11 – Page 309: Exercise A | Studying Smart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .step-box {
+      @apply transform transition hover:scale-[1.02] hover:shadow-lg;
+    }
+    table {
+      @apply w-full text-left border border-gray-300;
+    }
+    th, td {
+      @apply border px-4 py-2;
+    }
+    th {
+      @apply bg-blue-100 font-semibold;
+    }
+  </style>
+</head>
+<body class="bg-white text-[#1D3557] min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="bg-[#1D3557] text-white px-6 py-4 flex justify-between items-center shadow sticky top-0 z-50">
+    <div class="text-2xl font-bold">Studying Smart</div>
+    <div class="flex items-center space-x-6 text-sm font-medium">
+      <a href="#" class="hover:text-[#A8DADC] transition">Home</a>
+      <a href="#" class="hover:text-[#A8DADC] transition">Subjects</a>
+      <a href="#" class="hover:text-[#A8DADC] transition">Book Guides</a>
+      <a href="#" class="hover:text-[#A8DADC] transition">Textbook Solutions</a>
+      <a href="#" class="hover:text-[#A8DADC] transition">About</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-1 px-6 py-10 sm:px-10">
+    <div class="max-w-4xl mx-auto">
+      <!-- Top Link -->
+      <div class="mb-4">
+        <a href="page-309-impact.html" class="text-[#0077B6] underline underline-offset-2 font-medium hover:text-[#005f99] transition">
+          ← Back to Chapter
+        </a>
+      </div>
+
+      <!-- Chapter and Problem Title -->
+      <div class="text-center mb-10">
+        <p class="text-sm uppercase tracking-wide text-[#0077B6] font-semibold">Chapter 11</p>
+        <h1 class="text-4xl font-extrabold mt-1 mb-1">Page 309: Exercise A</h1>
+      </div>
+
+      <!-- Answer Card -->
+      <div class="bg-[#E0F2FE] p-8 sm:p-10 rounded-2xl shadow-xl space-y-10">
+        <div class="step-box">
+          <p class="text-base leading-relaxed"><strong>STEP 1</strong><br>This question asks us to determine the ecological footprint for various food items based on the annual amount consumed by an individual. The footprint is measured in hectares per year.</p>
+        </div>
+        <div class="step-box">
+          <p class="text-base leading-relaxed"><strong>STEP 2</strong><br>To calculate the ecological footprint for each food item, we use the formula:<br><br>
+          <code class="bg-white px-2 py-1 block my-2 rounded border border-gray-300">Ecological Footprint = (Land Required for 1000 kg ÷ 1000) × Amount Consumed</code><br>
+          Let’s walk through an example using beef:<br><br>
+          Annual beef consumption per person = 43 kg<br>
+          Land required to produce 1000 kg of beef = 15.7 hectares<br>
+          Footprint = (15.7 ÷ 1000) × 43 = 0.6751 hectares/year
+          </p>
+        </div>
+        <div class="step-box">
+          <p class="text-base leading-relaxed"><strong>STEP 3</strong><br>Now using the same formula for each food item:</p>
+          <div class="overflow-x-auto mt-4">
+            <table class="table-auto text-sm sm:text-base">
+              <thead>
+                <tr>
+                  <th>Food Item</th>
+                  <th>Amount Consumed (kg/year)</th>
+                  <th>Land Required (ha/1000 kg)</th>
+                  <th>Footprint (ha/year)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Beef</td><td>43</td><td>15.7</td><td>0.6751</td></tr>
+                <tr><td>Poultry</td><td>53</td><td>1.6</td><td>0.0848</td></tr>
+                <tr><td>Pork</td><td>52</td><td>1.9</td><td>0.0988</td></tr>
+                <tr><td>Milk</td><td>83</td><td>1.4</td><td>0.1162</td></tr>
+                <tr><td>Cheese</td><td>15</td><td>11.1</td><td>0.1665</td></tr>
+                <tr><td>Yogurt</td><td>4</td><td>1.7</td><td>0.0068</td></tr>
+                <tr><td>Butter</td><td>2</td><td>11.5</td><td>0.0230</td></tr>
+                <tr><td>Potatoes</td><td>61</td><td>0.3</td><td>0.0183</td></tr>
+                <tr><td>Vegetables</td><td>130</td><td>0.4</td><td>0.0520</td></tr>
+                <tr><td>Fruits</td><td>70</td><td>0.5</td><td>0.0350</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="flex justify-end mt-10">
+        <a href="page-309-impact-exercise-b.html" class="flex items-center space-x-2 bg-[#1D3557] text-white px-5 py-2 rounded-xl hover:bg-[#16324c] transition shadow">
+          <span>Next</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[#1D3557] text-white text-center py-6 mt-16">
+    <div class="space-x-4 mb-2 text-sm">
+      <a href="#" class="hover:underline">Terms</a>
+      <a href="#" class="hover:underline">Privacy</a>
+      <a href="#" class="hover:underline">Contact</a>
+    </div>
+    <p class="text-sm">&copy; 2025 Studying Smart. All rights reserved.</p>
+  </footer>
+</body>
+</html>
