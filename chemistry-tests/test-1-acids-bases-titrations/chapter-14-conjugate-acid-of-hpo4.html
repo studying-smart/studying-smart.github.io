@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,9 +12,9 @@
     }
   </style>
 </head>
+<body class="bg-white text-[#1D3557] flex flex-col min-h-screen">
 
-<body class="bg-white text-[#1D3557] min-h-screen flex flex-col">
-
+  <!-- Header -->
   <nav class="bg-[#1D3557] text-white px-6 py-4 flex justify-between items-center shadow sticky top-0 z-50">
     <div class="text-2xl font-bold">Studying Smart</div>
     <div class="flex items-center space-x-6">
@@ -27,67 +26,55 @@
     </div>
   </nav>
 
-  <main class="flex-1 px-6 py-10 max-w-3xl mx-auto">
-    <h1 class="text-3xl font-bold mb-6">Which of the following is the conjugate acid of HPO₄²⁻?</h1>
+  <!-- Main Content -->
+  <main class="px-6 py-12 max-w-3xl mx-auto">
+    <!-- Question Title -->
+    <h1 class="text-3xl font-bold mb-6 leading-snug">Which of the following is the conjugate acid of HPO₄²⁻?</h1>
 
-    <section class="mb-6">
-      <p class="text-lg leading-relaxed mb-4">
-        <strong>Question:</strong><br>
-        Which of the following is the conjugate acid of HPO₄²⁻?
-      </p>
-      <ul class="text-lg space-y-2 ml-4 list-disc">
-        <li>a) H₂PO₄⁻</li>
-        <li>b) PO₄³⁻</li>
-        <li>c) H₃PO₄</li>
-        <li>d) H₃O⁺</li>
-      </ul>
-    </section>
+    <!-- Multiple Choice Question -->
+    <div class="text-lg space-y-2 mb-10">
+      <p class="font-medium">a) H₂PO₄⁻</p>
+      <p class="font-medium">b) PO₄³⁻</p>
+      <p class="font-medium">c) H₃PO₄</p>
+      <p class="font-medium">d) H₃O⁺</p>
+    </div>
 
-    <section class="mb-8">
-      <h2 class="text-2xl font-semibold mb-4">Scan of Original Question</h2>
-      <img src="chapter-14-test-1-question-1-blank.jpeg" alt="Scan of blank question about the conjugate acid of HPO4 2-" class="rounded shadow-lg w-full mb-6" />
-    </section>
+    <!-- Image: Blank Question -->
+    <img src="chapter-14-test-1-question-1-blank.jpeg" alt="Blank version of the chemistry multiple choice question" class="rounded-lg shadow mb-6 w-full" />
 
-    <section class="mb-8">
-      <h2 class="text-2xl font-semibold mb-4">Handwritten Solution</h2>
-      <img src="chapter-14-test-1-question-1-solution.jpeg" alt="Handwritten explanation for the conjugate acid of HPO4 2-" class="rounded shadow-lg w-full mb-6" />
-    </section>
+    <!-- Image: Handwritten Solution -->
+    <img src="chapter-14-test-1-question-1-solution.jpeg" alt="Handwritten work showing HPO4 2- gaining H+ to form H2PO4-" class="rounded-lg shadow mb-12 w-full" />
 
-    <section class="mb-12">
-      <h2 class="text-2xl font-semibold mb-4">Full Explanation</h2>
-      <div class="text-lg leading-relaxed space-y-4">
-        <p>
-          When identifying a <strong>conjugate acid</strong>, you're looking for the species formed when the original base gains a proton (H⁺).
-        </p>
-        <p>
-          <code class="bg-gray-100 px-2 py-1 rounded">HPO₄²⁻ + H⁺ → H₂PO₄⁻</code>
-        </p>
-        <p>
-          <strong>a) H₂PO₄⁻ — Correct</strong><br>
-          This is the conjugate acid of HPO₄²⁻. H₂PO₄⁻ has one more hydrogen than HPO₄²⁻ and one fewer negative charge (going from -2 to -1). That’s exactly what happens when a base accepts an H⁺ proton.
-        </p>
-        <p>
-          This follows the Bronsted-Lowry definition: acids donate H⁺, and bases accept H⁺. Since HPO₄²⁻ accepts a proton, H₂PO₄⁻ is its conjugate acid.
-        </p>
-        <p>
-          <strong>b) PO₄³⁻ — Incorrect</strong><br>
-          This is actually the conjugate base of HPO₄²⁻. It has one fewer hydrogen and one more negative charge, which means it results from <em>losing</em> a proton, not gaining one.
-        </p>
-        <p>
-          <strong>c) H₃PO₄ — Incorrect</strong><br>
-          H₃PO₄ has two more protons than HPO₄²⁻. It's a fully protonated acid, not the direct conjugate. H₂PO₄⁻ is the appropriate one-proton-up species.
-        </p>
-        <p>
-          <strong>d) H₃O⁺ — Incorrect</strong><br>
-          H₃O⁺ is a proton donor, not a phosphate species. While it can donate a proton to HPO₄²⁻, it is not the conjugate acid of HPO₄²⁻ itself.
-        </p>
-        <p class="text-green-700 font-semibold">
-          ✅ Final Answer: a) H₂PO₄⁻ — It is exactly one proton more than HPO₄²⁻, making it the direct conjugate acid.
-        </p>
+    <!-- Explanation Section -->
+    <div class="space-y-8 text-lg leading-relaxed">
+      <div class="border-l-4 border-green-600 pl-4">
+        <p class="font-bold text-green-700">✅ a) H₂PO₄⁻ — Correct</p>
+        <p>This is the conjugate acid of HPO₄²⁻. It has one more hydrogen and one fewer negative charge (from -2 to -1), which is exactly what happens when a species gains an H⁺ proton.</p>
+        <p>This follows the Bronsted-Lowry rule: acids donate H⁺, and bases accept it. Since HPO₄²⁻ accepts an H⁺, H₂PO₄⁻ is its conjugate acid.</p>
       </div>
-    </section>
+
+      <div class="border-l-4 border-red-300 pl-4">
+        <p class="font-bold text-red-500">❌ b) PO₄³⁻ — Incorrect</p>
+        <p>This is the conjugate base of HPO₄²⁻. It has lost a proton, not gained one. It's going in the wrong direction.</p>
+      </div>
+
+      <div class="border-l-4 border-red-300 pl-4">
+        <p class="font-bold text-red-500">❌ c) H₃PO₄ — Incorrect</p>
+        <p>This has two more protons than HPO₄²⁻. It's not the immediate conjugate acid — it's further up the chain (the fully protonated phosphoric acid).</p>
+      </div>
+
+      <div class="border-l-4 border-red-300 pl-4">
+        <p class="font-bold text-red-500">❌ d) H₃O⁺ — Incorrect</p>
+        <p>While H₃O⁺ can donate a proton to HPO₄²⁻, it’s not the conjugate acid of HPO₄²⁻. It's a separate species — a general acid, not a phosphate-based conjugate.</p>
+      </div>
+
+      <div class="pt-6 border-t">
+        <p class="text-green-700 font-semibold text-xl">✅ Final Answer: a) H₂PO₄⁻</p>
+      </div>
+    </div>
   </main>
 
+  <!-- Footer -->
   <footer class="bg-[#1D3557] text-white text-center py-6 mt-auto">
     <div class="space-x-4 mb-2">
       <a href="#" class="hover:underline text-sm">Terms</a>
@@ -96,7 +83,6 @@
     </div>
     <p class="text-sm">&copy; 2025 Studying Smart. All rights reserved.</p>
   </footer>
-
 </body>
-
 </html>
+
