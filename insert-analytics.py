@@ -1,41 +1,39 @@
 import os
 
-# Your official Google Analytics tag
-analytics_tag = """<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLXDBH6CLE"></script>
+# Your actual Google Analytics Measurement ID
+MEASUREMENT_ID = "G-YLXDBH6CLE"
+
+TAG_CODE = f"""
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={MEASUREMENT_ID}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag(){{dataLayer.push(arguments);}}
   gtag('js', new Date());
-
-  gtag('config', 'G-YLXDBH6CLE');
+  gtag('config', '{MEASUREMENT_ID}');
 </script>
 """
 
-# Path to your GitHub project folder (change this if needed)
-project_root = "."
+def insert_analytics(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        contents = file.read()
 
-# Loop through every file in the project
-for root, dirs, files in os.walk(project_root):
+    if "googletagmanager.com/gtag/js" in contents:
+        print(f"Already tagged: {file_path}")
+        return
+
+    if "</head>" in contents:
+        new_contents = contents.replace("</head>", TAG_CODE + "\n</head>")
+        with open(file_path, 'w', encoding='utf-8') as file:
+            file.write(new_contents)
+        print(f"✅ Tag added to: {file_path}")
+    else:
+        print(f"⚠️ No </head> found in: {file_path} — Skipped")
+
+# Go through every HTML file in the folder
+for root, dirs, files in os.walk("."):
     for file in files:
         if file.endswith(".html"):
-            filepath = os.path.join(root, file)
+            insert_analytics(os.path.join(root, file))
 
-            with open(filepath, "r", encoding="utf-8") as f:
-                content = f.read()
-
-            # Only add the tag if it’s not already there
-            if "gtag('config', 'G-YLXDBH6CLE')" not in content:
-                # Insert the tag before </head>
-                if "</head>" in content:
-                    content = content.replace("</head>", analytics_tag + "\n</head>")
-
-                    with open(filepath, "w", encoding="utf-8") as f:
-                        f.write(content)
-
-                    print(f"✅ Google Analytics tag added to: {filepath}")
-                else:
-                    print(f"⚠️ No </head> tag found in: {filepath} — skipped")
-            else:
-                print(f"⏭ Already contains Google tag: {filepath}")
 
