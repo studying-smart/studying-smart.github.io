@@ -1,9 +1,11 @@
+import sys
 
 import pandas as pd
 import os
 
 # === SETTINGS ===
-INPUT_FILE = "solutions.xlsx"  # <- your spreadsheet filename
+INPUT_FILE = sys.argv[1]
+ # <- your spreadsheet filename
 OUTPUT_FOLDER = "textbook-solutions"  # <- output folder in your GitHub repo
 
 # === LOAD DATA ===
@@ -14,7 +16,7 @@ os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
 # === GENERATE FILES ===
 for _, row in df.iterrows():
-    chapter = row["chapter"]
+   
     page = row["page"]
     exercise = row["exercise"]
     step1 = row["step1"]
@@ -33,7 +35,7 @@ for _, row in df.iterrows():
 <head>
   <meta charset='UTF-8' />
   <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-  <title>{chapter} – Page {page}: {exercise} | Studying Smart</title>
+ <title>Page {page}: {exercise} | Studying Smart</title>
   <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap' rel='stylesheet' />
   <script src='https://cdn.tailwindcss.com'></script>
   <style>
@@ -64,7 +66,7 @@ for _, row in df.iterrows():
         </a>
       </div>
       <div class='text-center mb-10'>
-        <p class='text-sm uppercase tracking-wide text-[#0077B6] font-semibold'>{chapter}</p>
+        <p class='text-sm uppercase tracking-wide text-[#0077B6] font-semibold'>Campbell Biology</p>
         <h1 class='text-4xl font-extrabold mt-1 mb-1'>Page {page}: {exercise}</h1>
       </div>
       <div class='bg-[#E0F2FE] p-8 sm:p-10 rounded-2xl shadow-xl space-y-10'>
