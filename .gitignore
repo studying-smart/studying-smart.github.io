@@ -1,0 +1,22 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# VS Code settings
+.vscode/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Spreadsheet files
+*.xlsx
+*.csv
+
+# Mac-specific metadata
+.AppleDouble
+.LSOverride
+
+# Temporary files
+*.log
+*.tmp
